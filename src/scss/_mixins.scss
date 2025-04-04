@@ -1,0 +1,24 @@
+@use "sass:math";
+@use "./variables" as *;
+@mixin media($_screen) {
+  @if $_screen == mobile {
+    @media screen and (min-width: $mobile) {
+      @content;
+    }
+  } @else if $_screen == tablet {
+    @media screen and (min-width: $tablet) {
+      @content;
+    }
+  } @else if $_screen == desktop {
+    @media screen and (min-width: $desktop) {
+      @content;
+    }
+  }
+}
+// @mixin font($_fsz, $_lnh) {
+//   font-size: #{$_fsz}px;
+
+//   $result: math.div($_lnh, $_fsz);
+
+//   line-height: math.div(math.round($result * 100), 100);
+// }
