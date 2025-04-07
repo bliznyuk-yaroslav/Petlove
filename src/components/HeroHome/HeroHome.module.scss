@@ -1,0 +1,92 @@
+@import "../../scss/mixins";
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 60px 20px 50px 20px;
+  background: #f6b83d;
+  border-radius: 30px;
+ 
+  
+  @include media(tablet) {
+    border-radius: 60px;
+    gap: 32px;
+    padding: 0 32px 44px 32px;
+  
+  }
+  @include media(desktop) {
+    padding: 16px 64px 32px 64px;
+    gap: 73px;
+    flex-direction: row;
+    justify-content: space-between;
+   
+    
+  }
+}
+.heroH {
+  color: #fff;
+  width: 295px;
+  font-family: Manrope;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px;
+  letter-spacing: -1.5px;
+  @include media(tablet) {
+    width: 640px;
+    font-size: 80px;
+    line-height: 77px;
+    letter-spacing: -2.4px;
+  }
+  @include media(desktop) {
+    width: 640px;
+    font-size: 80px;
+    line-height: 87px;
+    letter-spacing: -2.7px;
+    justify-content: end;
+    align-items: end;
+    align-content: end;
+  }
+}
+.heroCare {
+  color: rgba(255, 255, 255, 0.4);
+}
+.text {
+  width: 255px;
+  color: #fff;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.28px;
+  @include media(tablet) {
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: -0.36px;
+    align-self: flex-end;
+  }
+}
+.background_image {
+  background-image: url("../../images/hero.png");
+  background-color: lightgray;
+  background-repeat: no-repeat;
+  background-position: -190.306px -22.151px;
+  background-size: 227.554% 106.654%;
+  border-radius: 30px;
+  width: 335px;
+  height: 402px;
+  @include media(tablet) {
+    border-radius: 60px;
+    width: 704px;
+    height: 496px;
+    background-position: -233px -99.594px;
+    background-size: 169.176% 135.068%;
+  }
+  @include media(desktop) {
+    width: 1216px;
+    height: 384px;
+    background-position: -28px -162.344px;
+    background-size: 104.194% 185.596%;
+  }
+}
