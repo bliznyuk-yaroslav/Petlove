@@ -1,0 +1,23 @@
+@import "../../scss/mixins";
+.cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+.mainNav {
+  display: none;
+  @include media(tablet) {
+    display: none;
+  }
+
+  @include media(desktop) {
+    display: inline-flex;
+  }
+}

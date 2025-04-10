@@ -1,0 +1,31 @@
+@import "../../scss/mixins";
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  @include media(tablet) {
+  }
+  @include media(desktop) {
+  }
+}
+
+.new {
+  border-radius: 30px;
+
+  padding: 14px 20px;
+
+  color: #262626;
+  border: 1px solid rgba(38, 38, 38, 0.15);
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 125% */
+  letter-spacing: -0.48px;
+}
+.newBut {
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}

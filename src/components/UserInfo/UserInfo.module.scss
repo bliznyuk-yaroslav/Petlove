@@ -1,0 +1,43 @@
+@import "../../scss/mixins";
+.name {
+  color: #fff;
+  font-family: Manrope;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.6px;
+  display: none;
+  @include media(tablet) {
+    display: inline-flex;
+  }
+  @include media(desktop) {
+  }
+}
+.account {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  @include media(tablet) {
+    width: 50px;
+    height: 50px;
+  }
+  @include media(desktop) {
+  }
+}
+.iconAc {
+  width: 23px;
+  height: 23px;
+}
+.accInf {
+  display: flex;
+
+  justify-content: end;
+  align-items: center;
+  gap: 8px;
+}
