@@ -13,13 +13,12 @@ export default function ListNews() {
   const news = useSelector(selectorNews);
   const search = useSelector(selectorSearch);
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(fetchNews({ page, search }));
   }, [dispatch, page, search]);
   return (
     <ul className={css.box}>
-      {news.map((item) => (
+      {news.results.map((item) => (
         <li key={item._id} className={css.boxCard}>
           <CardNews news={item} />
         </li>

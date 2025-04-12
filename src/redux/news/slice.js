@@ -4,8 +4,8 @@ import { fetchNews } from "./operations";
 const initialState = {
   news: {
     page: 1,
-    search: "pets",
-    result: [],
+    search: "",
+    results: [],
     totalPage: 0,
     perPage: 6,
   },
@@ -16,11 +16,11 @@ const newsSlice = createSlice({
   name: "news",
   initialState,
   reducers: {
-    setPage: (state, action) => {
-      state.page = action.payload;
-    },
     setSearch: (state, action) => {
       state.search = action.payload;
+    },
+    setPage: (state, action) => {
+      state.news.page = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -32,6 +32,7 @@ const newsSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.news = action.payload;
+        state.news.totalPage = action.payload.totalPage;
       })
       .addCase(fetchNews.rejected, (state, action) => {
         state.isLoading = false;

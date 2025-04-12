@@ -1,0 +1,118 @@
+.contPag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 60px;
+  padding-bottom: 80px;
+  gap: 24px;
+}
+.buttonLeft {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  position: relative;
+  border-radius: 50%;
+  border: 1px solid rgba(38, 38, 38, 0.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+.icon1 {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  fill: rgba(38, 38, 38, 1);
+  left: 6px;
+  top: 10px;
+}
+
+.icon2 {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  fill: rgba(38, 38, 38, 1);
+}
+
+.buttonRight {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  position: relative;
+  border-radius: 50%;
+  border: 1px solid rgba(38, 38, 38, 0.05);
+  transform: rotate(180deg);
+  transition: transform 0.3s ease-in-out;
+}
+
+.icon3 {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  left: 8px;
+  top: 10px;
+  fill: rgba(38, 38, 38, 1);
+}
+.left {
+  display: flex;
+  gap: 8px;
+}
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.numBut {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  color: #262626;
+
+  font-family: Manrope;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  border: 1px solid rgba(38, 38, 38, 0.05);
+}
+.active {
+  background-color: #f6b83d;
+  color: #fff;
+}
+.contPa {
+  display: flex;
+  gap: 10px;
+
+  transition: transform 0.3s ease-in-out;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pageButton {
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 50%;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pageButton.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.pageButton:hover {
+  background-color: #ddd;
+}

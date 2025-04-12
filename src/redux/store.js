@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "@reduxjs/toolkit";
 import newsSlice from "./news/slice";
+import friendsSlice from "./friends/slice";
 import {
   persistStore,
   persistReducer,
@@ -21,6 +22,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   news: newsSlice,
+  // friends: friendsSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

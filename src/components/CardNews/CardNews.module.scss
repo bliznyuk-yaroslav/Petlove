@@ -5,17 +5,15 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 28px;
-  flex-wrap: wrap;
-  border-radius: 15px;
 }
 .imgCard {
   width: 361px;
   height: 226px;
   border-radius: 15px;
-  background: lightgray -10px -8.919px / 106.094% 112.83% no-repeat;
+  object-fit: cover;
 }
 .cardTitle {
-  width: 361px;
+  width: 360px;
   height: 52px;
   color: #262626;
 
@@ -60,4 +58,25 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 14px;
+}
+.boxTextRead {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.readMore {
+  color: #f6b83d;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 125% */
+  letter-spacing: -0.32px;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+  cursor: pointer;
 }
