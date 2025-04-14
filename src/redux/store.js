@@ -22,7 +22,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   news: newsSlice,
-  // friends: friendsSlice,
+  friends: friendsSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

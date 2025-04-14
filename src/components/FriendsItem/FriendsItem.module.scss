@@ -1,0 +1,103 @@
+@import "../../scss/mixins";
+
+.box {
+  display: flex;
+  gap: 14px;
+  padding: 40px 18px;
+  position: relative;
+  @include media(tablet) {
+    padding: 40px 20px;
+    gap: 16px;
+  }
+  @include media(desktop) {
+    gap: 20px;
+  }
+}
+.img {
+  width: 80px;
+  height: 80px;
+  border-radius: 90px;
+  @include media(tablet) {
+    width: 90px;
+    height: 90px;
+  }
+}
+.textHead {
+  overflow: hidden;
+  color: #262626;
+  text-overflow: ellipsis;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 125% */
+  letter-spacing: -0.64px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  @include media(tablet) {
+    font-size: 20px;
+    line-height: 26px; /* 130% */
+    letter-spacing: -0.8px;
+  }
+}
+.text {
+  color: rgba(38, 38, 38, 0.5);
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.28px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.primTex {
+  color: #262626;
+  margin-left: 2px;
+}
+.primTex:hover {
+  color: #f6b83d;
+}
+.boxText {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 260px;
+}
+.boxAdr {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  @include media(tablet) {
+    gap: 20px;
+  }
+}
+
+.dataBox {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: inline-flex;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  background: #fff4df;
+  color: #f6b83d;
+  font-family: Manrope;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: -0.24px;
+  @include media(tablet) {
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.28px;
+  }
+}

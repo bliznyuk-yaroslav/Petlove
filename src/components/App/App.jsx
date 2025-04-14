@@ -6,6 +6,7 @@ import HomePage from "../../page/HomePage/HomePage";
 import NewsPage from "../../page/NewsPage/NewsPage";
 import OurFriendsPage from "../../page/OurFriendsPage/OurFriendsPage";
 import NotFoundPage from "../../page/NotFound/NotFound";
+import RegistrationPage from "../../page/RegistrationPage/RegistrationPage";
 function App() {
   return (
     <Routes>
@@ -31,6 +32,14 @@ function App() {
           element={
             <Suspense fallback={<Loader />}>
               <OurFriendsPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <Suspense fallback={<Loader />}>
+              <RegistrationPage />
             </Suspense>
           }
         />

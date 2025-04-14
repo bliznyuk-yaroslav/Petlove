@@ -1,0 +1,92 @@
+.cont {
+  width: 592px;
+  height: 654px;
+  background: #f6b83d;
+  border-radius: 60px;
+  position: relative;
+  background-image: url("../../images/c6702a27050bc31d6e56df7fbdf681de.png");
+
+  background-repeat: no-repeat;
+  background-position: -93.566px 9.383px;
+  background-size: 129.626% 119.081%;
+}
+.backImg {
+  background-image: url("../../images/c6702a27050bc31d6e56df7fbdf681de.png");
+  background-color: lightgray;
+  background-repeat: no-repeat;
+  background-position: -93.566px 9.383px;
+  background-size: 129.626% 119.081%;
+  flex-shrink: 0;
+}
+.pertInf {
+  width: 294px;
+  height: 121px;
+  border-radius: 20px;
+  background: #fff;
+  display: flex;
+  gap: 8px;
+  padding: 16px;
+  position: absolute;
+  left: 61px;
+  bottom: 97px;
+}
+.name {
+  color: #f6b83d;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.48px;
+}
+.petsDescription {
+  color: rgba(38, 38, 38, 0.8);
+  font-family: Manrope;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: -0.24px;
+}
+.petsBox {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #fff4df;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.petsIcon {
+  width: 32px;
+  height: 32px;
+}
+.pets {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 194px;
+}
+.petsBirth {
+  display: flex;
+  gap: 48px;
+}
+.birthday {
+  color: rgba(38, 38, 38, 0.5);
+
+  font-family: Manrope;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px; /* 116.667% */
+  letter-spacing: -0.24px;
+}
+.birthCol {
+  color: #262626;
+}
+.bgShape {
+  position: absolute;
+  left: 33px;
+  top: 54px;
+  z-index: 0;
+}

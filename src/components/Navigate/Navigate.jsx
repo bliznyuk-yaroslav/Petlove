@@ -18,9 +18,9 @@ export default function Navigate() {
       <MainNavigation className={css.mainNav} isHomePage={isHomePage} />
       <div className={css.info}>
         {isLoggedIn ? (
-          <UserInfo isHomePage={isHomePage} />
-        ) : (
           <AuthLinks isHomePage={isHomePage} />
+        ) : (
+          <UserInfo isHomePage={isHomePage} />
         )}
         <BurgerMenu isHomePage={isHomePage} />
       </div>

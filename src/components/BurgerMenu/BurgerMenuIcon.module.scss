@@ -10,6 +10,22 @@
   width: 32px;
   height: 32px;
   justify-content: center;
+  stroke: #262626;
+  fill: #262626;
+  @include media(tablet) {
+    width: 36px;
+    height: 36px;
+  }
+  @include media(desktop) {
+    display: none;
+  }
+}
+.burgerIconHome {
+  width: 32px;
+  height: 32px;
+  justify-content: center;
+  stroke: #fff;
+  fill: #fff;
   @include media(tablet) {
     width: 36px;
     height: 36px;
