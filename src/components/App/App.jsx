@@ -6,6 +6,9 @@ import HomePage from "../../page/HomePage/HomePage";
 import NewsPage from "../../page/NewsPage/NewsPage";
 import OurFriendsPage from "../../page/OurFriendsPage/OurFriendsPage";
 import NotFoundPage from "../../page/NotFound/NotFound";
+
+import LogInPage from "../../page/LogInPage/LogInPage";
+import RegisrationPage from "../../page/RegistrationPage/RegistrationPage";
 import RegistrationPage from "../../page/RegistrationPage/RegistrationPage";
 function App() {
   return (
@@ -40,6 +43,14 @@ function App() {
           element={
             <Suspense fallback={<Loader />}>
               <RegistrationPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <Suspense fallback={<Loader />}>
+              <LogInPage />
             </Suspense>
           }
         />

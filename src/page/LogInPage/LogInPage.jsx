@@ -1,15 +1,14 @@
+import LogInForm from "../../components/LogInForm/LogInForm";
 import Navigate from "../../components/Navigate/Navigate";
 import PetBlock from "../../components/PetBlock/PetBlock";
-import RegistrationForm from "../../components/RegistrationForm/RegistrationForm";
-import css from "./RegistrationPage.module.scss";
-
-export default function RegistrationPage() {
+import css from "./LogInPage.module.scss";
+export default function LogInPage() {
   return (
     <section className={css.container}>
       <Navigate />
       <div className={css.contHead}>
         <PetBlock />
-        <RegistrationForm />
+        <LogInForm />
       </div>
     </section>
   );
