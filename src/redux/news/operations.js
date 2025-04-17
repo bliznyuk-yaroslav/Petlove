@@ -9,7 +9,6 @@ export const fetchNews = createAsyncThunk(
       const response = await axios.get(
         `${BASE_URL}/news?keyword=${search}&page=${page}&limit=${limit}`
       );
-      console.log(response);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

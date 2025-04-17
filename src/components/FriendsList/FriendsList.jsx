@@ -7,11 +7,7 @@ import css from "./FriendsList.module.scss";
 
 export default function FriendsList() {
   const friends = useSelector(selectFriends);
-  console.log(friends);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchFriends());
-  }, [dispatch]);
+
   return (
     <ul className={css.boxCard}>
       {friends.map((item) => (

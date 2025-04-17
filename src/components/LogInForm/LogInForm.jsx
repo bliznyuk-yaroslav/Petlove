@@ -1,9 +1,11 @@
-import { Form, NavLink } from "react-router-dom";
+import { Form, NavLink, useNavigate } from "react-router-dom";
 import css from "./LogInForm.module.scss";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { logIn } from "../../redux/auth/operations";
 const schema = yup.object().shape({
   email: yup
     .string()
@@ -18,6 +20,8 @@ const schema = yup.object().shape({
     .min(7, "Password must be at least 7 characters"),
 });
 export default function LogInForm() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
   const {
@@ -26,9 +30,17 @@ export default function LogInForm() {
     formState: { errors, isValid, dirtyFields },
     watch,
     setValue,
+    reset,
   } = useForm({ resolver: yupResolver(schema), mode: "onChange" });
-  const onSubmit = (data) => {
-    console.log("Form data:", data);
+
+  const onSubmit = async (data) => {
+    try {
+      await dispatch(logIn(data)).unwrap();
+      reset();
+      navigate("/news");
+    } catch (error) {
+      console.log("Login failed");
+    }
   };
   return (
     <div className={css.boxLogIn}>

@@ -1,5 +1,19 @@
 @import "../../scss/mixins";
 .name {
+  color: #262626;
+  font-family: Manrope;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 100% */
+  letter-spacing: -0.6px;
+  @include media(tablet) {
+    display: inline-flex;
+  }
+  @include media(desktop) {
+  }
+}
+.nameHome {
   color: #fff;
   font-family: Manrope;
   font-size: 20px;
@@ -22,7 +36,7 @@
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  background-color: #ffffff;
+  background-color: #fff4df;
   @include media(tablet) {
     width: 50px;
     height: 50px;

@@ -1,5 +1,6 @@
 import css from "./Logo.module.scss";
 import { NavLink } from "react-router-dom";
+
 export default function Logo({ isHomePage }) {
   return (
     <>

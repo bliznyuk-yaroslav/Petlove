@@ -9,7 +9,10 @@ export default function MainNavigation({ isHomePage }) {
       >
         News
       </NavLink>
-      <NavLink to="#" className={`${css.new} ${isHomePage ? css.newBut : ""}`}>
+      <NavLink
+        to="/notices"
+        className={`${css.new} ${isHomePage ? css.newBut : ""}`}
+      >
         Find pet
       </NavLink>
       <NavLink

@@ -14,9 +14,7 @@ export default function News() {
     dispatch(setSearch(e.target.value));
     dispatch(setPage(1));
   };
-  useEffect(() => {
-    dispatch(fetchNews({ page, search }));
-  }, [dispatch, page, search]);
+
   return (
     <div className={css.contNews}>
       <Title title="News" styles={css} />

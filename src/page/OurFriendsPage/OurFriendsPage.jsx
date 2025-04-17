@@ -8,7 +8,6 @@ import { selectFriends } from "../../redux/friends/selectors";
 import FriendsList from "../../components/FriendsList/FriendsList";
 export default function OurFriendsPage() {
   const friends = useSelector(selectFriends);
-  console.log(friends);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchFriends());
