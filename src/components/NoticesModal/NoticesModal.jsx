@@ -4,7 +4,6 @@ export default function NoticesModal({ notices, onClose }) {
   useEffect(() => {
     document.body.style.overflow = "hidden";
 
-    // ❗ Закривання по Escape
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
         onClose();
@@ -13,7 +12,6 @@ export default function NoticesModal({ notices, onClose }) {
 
     window.addEventListener("keydown", handleKeyDown);
 
-    // При розмонтуванні: повертаємо прокрутку та знімаємо слухача
     return () => {
       document.body.style.overflow = "auto";
       window.removeEventListener("keydown", handleKeyDown);
@@ -25,6 +23,12 @@ export default function NoticesModal({ notices, onClose }) {
         <svg className={css.iconClosed} onClick={onClose}>
           <use xlinkHref={`/icons/sprite.svg#icon-x`}></use>
         </svg>
+        <img
+          src={`${notices.imgURL}`}
+          alt={notices.title}
+          className={css.imgCard}
+        />
+        <h2>{notices.title}</h2>
       </div>
     </section>
   );
