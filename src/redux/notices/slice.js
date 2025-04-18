@@ -6,7 +6,6 @@ import {
   fetchSpecies,
 } from "./operations";
 
-
 const initialState = {
   notices: {
     page: 1,
@@ -18,6 +17,9 @@ const initialState = {
     categories: [],
     species: [],
     sex: [],
+    selectedSex: "",
+    selectedSpecies: "",
+    selectedCategory: "",
   },
   isLoading: false,
   error: null,
@@ -31,6 +33,15 @@ const noticesSlice = createSlice({
     },
     setPage: (state, action) => {
       state.news.page = action.payload;
+    },
+    setSex: (state, action) => {
+      state.filters.selectedSex = action.payload;
+    },
+    setSpecies: (state, action) => {
+      state.filters.selectedSpecies = action.payload;
+    },
+    setCategory: (state, action) => {
+      state.filters.selectedCategory = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -60,5 +71,6 @@ const noticesSlice = createSlice({
       });
   },
 });
-export const { setPage, setSearch } = noticesSlice.actions;
+export const { setPage, setSearch, setSex, setCategory, setSpecies } =
+  noticesSlice.actions;
 export default noticesSlice.reducer;

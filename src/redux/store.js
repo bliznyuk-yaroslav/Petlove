@@ -19,7 +19,7 @@ import storage from "redux-persist/lib/storage";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["news", "friends", "notices", "auth"],
+  whitelist: ["news", "friends", "notices", "auth", "filters"],
 };
 
 const rootReducer = combineReducers({

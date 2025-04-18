@@ -53,6 +53,7 @@ export const fetchCategories = createAsyncThunk(
   async (__, thunkAPI) => {
     try {
       const response = await axios.get(`${BASE_URL}/notices/categories`);
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -64,6 +65,7 @@ export const fetchSpecies = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get(`${BASE_URL}/notices/species`);
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -75,6 +77,7 @@ export const fetchSex = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get(`${BASE_URL}/notices/sex`);
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
