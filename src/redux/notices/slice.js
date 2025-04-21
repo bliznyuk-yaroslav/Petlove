@@ -10,6 +10,7 @@ const initialState = {
   notices: {
     page: 1,
     perPage: 6,
+    search: "",
     totalPages: 0,
     results: [],
   },
@@ -17,9 +18,9 @@ const initialState = {
     categories: [],
     species: [],
     sex: [],
-    selectedSex: "",
-    selectedSpecies: "",
-    selectedCategory: "",
+    setSex: "",
+    setSpecies: "",
+    setCategory: "",
   },
   isLoading: false,
   error: null,
@@ -32,16 +33,16 @@ const noticesSlice = createSlice({
       state.search = action.payload;
     },
     setPage: (state, action) => {
-      state.news.page = action.payload;
+      state.notices.page = action.payload;
     },
     setSex: (state, action) => {
-      state.filters.selectedSex = action.payload;
+      state.filters.setSex = action.payload;
     },
     setSpecies: (state, action) => {
-      state.filters.selectedSpecies = action.payload;
+      state.filters.setSpecies = action.payload;
     },
     setCategory: (state, action) => {
-      state.filters.selectedCategory = action.payload;
+      state.filters.setCategory = action.payload;
     },
   },
   extraReducers: (builder) => {

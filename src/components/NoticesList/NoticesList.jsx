@@ -13,7 +13,7 @@ export default function NoticesList() {
   const notices = useSelector(selectorNotices);
   return (
     <ul className={css.box}>
-      {notices.map((item) => (
+      {notices.results.map((item) => (
         <li key={item._id} className={css.boxCard}>
           <NoticesItem notices={item} />
         </li>

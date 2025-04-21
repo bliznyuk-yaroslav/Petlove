@@ -1,14 +1,35 @@
-.categ {
+.selectBase {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   display: flex;
-  padding: 14px 119px 14px 14px;
+  padding: 14px 16px;
   justify-content: center;
   align-items: center;
   gap: 10px;
   border-radius: 30px;
   background: #fff;
   border: none;
+  outline: none;
+  height: 48px;
 }
-.spec {
+.selectBase option {
+  border: none;
+  outline: none;
+  background: #fff;
+  color: #000;
+  padding-right: 127px;
+  overflow: visible;
+
+}
+
+.filterBox {
+  display: flex;
+  gap: 16px;
 }
 .sex {
+  width: 190px;
+}
+.cat {
+  width: 200px;
 }
