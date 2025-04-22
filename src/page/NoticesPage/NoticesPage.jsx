@@ -25,8 +25,7 @@ export default function NoticesPage() {
   const categorySelector = useSelector(selectedSetCategories);
   const speciesSelector = useSelector(selectedSetSpecies);
   const search = useSelector(selectorSearchNotices);
-  console.log(page);
-  console.log(notices);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(

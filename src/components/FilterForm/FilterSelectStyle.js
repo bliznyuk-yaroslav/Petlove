@@ -1,0 +1,118 @@
+import { display, height, padding } from "@mui/system";
+
+const customerSelectStyles = {
+  control: (base) => ({
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#FFF",
+    borderRadius: "30px",
+    margin: "0",
+    border: "none",
+    boxShadow: "none",
+    cursor: "pointer",
+    width: "200px",
+    height: "48px",
+    color: "rgba(38, 38, 38, 1)",
+    fontFamily: "Manrope",
+    fontSize: "16px",
+    fontWeight: "500",
+    lineHeight: "20px",
+    cursor: "pointer",
+  }),
+  option: (_, state) => ({
+    cursor: "pointer",
+    color:
+      state.data.value === ""
+        ? "rgba(246, 184, 61, 1)"
+        : "rgba(38, 38, 38, 0.6)",
+    fontFamily: "Manrope",
+    fontSize: "16px",
+    fontStyle: "normal",
+    fontWeight: "500",
+    lineHeight: "20px",
+    letterSpacing: "-0.48px",
+    marginBottom: "8px",
+    "&:last-of-type": {
+      marginBottom: 0,
+    },
+  }),
+  menu: (base) => ({
+    width: "200px",
+    marginTop: "4px",
+    borderRadius: "15px",
+    zIndex: 9999,
+    backgroundColor: "#FFF",
+    fontFamily: "Manrope",
+    fontSize: "16px",
+    fontStyle: "normal",
+    fontWeight: "500",
+    lineHeight: "20px",
+    letterSpacing: "-0.48px",
+    overflowY: "auto",
+
+    padding: "14px 8px 14px 14px",
+    boxSizing: "border-box",
+  }),
+  dropdownIndicator: (styles) => ({
+    color: "#000",
+    padding: "15px 14px",
+    height: "48px",
+    svg: {
+      width: "18px",
+      height: "18px",
+    },
+  }),
+  indicatorSeparator: (styles) => ({
+    ...styles,
+    display: "none",
+  }),
+  placeholder: (styles) => ({
+    ...styles,
+    color: "rgba(38, 38, 38, 1)",
+    margin: "0",
+    padding: "14px",
+  }),
+  singleValue: (styles) => ({
+    ...styles,
+    padding: "14px",
+    margin: "0",
+    color: "rgba(38, 38, 38, 1)",
+  }),
+  input: (base) => ({
+    padding: 0,
+    margin: 0,
+    height: "0",
+    width: "0",
+    opacity: 0,
+    display: "none",
+  }),
+  valueContainer: (base) => ({
+    ...base,
+    padding: 0,
+  }),
+  menuPortal: (base) => ({
+    ...base,
+    zIndex: 9999,
+    with: "100%",
+    overflow: "hidden",
+  }),
+  menuList: (base) => ({
+    ...base,
+
+    maxHeight: "216px",
+    "&::-webkit-scrollbar": {
+      width: "8px",
+      height: "100px",
+    },
+    "&::-webkit-scrollbar-thumb": {
+      backgroundColor: "rgba(38, 38, 38, 0.08)",
+      borderRadius: "13px",
+    },
+    "&::-webkit-scrollbar-thumb:hover": {
+      backgroundColor: "#555",
+    },
+  }),
+};
+
+export default customerSelectStyles;

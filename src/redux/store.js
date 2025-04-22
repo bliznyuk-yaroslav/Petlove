@@ -4,6 +4,7 @@ import newsSlice from "./news/slice";
 import friendsSlice from "./friends/slice";
 import authSlice from "./auth/slice";
 import noticesSlice from "./notices/slice";
+import citiesSlice from "./cities/slice";
 import {
   persistStore,
   persistReducer,
@@ -19,7 +20,7 @@ import storage from "redux-persist/lib/storage";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["news", "friends", "notices", "auth", "filters"],
+  whitelist: ["news", "friends", "notices", "auth", "filters", "cities"],
 };
 
 const rootReducer = combineReducers({
@@ -27,6 +28,7 @@ const rootReducer = combineReducers({
   friends: friendsSlice,
   notices: noticesSlice,
   auth: authSlice,
+  cities: citiesSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
