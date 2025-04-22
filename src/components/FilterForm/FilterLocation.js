@@ -48,7 +48,7 @@ const customerSelectStylesLocation = {
   }),
   dropdownIndicator: (styles) => ({
     color: "#000",
-    padding: "15px 14px",
+    padding: "15px 14px 15px 4px",
     svg: {
       width: "18px",
       height: "18px",
@@ -104,6 +104,14 @@ const customerSelectStylesLocation = {
     },
     "&::-webkit-scrollbar-thumb:hover": {
       backgroundColor: "#555",
+    },
+  }),
+  clearIndicator: (base, state) => ({
+    color: "#000",
+    padding: "15px 0px 15px 14px",
+    svg: {
+      width: "18px",
+      height: "18px",
     },
   }),
 };

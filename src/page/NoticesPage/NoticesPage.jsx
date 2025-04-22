@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import {
   selectedSetCategories,
   selectedSetSpecies,
+  selectorCitLoc,
   selectorNotices,
   selectorPageNotices,
   selectorSearchNotices,
@@ -16,28 +17,50 @@ import {
 } from "../../redux/notices/selectors";
 import { fetchNotices } from "../../redux/notices/operations";
 import PaginationComponent from "../../components/PaginationComponent/PaginationComponent";
-import { setPage } from "../../redux/notices/slice";
+import { resetFilters, setPage } from "../../redux/notices/slice";
+import { selectorSetLocation } from "../../redux/cities/selectors";
+import { fetchCitiesLocation } from "../../redux/cities/operations";
 
 export default function NoticesPage() {
   const notices = useSelector(selectorNotices);
   const page = useSelector(selectorPageNotices);
-  const sexSelector = useSelector(selectorSetSex);
-  const categorySelector = useSelector(selectedSetCategories);
-  const speciesSelector = useSelector(selectedSetSpecies);
+  const location = useSelector(selectorCitLoc);
+  const selectedSex = useSelector(selectorSetSex);
+  const selectedSpecies = useSelector(selectedSetSpecies);
+  const selectedCategories = useSelector(selectedSetCategories);
   const search = useSelector(selectorSearchNotices);
+  const locationCities = useSelector(selectorSetLocation);
 
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(resetFilters());
+  }, [dispatch]);
+
   useEffect(() => {
     dispatch(
       fetchNotices({
         page,
         search,
-        category: categorySelector,
-        sex: sexSelector,
-        species: speciesSelector,
+        locationId: location?._id || undefined,
+        sex: selectedSex || undefined,
+        species: selectedSpecies || undefined,
+        category: selectedCategories || undefined,
       })
     );
-  }, [dispatch, categorySelector, sexSelector, speciesSelector]);
+    if (locationCities && locationCities.length >= 2) {
+      dispatch(fetchCities({ location: locationCities }));
+    }
+    dispatch(fetchCitiesLocation());
+  }, [
+    dispatch,
+    page,
+    search,
+    locationCities,
+    location,
+    selectedSex,
+    selectedSpecies,
+    selectedCategories,
+  ]);
 
   const handlePageChange = (noticesPage) => {
     dispatch(setPage(noticesPage));

@@ -21,6 +21,7 @@ const initialState = {
     setSex: "",
     setSpecies: "",
     setCategory: "",
+    selectedLocation: "",
   },
   isLoading: false,
   error: null,
@@ -44,6 +45,18 @@ const noticesSlice = createSlice({
     setCategory: (state, action) => {
       state.filters.setCategory = action.payload;
     },
+    setSearchLocations: (state, action) => {
+      state.filters.selectedLocation = action.payload;
+    },
+
+    resetFilters: (state) => {
+      state.filters.setSex = "";
+      state.filters.setSpecies = "";
+      state.filters.setCategory = "";
+      state.search = "";
+      state.notices.page = 1;
+      // state.filters.selectedLocation = null;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -59,7 +72,13 @@ const noticesSlice = createSlice({
       .addCase(fetchNotices.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-        state.notices = [];
+        state.notices = {
+          page: 1,
+          perPage: 6,
+          search: "",
+          totalPages: 0,
+          results: [],
+        };
       })
       .addCase(fetchCategories.fulfilled, (state, action) => {
         state.filters.categories = action.payload;
@@ -72,6 +91,13 @@ const noticesSlice = createSlice({
       });
   },
 });
-export const { setPage, setSearch, setSex, setCategory, setSpecies } =
-  noticesSlice.actions;
+export const {
+  setPage,
+  setSearch,
+  setSex,
+  setCategory,
+  setSpecies,
+  resetFilters,
+  setSearchLocations,
+} = noticesSlice.actions;
 export default noticesSlice.reducer;

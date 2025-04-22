@@ -7,6 +7,7 @@ const initialState = {
     cities: [],
     citiesLocation: [],
   },
+  // selectedLocation: "",
   isLoading: false,
   error: null,
 };
@@ -16,6 +17,12 @@ const citiesSlice = createSlice({
   reducers: {
     setSearchLocations: (state, action) => {
       state.locations = action.payload;
+    },
+    setLocation: (state, action) => {
+      state.selectedLocation = action.payload;
+    },
+    resetFiltersCities: (state) => {
+      state.selectedLocation = null;
     },
   },
   extraReducers: (builder) => {
@@ -49,5 +56,6 @@ const citiesSlice = createSlice({
       });
   },
 });
-export const { setSearchLocations } = citiesSlice.actions;
+export const { setSearchLocations, setLocation, resetFiltersCities } =
+  citiesSlice.actions;
 export default citiesSlice.reducer;

@@ -1,5 +1,5 @@
 import { components } from "react-select";
-const CustomDropdownIndicator = (props) => {
+export const CustomDropdownIndicator = (props) => {
   return (
     <components.DropdownIndicator {...props}>
       <svg
@@ -15,4 +15,20 @@ const CustomDropdownIndicator = (props) => {
     </components.DropdownIndicator>
   );
 };
-export default CustomDropdownIndicator;
+export const CustomClearIndicator = (props) => {
+  return (
+    <components.ClearIndicator {...props}>
+      <svg
+        style={{
+          fill: "#262626",
+          stroke: "#262626",
+          width: "20px",
+          height: "20px",
+          margin: "0",
+        }}
+      >
+        <use xlinkHref={`/icons/sprite.svg#icon-x`} />
+      </svg>
+    </components.ClearIndicator>
+  );
+};

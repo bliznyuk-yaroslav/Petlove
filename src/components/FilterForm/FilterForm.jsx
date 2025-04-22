@@ -20,13 +20,17 @@ import customerSelectStyles from "./FilterSelectStyle";
 import {
   selectorCities,
   selectorCitiesLocation,
+  selectorCitLoc,
   selectorSetLocation,
 } from "../../redux/cities/selectors";
 import { setSearchLocations } from "../../redux/cities/slice";
 import { useDebounce } from "../../hooks/useDebounce";
 import customerSelectStylesLocation from "./FilterLocation";
-import CustomDropdownIndicator from "./CustomDropdownIndicator";
-
+import {
+  CustomDropdownIndicator,
+  CustomClearIndicator,
+} from "./CustomDropdownIndicator";
+import { setLocation } from "../../redux/cities/slice";
 export default function FilterForm() {
   const dispatch = useDispatch();
   const sex = useSelector(selectorSex);
@@ -34,6 +38,7 @@ export default function FilterForm() {
   const species = useSelector(selectorSpecies);
   const selectedSex = useSelector(selectorSetSex);
   const selectedSpecies = useSelector(selectedSetSpecies);
+
   const selectedCategories = useSelector(selectedSetCategories);
   const toOptions = (arr) =>
     arr.map((el) => ({
@@ -57,7 +62,12 @@ export default function FilterForm() {
   }, [dispatch]);
   const location = useSelector(selectorSetLocation);
 
-  const citiesLocation = useSelector(selectorCitiesLocation);
+  const citiesLocation = useSelector(selectorCities);
+  const citLoc = useSelector(selectorCitiesLocation);
+
+  const selLoc = useSelector(selectorCitLoc);
+  console.log(selLoc);
+  const locationOptions = citiesLocation.length > 0 ? citiesLocation : citLoc;
 
   const handleChangeLocations = (e) => {
     dispatch(setSearchLocations(e.target.value));
@@ -120,37 +130,49 @@ export default function FilterForm() {
         className={css.select}
         menuPortalTarget={document.body}
         menuPosition="absolute"
+        isClearable
       />
       <Select
         value={
-          selectedCategories
+          selLoc?.cityEn
             ? {
-                value: selectedCategories,
-                label:
-                  selectedCategories.charAt(0).toUpperCase() +
-                  selectedCategories.slice(1),
+                value: selLoc.cityEn,
+                label: `${selLoc.stateEn}, ${selLoc.cityEn}`,
               }
             : null
         }
         onChange={(selectedOption) => {
-          dispatch(setSearchLocations(selectedOption?.value || ""));
+          if (selectedOption) {
+            const selectedCity = locationOptions.find(
+              (city) => city.cityEn === selectedOption.value
+            );
+            if (selectedCity) {
+              dispatch(setLocation(selectedCity)); // ✅ правильно
+            }
+          } else {
+            dispatch(setLocation([])); // очищаємо масив
+            dispatch(setSearchLocations(""));
+          }
         }}
         onInputChange={(newValue) => {
-          dispatch(setSearchLocations(newValue));
+          dispatch(setSearchLocations(newValue)); // фільтруємо по введеному
         }}
-        inputValue={location}
-        options={citiesLocation.map((city) => ({
+        options={locationOptions.map((city) => ({
           value: city.cityEn,
           label: `${city.stateEn}, ${city.cityEn}`,
         }))}
         placeholder="Location"
         styles={customerSelectStylesLocation}
         className={css.select}
-        components={{ DropdownIndicator: CustomDropdownIndicator }}
+        components={{
+          DropdownIndicator: CustomDropdownIndicator,
+          ClearIndicator: CustomClearIndicator,
+        }}
         menuPortalTarget={document.body}
         menuPosition="absolute"
         isClearable
         isSearchable
+        defaultValue={null}
       />
     </div>
   );
