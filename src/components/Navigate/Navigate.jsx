@@ -13,6 +13,7 @@ import { selectIsLoggedIn } from "../../redux/auth/selectors";
 export default function Navigate() {
   const isHomePage = useIsNewsPage();
   const login = useSelector(selectIsLoggedIn);
+  console.log(login);
   return (
     <nav className={css.cont}>
       <Logo isHomePage={isHomePage} />

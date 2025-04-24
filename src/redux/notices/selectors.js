@@ -11,3 +11,5 @@ export const selectedSetCategories = (state) =>
   state.notices.filters.setCategory;
 export const selectedSetSpecies = (state) => state.notices.filters.setSpecies;
 export const selectorCitLoc = (state) => state.cities.selectedLocation;
+export const selectorByPopular = (state) => state.notices.filters.byPopularity;
+export const selectorByPrice = (state) => state.notices.filters.byPrice;

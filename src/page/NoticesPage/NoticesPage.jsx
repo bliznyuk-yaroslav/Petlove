@@ -9,6 +9,8 @@ import { useEffect } from "react";
 import {
   selectedSetCategories,
   selectedSetSpecies,
+  selectorByPopular,
+  selectorByPrice,
   selectorCitLoc,
   selectorNotices,
   selectorPageNotices,
@@ -20,6 +22,7 @@ import PaginationComponent from "../../components/PaginationComponent/Pagination
 import { resetFilters, setPage } from "../../redux/notices/slice";
 import { selectorSetLocation } from "../../redux/cities/selectors";
 import { fetchCitiesLocation } from "../../redux/cities/operations";
+import { selectorFav, selectToken } from "../../redux/auth/selectors";
 
 export default function NoticesPage() {
   const notices = useSelector(selectorNotices);
@@ -30,12 +33,18 @@ export default function NoticesPage() {
   const selectedCategories = useSelector(selectedSetCategories);
   const search = useSelector(selectorSearchNotices);
   const locationCities = useSelector(selectorSetLocation);
-
+  const byPopularity = useSelector(selectorByPopular);
+  const byPrice = useSelector(selectorByPrice);
+  const token = useSelector(selectorFav);
+  console.log(token);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(resetFilters());
   }, [dispatch]);
 
+  useEffect(() => {
+    dispatch(fetchCitiesLocation());
+  }, [dispatch]);
   useEffect(() => {
     dispatch(
       fetchNotices({
@@ -45,12 +54,13 @@ export default function NoticesPage() {
         sex: selectedSex || undefined,
         species: selectedSpecies || undefined,
         category: selectedCategories || undefined,
+        byPopularity,
+        byPrice,
       })
     );
     if (locationCities && locationCities.length >= 2) {
       dispatch(fetchCities({ location: locationCities }));
     }
-    dispatch(fetchCitiesLocation());
   }, [
     dispatch,
     page,
@@ -60,6 +70,8 @@ export default function NoticesPage() {
     selectedSex,
     selectedSpecies,
     selectedCategories,
+    byPopularity,
+    byPrice,
   ]);
 
   const handlePageChange = (noticesPage) => {

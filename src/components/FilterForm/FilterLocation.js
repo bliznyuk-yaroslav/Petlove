@@ -47,12 +47,8 @@ const customerSelectStylesLocation = {
     padding: "14px 8px 14px 14px",
   }),
   dropdownIndicator: (styles) => ({
-    color: "#000",
+    display: "flex",
     padding: "15px 14px 15px 4px",
-    svg: {
-      width: "18px",
-      height: "18px",
-    },
   }),
   indicatorSeparator: (styles) => ({
     ...styles,
@@ -107,12 +103,9 @@ const customerSelectStylesLocation = {
     },
   }),
   clearIndicator: (base, state) => ({
-    color: "#000",
-    padding: "15px 0px 15px 14px",
-    svg: {
-      width: "18px",
-      height: "18px",
-    },
+    padding: "0",
+    margin: 0,
+    display: "flex",
   }),
 };
 

@@ -29,6 +29,7 @@ import customerSelectStylesLocation from "./FilterLocation";
 import {
   CustomDropdownIndicator,
   CustomClearIndicator,
+  CustomSearchIndicator,
 } from "./CustomDropdownIndicator";
 import { setLocation } from "../../redux/cities/slice";
 export default function FilterForm() {
@@ -61,6 +62,7 @@ export default function FilterForm() {
     dispatch(fetchSpecies());
   }, [dispatch]);
   const location = useSelector(selectorSetLocation);
+  console.log(location);
 
   const citiesLocation = useSelector(selectorCities);
   const citLoc = useSelector(selectorCitiesLocation);
@@ -72,6 +74,11 @@ export default function FilterForm() {
   const handleChangeLocations = (e) => {
     dispatch(setSearchLocations(e.target.value));
   };
+  const options = [
+    { value: "odessa", label: "Odessa" },
+    { value: "kyiv", label: "Kyiv" },
+    { value: "lviv", label: "Lviv" },
+  ];
 
   return (
     <div className={css.filterBox}>
@@ -93,6 +100,9 @@ export default function FilterForm() {
         className={css.select}
         menuPortalTarget={document.body}
         menuPosition="absolute"
+        components={{
+          DropdownIndicator: CustomDropdownIndicator,
+        }}
       />
       <Select
         value={
@@ -111,6 +121,9 @@ export default function FilterForm() {
         className={css.select}
         menuPortalTarget={document.body}
         menuPosition="absolute"
+        components={{
+          DropdownIndicator: CustomDropdownIndicator,
+        }}
       />
       <Select
         value={
@@ -130,7 +143,9 @@ export default function FilterForm() {
         className={css.select}
         menuPortalTarget={document.body}
         menuPosition="absolute"
-        isClearable
+        components={{
+          DropdownIndicator: CustomDropdownIndicator,
+        }}
       />
       <Select
         value={
@@ -165,7 +180,7 @@ export default function FilterForm() {
         styles={customerSelectStylesLocation}
         className={css.select}
         components={{
-          DropdownIndicator: CustomDropdownIndicator,
+          DropdownIndicator: CustomSearchIndicator,
           ClearIndicator: CustomClearIndicator,
         }}
         menuPortalTarget={document.body}

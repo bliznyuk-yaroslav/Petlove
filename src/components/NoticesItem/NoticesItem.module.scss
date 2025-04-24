@@ -111,6 +111,7 @@
   background: #fff4df;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .iconFavorite {
   width: 18px;
@@ -135,4 +136,14 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+.favoriteBackground {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  border-radius: 30px;
+  background: #fbe7c1;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }

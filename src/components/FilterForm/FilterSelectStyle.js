@@ -55,7 +55,6 @@ const customerSelectStyles = {
     boxSizing: "border-box",
   }),
   dropdownIndicator: (styles) => ({
-    color: "#000",
     padding: "15px 14px",
     height: "48px",
     svg: {
@@ -80,12 +79,12 @@ const customerSelectStyles = {
     color: "rgba(38, 38, 38, 1)",
   }),
   input: (base) => ({
-    padding: 0,
-    margin: 0,
-    height: "0",
-    width: "0",
+    ...base,
     opacity: 0,
-    display: "none",
+    height: "1px",
+    width: "1px",
+    position: "absolute",
+    zIndex: -1,
   }),
   valueContainer: (base) => ({
     ...base,
@@ -112,6 +111,11 @@ const customerSelectStyles = {
     "&::-webkit-scrollbar-thumb:hover": {
       backgroundColor: "#555",
     },
+  }),
+  clearIndicator: (base, state) => ({
+    padding: "0",
+    margin: 0,
+    display: "flex",
   }),
 };
 

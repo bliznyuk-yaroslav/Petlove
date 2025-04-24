@@ -22,6 +22,8 @@ const initialState = {
     setSpecies: "",
     setCategory: "",
     selectedLocation: "",
+    byPopularity: null,
+    byPrice: null,
   },
   isLoading: false,
   error: null,
@@ -48,6 +50,12 @@ const noticesSlice = createSlice({
     setSearchLocations: (state, action) => {
       state.filters.selectedLocation = action.payload;
     },
+    setPopularity: (state, action) => {
+      state.filters.byPopularity = action.payload; // Зберігаємо фільтр популярності
+    },
+    setPrice: (state, action) => {
+      state.filters.byPrice = action.payload;
+    },
 
     resetFilters: (state) => {
       state.filters.setSex = "";
@@ -55,6 +63,7 @@ const noticesSlice = createSlice({
       state.filters.setCategory = "";
       state.search = "";
       state.notices.page = 1;
+      state.filters.byPopularity = null;
       // state.filters.selectedLocation = null;
     },
   },
@@ -99,5 +108,7 @@ export const {
   setSpecies,
   resetFilters,
   setSearchLocations,
+  setPopularity,
+  setPrice,
 } = noticesSlice.actions;
 export default noticesSlice.reducer;

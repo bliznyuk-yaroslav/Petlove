@@ -2,10 +2,27 @@ import css from "./NoticesItem.module.scss";
 import { capitalizeWords } from "../../hooks/useCapitalizeWords";
 import { useState } from "react";
 import NoticesModal from "../NoticesModal/NoticesModal";
+import { useDispatch, useSelector } from "react-redux";
+import { selectIsLoggedIn, selectorFav } from "../../redux/auth/selectors";
+import NoticesModalNoAuth from "../NoticesModalNoAuth/NoticesModalNoAuth";
+import { addNoticesFavorites } from "../../redux/auth/operations";
 export default function NoticesItem({ notices }) {
+  const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
+  const [showNoAuthModal, setShowNoAuthModal] = useState(false);
   const handleOpenModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
+  const login = useSelector(selectIsLoggedIn);
+  const favorites = useSelector(selectorFav);
+  const isFavorite = favorites.includes(notices._id);
+  const handleFavoriteClick = () => {
+    if (!login) {
+      setShowNoAuthModal(true);
+      return;
+    }
+
+    dispatch(addNoticesFavorites(notices._id));
+  };
   return (
     <div className={css.box}>
       <img
@@ -57,15 +74,26 @@ export default function NoticesItem({ notices }) {
           <button className={css.btnLearn} onClick={handleOpenModal}>
             Learn more
           </button>
-          <span className={css.iconBoxFavorite}>
+          <span
+            className={
+              isFavorite ? css.favoriteBackground : css.iconBoxFavorite
+            }
+            onClick={handleFavoriteClick}
+          >
             <svg className={css.iconFavorite}>
               <use xlinkHref={`/icons/sprite.svg#icon-heart`}></use>
             </svg>
           </span>
         </div>
       </div>
-      {showModal && (
-        <NoticesModal notices={notices} onClose={handleCloseModal} />
+      {showModal &&
+        (login ? (
+          <NoticesModal notices={notices} onClose={handleCloseModal} />
+        ) : (
+          <NoticesModalNoAuth onClose={handleCloseModal} />
+        ))}
+      {showNoAuthModal && (
+        <NoticesModalNoAuth onClose={() => setShowNoAuthModal(false)} />
       )}
     </div>
   );

@@ -1,10 +1,15 @@
 .contSearch {
   margin-top: 40px;
   width: 1216px;
- 
+
   padding: 40px;
   border-radius: 30px;
   background: #fff4df;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.cont {
   display: flex;
   gap: 16px;
 }
@@ -17,9 +22,9 @@
   align-items: center;
   gap: 10px;
   border-radius: 30px;
-  border: 1px solid rgba(38, 38, 38, 0.15);
+  border: none;
   &::placeholder {
-    color: rgba(38, 38, 38, 0.5);
+    color: rgba(38, 38, 38, 1);
     font-family: Manrope;
     font-size: 16px;
     font-style: normal;
@@ -35,9 +40,53 @@
 .iconSearch {
   width: 18px;
   height: 18px;
+
   position: absolute;
   right: 14px;
   top: 15px;
   fill: #fff;
   stroke: #262626;
+}
+.bord {
+  width: 1136px;
+  height: 1px;
+  background-color: rgba(38, 38, 38, 0.1);
+}
+.popCont {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn {
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  border-radius: 30px;
+  background: #fff;
+  border: none;
+  color: #262626;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 125% */
+  letter-spacing: -0.48px;
+  position: relative;
+}
+
+.icon {
+  display: none;
+}
+.active {
+  color: #fff;
+  background: #f6b83d;
+}
+.activeIcon {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  stroke: rgba(255, 255, 255, 1);
 }
