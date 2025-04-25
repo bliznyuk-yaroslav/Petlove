@@ -79,7 +79,7 @@ export default function FilterForm() {
     { value: "kyiv", label: "Kyiv" },
     { value: "lviv", label: "Lviv" },
   ];
-
+  
   return (
     <div className={css.filterBox}>
       <Select

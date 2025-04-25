@@ -14,7 +14,6 @@ export default function OurFriendsPage() {
   }, [dispatch]);
   return (
     <section className={css.container}>
-      <Navigate />
       <Title title="Our Friends" />
       <FriendsList />
     </section>

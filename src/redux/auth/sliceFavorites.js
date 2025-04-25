@@ -9,7 +9,13 @@ const initialState = {
 const favoritesSlice = createSlice({
   name: "favorites",
   initialState,
-  reducers: {},
+  reducers: {
+    clearFavorites: (state) => {
+      state.favorites = [];
+      state.loading = false;
+      state.error = null;
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(addNoticesFavorites.pending, (state) => {
@@ -25,4 +31,6 @@ const favoritesSlice = createSlice({
         state.error = action.payload;
       }),
 });
+export const { clearFavorites } = favoritesSlice.actions;
+
 export default favoritesSlice.reducer;

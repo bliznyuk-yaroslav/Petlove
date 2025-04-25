@@ -5,7 +5,6 @@ import css from "./LogInPage.module.scss";
 export default function LogInPage() {
   return (
     <section className={css.container}>
-      <Navigate />
       <div className={css.contHead}>
         <PetBlock />
         <LogInForm />

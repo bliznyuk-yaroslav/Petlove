@@ -1,0 +1,23 @@
+@import "../../scss/mixins";
+.container {
+  margin: 0 auto;
+  width: 335px;
+  display: flex;
+  gap: 32px;
+  margin-top: 32px;
+
+  @include media(tablet) {
+    width: 704px;
+
+    margin-top: 16px;
+  }
+  @include media(desktop) {
+    width: 1280px;
+    padding: 0 32px;
+  }
+}
+.contHead {
+  display: flex;
+  gap: 32px;
+  margin-top: 32px;
+}

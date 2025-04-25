@@ -4,6 +4,7 @@ import Navigate from "../Navigate/Navigate";
 export default function Layout() {
   return (
     <div>
+      <Navigate />
       <Outlet />
 
       {/* <Toaster position="top-center" reverseOrder={false} /> */}

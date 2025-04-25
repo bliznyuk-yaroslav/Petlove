@@ -80,7 +80,6 @@ export default function NoticesPage() {
 
   return (
     <section className={css.container}>
-      <Navigate />
       <Title title="Find your favorite pet" />
       <NoticesFilters />
       <NoticesList />

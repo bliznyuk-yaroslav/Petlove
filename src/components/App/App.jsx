@@ -11,6 +11,8 @@ import LogInPage from "../../page/LogInPage/LogInPage";
 import RegisrationPage from "../../page/RegistrationPage/RegistrationPage";
 import RegistrationPage from "../../page/RegistrationPage/RegistrationPage";
 import NoticesPage from "../../page/NoticesPage/NoticesPage";
+import ProfilePage from "../../page/ProfilePage/ProfilePage";
+import AddPetPage from "../../page/AddPetPage/AddPetPage";
 function App() {
   return (
     <Routes>
@@ -60,6 +62,22 @@ function App() {
           element={
             <Suspense fallback={<Loader />}>
               <LogInPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <Suspense fallback={<Loader />}>
+              <ProfilePage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/add-pet"
+          element={
+            <Suspense fallback={<Loader />}>
+              <AddPetPage />
             </Suspense>
           }
         />

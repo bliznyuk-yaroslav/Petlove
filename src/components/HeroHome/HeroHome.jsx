@@ -4,7 +4,6 @@ function HeroHome() {
   return (
     <>
       <div className={css.container}>
-        <Navigate />
         <div className={css.contText}>
           <h1 className={css.heroH}>
             Take good <span className={css.heroCare}>care</span> of your small

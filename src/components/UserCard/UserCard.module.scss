@@ -1,0 +1,27 @@
+.cardBox {
+  width: 520px;
+
+  border-radius: 60px;
+  background: #fff;
+  padding: 40px;
+  position: relative;
+}
+.btn {
+  margin-top: 80px;
+  display: inline-flex;
+  padding: 15px 35px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  background: #fff4df;
+  border: none;
+  color: #f6b83d;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 125% */
+  letter-spacing: -0.48px;
+  text-transform: uppercase;
+}

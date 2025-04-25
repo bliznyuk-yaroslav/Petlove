@@ -1,5 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { clearAuthHeader, fetchRegister, logIn, logout } from "./operations";
+import {
+  addPets,
+  clearAuthHeader,
+  editCurrent,
+  fetchRegister,
+  logIn,
+  logout,
+} from "./operations";
 
 const authInitialState = {
   user: null,
@@ -64,6 +71,35 @@ const authSlice = createSlice({
       .addCase(logout.rejected, (state, action) => {
         state.token = "";
         state.error = action.error;
+      })
+      .addCase(editCurrent.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(editCurrent.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = false;
+        state.user = action.payload;
+        if (action.payload.token) {
+          state.token = action.payload.token;
+          localStorage.setItem("token", action.payload.token);
+        }
+      })
+      .addCase(editCurrent.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(addPets.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(addPets.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = null;
+        state.user = action.payload;
+      })
+      .addCase(addPets.rejected, (state, action) => {
+        state.loading = false;
+        state.user = [];
+        state.error = action.payload;
       }),
 });
 export const { setCredentials, clearCredentials } = authSlice.actions;

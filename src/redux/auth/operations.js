@@ -17,6 +17,52 @@ export const clearAuthHeader = () => {
 };
 
 const getToken = (state) => state.auth.token || localStorage.getItem("token");
+export const setupAxiosInterceptors = (store) => {
+  apiClient.interceptors.response.use(
+    (response) => response,
+    async (error) => {
+      const originalRequest = error.config;
+
+      
+      if (error.response.status === 401 && !originalRequest._retry) {
+        originalRequest._retry = true;
+
+       
+        const state = store.getState();
+        const token = state.auth.token || localStorage.getItem("token");
+
+        if (!token) {
+          store.dispatch(logout()); 
+          return Promise.reject(error);
+        }
+
+        try {
+          
+          const userInfo = {
+            email: state.auth.email,
+            password: state.auth.password,
+          };
+
+          // Викликаємо logIn для отримання нового токена
+          await store.dispatch(logIn(userInfo));
+
+          // Після успішного логіну, ми оновлюємо заголовки авторизації
+          const newToken = state.auth.token;
+          setAuthHeader(newToken);
+          originalRequest.headers["Authorization"] = `Bearer ${newToken}`;
+
+          // Повторно відправляємо запит з новим токеном
+          return apiClient(originalRequest);
+        } catch (loginError) {
+          store.dispatch(logout()); // Якщо логін не вдався, робимо логаут
+          return Promise.reject(loginError);
+        }
+      }
+
+      return Promise.reject(error);
+    }
+  );
+};
 export const fetchRegister = createAsyncThunk(
   "auth/signup",
   async (userInfo, thunkAPI) => {
@@ -47,6 +93,8 @@ export const logout = createAsyncThunk(
   "users/signout",
   async (__, thunkAPI) => {
     try {
+      const state = thunkAPI.getState();
+      const token = getToken(state);
       await apiClient.post("users/signout");
       clearAuthHeader();
     } catch (error) {
@@ -66,6 +114,44 @@ export const addNoticesFavorites = createAsyncThunk(
       setAuthHeader(token);
       const response = await apiClient.post(`/notices/favorites/add/${_id}`);
 
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const editCurrent = createAsyncThunk(
+  "edit/current",
+  async (userInfo, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+      const token = getToken(state);
+      if (!token) {
+        return thunkAPI.rejectWithValue("No auth token found");
+      }
+      setAuthHeader(token);
+      const response = await apiClient.patch("/users/current/edit", userInfo);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+export const addPets = createAsyncThunk(
+  "add/Pets",
+  async (petsInfo, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+      const token = getToken(state);
+      if (!token) {
+        return thunkAPI.rejectWithValue("No auth token found");
+      }
+      setAuthHeader(token);
+      const response = await apiClient.post(
+        "/users/current/pets/add",
+        petsInfo
+      );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

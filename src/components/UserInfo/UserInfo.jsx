@@ -12,14 +12,25 @@ export default function UserInfo() {
 
   return (
     <>
-      <LogOutBtn />
+      <LogOutBtn style={css.btn} />
       <div className={css.accInf}>
         <div className={css.account}>
-          <svg className={css.iconAc}>
-            <use xlinkHref={`/icons/sprite.svg#icon-user-02`}></use>
-          </svg>
+          {user.avatar ? (
+            <img
+              className={css.avatarImg}
+              src={user.avatar}
+              alt="User avatar"
+            />
+          ) : (
+            <svg className={css.iconNoIcon}>
+              <use xlinkHref={`/icons/sprite.svg#icon-user-02`}></use>
+            </svg>
+          )}
         </div>
-        <NavLink className={isHomeLocation ? css.nameHome : css.name}>
+        <NavLink
+          to="/profile"
+          className={isHomeLocation ? css.nameHome : css.name}
+        >
           {user.name}
         </NavLink>
       </div>

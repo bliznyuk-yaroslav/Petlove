@@ -6,7 +6,6 @@ import css from "./RegistrationPage.module.scss";
 export default function RegistrationPage() {
   return (
     <section className={css.container}>
-      <Navigate />
       <div className={css.contHead}>
         <PetBlock />
         <RegistrationForm />

@@ -1,13 +1,15 @@
 import { useDispatch } from "react-redux";
-import css from "./LogOutBtn.module.scss";
+
 import { logout } from "../../redux/auth/operations";
-export default function LogOutBtn() {
+import { clearFavorites } from "../../redux/auth/sliceFavorites";
+export default function LogOutBtn({ style }) {
   const dispatch = useDispatch();
   const handleLogOut = () => {
     dispatch(logout());
+    dispatch(clearFavorites());
   };
   return (
-    <button className={css.btn} onClick={handleLogOut}>
+    <button className={style} onClick={handleLogOut}>
       Log out
     </button>
   );

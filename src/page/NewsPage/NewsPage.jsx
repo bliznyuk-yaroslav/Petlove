@@ -28,7 +28,6 @@ export default function NewsPage() {
 
   return (
     <section className={css.container}>
-      <Navigate />
       <News />
       <ListNews />
       <PaginationComponent

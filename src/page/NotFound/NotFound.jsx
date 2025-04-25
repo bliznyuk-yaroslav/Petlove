@@ -6,7 +6,6 @@ import cat from "../../images/07863234c0633ec8822b21aaaf0de963.png";
 export default function NotFoundPage() {
   return (
     <section className={css.container}>
-      <Navigate />
       <div className={css.boxError}>
         <p className={css.textError}>
           4{" "}

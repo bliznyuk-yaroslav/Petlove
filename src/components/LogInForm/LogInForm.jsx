@@ -57,7 +57,7 @@ export default function LogInForm() {
               type="text"
               placeholder="Email"
               className={`${css.input} ${
-                errors.email
+                errors.email && watch("email")
                   ? css.inputError
                   : watch("email") && !errors.email
                   ? css.inputValid
@@ -65,7 +65,7 @@ export default function LogInForm() {
               }`}
               {...register("email")}
             />
-            {errors.email ? (
+            {errors.email && watch("email") ? (
               <div>
                 <p className={css.error}>{errors.email.message}</p>
                 <svg className={css.icon} onClick={() => setValue("email", "")}>
@@ -85,7 +85,7 @@ export default function LogInForm() {
               type={showPassword ? "text" : "password"}
               placeholder="Password"
               className={`${css.input} ${
-                errors.password
+                errors.password && watch("password")
                   ? css.inputError
                   : dirtyFields.password && !errors.password
                   ? css.inputValid
@@ -101,7 +101,7 @@ export default function LogInForm() {
             >
               <use xlinkHref={`/icons/sprite.svg#icon-eye-off`} />
             </svg>
-            {errors.password ? (
+            {errors.password && watch("password") ? (
               <div>
                 <p className={css.error}>{errors.password.message}</p>
                 <svg

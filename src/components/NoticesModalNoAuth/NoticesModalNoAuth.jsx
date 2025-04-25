@@ -2,7 +2,7 @@ import css from "./NoticesModalNoAuth.module.scss";
 import pets from "../../images/pets.png";
 import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
-export default function NoticesModalNoAuth({ onClose }) {
+export default function NoticesModalNoAuth({onClose }) {
   useEffect(() => {
     document.body.style.overflow = "hidden";
 
