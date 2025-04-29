@@ -1,11 +1,13 @@
+@import "../../scss/mixins";
 .head {
-  width: 23px;
-  height: 23px;
+  width: 17px;
+  height: 17px;
   stroke: #f6b83d;
   fill: #f6b83d;
-  display: inline-flex;
-  justify-content: center;
-  align-items: flex-end;
+  @include media(tablet) {
+    width: 23px;
+    height: 23px;
+  }
 }
 .newHead {
   stroke: #ffffff;
@@ -13,11 +15,20 @@
 }
 .logo {
   font-family: Manrope;
-  font-size: 28px;
   font-style: normal;
   font-weight: 800;
-  line-height: 28px;
-  letter-spacing: -1.12px;
+  letter-spacing: -0.4px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  @include font(20, 20);
+  @include media(tablet) {
+    letter-spacing: -1.12px;
+    @include font(28, 28);
+    span {
+      font-weight: 700;
+    }
+  }
 }
 
 .newLogo {

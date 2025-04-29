@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { editCurrent } from "../../redux/auth/operations";
-import { selectUser } from "../../redux/auth/selectors";
+import { selectorFullInfoUsers, selectUser } from "../../redux/auth/selectors";
 import { uploadImageToCloudinary } from "../../hooks/cloudinary";
 const schema = yup.object().shape({
   email: yup
@@ -39,8 +39,6 @@ const schema = yup.object().shape({
     .matches(/^\+38\d{10}$/, "Enter a valid phone number"),
 });
 export default function ModalEditUser({ onClose }) {
-
-
   useEffect(() => {
     document.body.style.overflow = "hidden";
 
@@ -60,7 +58,7 @@ export default function ModalEditUser({ onClose }) {
 
   const dispatch = useDispatch();
   const fileInputRef = useRef(null);
-  const user = useSelector(selectUser);
+  const user = useSelector(selectorFullInfoUsers);
   const {
     register,
     handleSubmit,
@@ -69,9 +67,6 @@ export default function ModalEditUser({ onClose }) {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const handleButtonClick = () => {
-    fileInputRef.current.click();
-  };
   const onSubmit = (data) => {
     const updatedData = {};
     const fields = ["name", "email", "phone", "avatar"];
@@ -99,7 +94,7 @@ export default function ModalEditUser({ onClose }) {
     try {
       const uploadedUrl = await uploadImageToCloudinary(file);
       const imageUrl = URL.createObjectURL(file);
-      setValue("avatar", uploadedUrl); 
+      setValue("avatar", uploadedUrl);
     } catch (error) {
       console.error("Upload error:", error);
     }

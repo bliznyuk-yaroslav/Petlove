@@ -1,3 +1,4 @@
+import PetsList from "../PetsList/PetsList";
 import css from "./PetsBlock.module.scss";
 
 import { NavLink } from "react-router-dom";
@@ -13,6 +14,7 @@ export default function PetsBlock() {
           </svg>
         </NavLink>
       </div>
+      <PetsList />
     </>
   );
 }

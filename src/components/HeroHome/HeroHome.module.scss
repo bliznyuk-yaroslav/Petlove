@@ -8,7 +8,7 @@
   padding: 18px 20px 50px 20px;
   @include media(tablet) {
     border-radius: 60px;
-    gap: 112px;
+    gap: 110px;
     padding: 16px 32px 44px 32px;
   }
   @include media(desktop) {
@@ -36,25 +36,29 @@
   color: #fff;
   width: 295px;
   font-family: Manrope;
-  font-size: 50px;
+  // font-size: 50px;
   font-style: normal;
   font-weight: 700;
-  line-height: 48px;
+  // line-height: 48px;
   letter-spacing: -1.5px;
+  @include font(50, 48);
   @include media(tablet) {
     width: 640px;
-    font-size: 80px;
-    line-height: 77px;
+    // font-size: 80px;
+    // line-height: 77px;
     letter-spacing: -2.4px;
+    @include font(80, 77);
   }
   @include media(desktop) {
     width: 640px;
-    font-size: 80px;
-    line-height: 87px;
+    height: 174px;
+    // font-size: 80px;
+    // line-height: 87px;
     letter-spacing: -2.7px;
     justify-content: end;
     align-items: end;
     align-content: end;
+    @include font(80, 87);
   }
 }
 .heroCare {

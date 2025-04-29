@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 import css from "./UserBlock.module.scss";
-import { selectUser } from "../../redux/auth/selectors";
+import { selectorFullInfoUsers, selectUser } from "../../redux/auth/selectors";
 import { NavLink } from "react-router-dom";
 export default function UserBlock() {
-  const user = useSelector(selectUser);
+  const user = useSelector(selectorFullInfoUsers);
   return (
     <>
       <p className={css.user}>

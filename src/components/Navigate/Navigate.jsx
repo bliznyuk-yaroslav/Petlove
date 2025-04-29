@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import useIsNewsPage from "../../hooks/useIsNewPage";
 import css from "./Navigate.module.scss";
 import { useState } from "react";
@@ -13,9 +13,11 @@ import { selectIsLoggedIn } from "../../redux/auth/selectors";
 export default function Navigate() {
   const isHomePage = useIsNewsPage();
   const login = useSelector(selectIsLoggedIn);
+  const location = useLocation();
+  const isRootPage = location.pathname === "/";
   console.log(login);
   return (
-    <nav className={css.cont}>
+    <nav className={`${css.cont} ${!isRootPage ? css.contNav : ""}`}>
       <Logo isHomePage={isHomePage} />
       <MainNavigation className={css.mainNav} isHomePage={isHomePage} />
       <div className={css.info}>

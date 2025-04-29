@@ -12,7 +12,7 @@ export default function Logo({ isHomePage }) {
         <svg className={`${css.head} ${isHomePage ? css.newHead : ""}`}>
           <use xlinkHref={`/icons/sprite.svg#icon-heart-circle`}></use>
         </svg>
-        ve
+        <span>ve</span>
       </NavLink>
     </>
   );

@@ -7,7 +7,7 @@ const initialState = {
     cities: [],
     citiesLocation: [],
   },
-  // selectedLocation: "",
+  selectedLocation: null,
   isLoading: false,
   error: null,
 };

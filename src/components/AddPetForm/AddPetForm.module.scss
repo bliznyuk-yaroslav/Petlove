@@ -176,18 +176,7 @@
   margin-top: 4px;
   margin-left: 16px;
 }
-.inputValid {
-  border: 1px solid #08aa83;
-  &:focus {
-    border: 1px solid #08aa83;
-  }
-}
-.inputError {
-  border: 1px solid red;
-  &:focus {
-    border: 1px solid red;
-  }
-}
+
 .contBirth {
   width: 210px;
   position: relative;
@@ -199,7 +188,7 @@
   border-radius: 30px;
   border: 1px solid rgba(38, 38, 38, 0.15);
   padding: 16px;
-  color: rgba(38, 38, 38, 0.5);
+  color: rgba(38, 38, 38, 1);
   font-family: Manrope;
   font-size: 16px;
   font-style: normal;
@@ -236,8 +225,12 @@
   position: absolute;
   left: 80px;
   top: 132px;
+}
+.genderErrorPos {
   display: flex;
   gap: 8px;
+  border-radius: 30px;
+  padding: 4px;
 }
 
 .genderOption {
@@ -354,4 +347,38 @@
 .customCalendar :global(.react-datepicker__day:hover) {
   background-color: #ffd6a5 !important;
   color: black !important;
+}
+.inputValid {
+  border: 1px solid #08aa83;
+  &:focus {
+    border: 1px solid #08aa83;
+  }
+}
+.inputError {
+  border: 1px solid red;
+  &:focus {
+    border: 1px solid red;
+  }
+}
+.errorMessage {
+  color: #ef2447;
+  font-family: Manrope;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: -0.36px;
+  margin-left: 16px;
+  margin-top: 4px;
+}
+.errorMessageGend {
+  color: #ef2447;
+  font-family: Manrope;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: -0.36px;
+  margin-top: 4px;
+  margin-left: 8px;
 }

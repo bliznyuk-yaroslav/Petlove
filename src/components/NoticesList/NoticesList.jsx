@@ -12,10 +12,10 @@ import {
 export default function NoticesList() {
   const notices = useSelector(selectorNotices);
   return (
-    <ul className={css.box}>
+    <ul className={css.boxCard}>
       {notices.results.map((item) => (
-        <li key={item._id} className={css.boxCard}>
-          <NoticesItem notices={item} />
+        <li key={item._id}>
+          <NoticesItem notices={item} styles={css} />
         </li>
       ))}
     </ul>

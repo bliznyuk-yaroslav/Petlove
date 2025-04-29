@@ -1,5 +1,6 @@
 import { Form, NavLink, useNavigate } from "react-router-dom";
 import css from "./LogInForm.module.scss";
+import toast from "react-hot-toast";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -36,10 +37,12 @@ export default function LogInForm() {
   const onSubmit = async (data) => {
     try {
       await dispatch(logIn(data)).unwrap();
+      toast.success("Success Login!");
+
       reset();
       navigate("/news");
     } catch (error) {
-      console.log("Login failed");
+      toast.update("Login error");
     }
   };
   return (

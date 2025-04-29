@@ -1,12 +1,13 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import Navigate from "../Navigate/Navigate";
 export default function Layout() {
+  const location = useLocation();
   return (
     <div>
-      <Navigate />
+      {location.pathname !== "/" && <Navigate />}
       <Outlet />
-
+      <Toaster position="top-right" />
       {/* <Toaster position="top-center" reverseOrder={false} /> */}
     </div>
   );

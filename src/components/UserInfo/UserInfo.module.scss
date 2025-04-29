@@ -79,3 +79,20 @@
   outline: none;
   border: none;
 }
+.iconNoIcon {
+  width: 24px;
+  height: 24px;
+  fill: #f6b83d;
+  stroke: #f6b83d;
+}
+.btnVis {
+  display: none;
+
+  @include media(tablet) {
+    display: none;
+  }
+
+  @include media(desktop) {
+    display: block;
+  }
+}

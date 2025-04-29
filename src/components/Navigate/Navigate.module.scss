@@ -3,14 +3,26 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 1280px;
+  @include media(tablet) {
+  }
+
+  @include media(desktop) {
+  }
+}
+.contNav {
   margin: 0 auto;
-  padding: 24px 64px 0 64px;
+  padding: 32px;
+  @include media(tablet) {
+  }
+
+  @include media(desktop) {
+    padding: 24px 64px 0 64px;
+  }
 }
 
 .info {
   display: flex;
-  gap: 16px;
+  gap: 18px;
   align-items: center;
   justify-content: center;
 }

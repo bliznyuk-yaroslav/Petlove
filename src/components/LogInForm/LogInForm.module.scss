@@ -1,12 +1,20 @@
+@import "../../scss/mixins";
 .boxLogIn {
-  width: 592px;
-  height: 654px;
   border-radius: 60px;
   background: #fff;
   padding: 114px 84px;
   display: flex;
   flex-direction: column;
   gap: 32px;
+  @include media(tablet) {
+    width: 704px;
+    height: 560px;
+    padding: 71px 140px;
+  }
+  @include media(desktop) {
+    width: 592px;
+    height: 654px;
+  }
 }
 .contText {
   display: flex;
@@ -17,20 +25,18 @@
 .headLog {
   color: #262626;
   font-family: Manrope;
-  font-size: 54px;
   font-style: normal;
   font-weight: 700;
-  line-height: 54px;
   letter-spacing: -2.16px;
+  @include font(54, 54);
 }
 .textLog {
   color: #262626;
   font-family: Manrope;
-  font-size: 18px;
   font-style: normal;
   font-weight: 500;
-  line-height: 22px; /* 122.222% */
   letter-spacing: -0.36px;
+  @include font(18, 22);
 }
 .input {
   display: flex;
@@ -41,6 +47,7 @@
   border-radius: 30px;
   border: 1px solid rgba(38, 38, 38, 0.15);
   width: 424px;
+  height: 52px;
   color: rgba(38, 38, 38, 0.8);
   font-family: Manrope;
   font-size: 16px;
@@ -73,6 +80,7 @@
   justify-content: center;
 }
 .btn {
+  width: 424px;
   display: inline-flex;
   padding: 16px 187px;
   justify-content: center;
@@ -93,11 +101,10 @@
 .textFromReg {
   color: rgba(38, 38, 38, 0.5);
   font-family: Manrope;
-  font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 20px; /* 142.857% */
   letter-spacing: -0.42px;
+  @include font(14, 20);
 }
 .regCol {
   color: #f6b83d;
@@ -112,24 +119,22 @@
 .error {
   color: #ef2447;
   font-family: Manrope;
-  font-size: 12px;
   font-style: normal;
   font-weight: 500;
-  line-height: 14px;
   letter-spacing: -0.36px;
   margin-top: 4px;
   margin-left: 16px;
+  @include font(12, 14);
 }
 .successful {
   color: #08aa83;
   font-family: Manrope;
-  font-size: 12px;
   font-style: normal;
   font-weight: 500;
-  line-height: 14px;
   letter-spacing: -0.36px;
   margin-top: 4px;
   margin-left: 16px;
+  @include font(12, 14);
 }
 .contEmail {
   position: relative;
@@ -141,6 +146,7 @@
   top: 15px;
   right: 16px;
   cursor: pointer;
+
 }
 .iconPas {
   width: 22px;
@@ -149,6 +155,7 @@
   top: 15px;
   right: 50px;
   cursor: pointer;
+
 }
 .inputError {
   border: 1px solid red;

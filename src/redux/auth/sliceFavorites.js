@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addNoticesFavorites } from "./operations";
+import { addNoticesFavorites, deleteFavorite } from "./operations";
 
 const initialState = {
   favorites: [],
@@ -28,6 +28,12 @@ const favoritesSlice = createSlice({
       })
       .addCase(addNoticesFavorites.rejected, (state, action) => {
         state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(deleteFavorite.fulfilled, (state, action) => {
+        state.favorites = action.payload;
+      })
+      .addCase(deleteFavorite.rejected, (state, action) => {
         state.error = action.payload;
       }),
 });

@@ -62,24 +62,17 @@ export default function FilterForm() {
     dispatch(fetchSpecies());
   }, [dispatch]);
   const location = useSelector(selectorSetLocation);
-  console.log(location);
-
   const citiesLocation = useSelector(selectorCities);
   const citLoc = useSelector(selectorCitiesLocation);
-
   const selLoc = useSelector(selectorCitLoc);
-  console.log(selLoc);
-  const locationOptions = citiesLocation.length > 0 ? citiesLocation : citLoc;
+ 
+  const locationOptions =
+    Array.isArray(citiesLocation) && citiesLocation.length > 0
+      ? citiesLocation
+      : Array.isArray(citLoc)
+      ? citLoc
+      : [];
 
-  const handleChangeLocations = (e) => {
-    dispatch(setSearchLocations(e.target.value));
-  };
-  const options = [
-    { value: "odessa", label: "Odessa" },
-    { value: "kyiv", label: "Kyiv" },
-    { value: "lviv", label: "Lviv" },
-  ];
-  
   return (
     <div className={css.filterBox}>
       <Select

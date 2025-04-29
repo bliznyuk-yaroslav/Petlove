@@ -1,0 +1,258 @@
+@import "../../scss/mixins";
+.cont {
+  width: 100%;
+  min-height: 674px;
+  margin-top: 40px;
+  @include media(tablet) {
+    margin-top: 32px;
+  }
+  @include media(desktop) {
+    margin-top: 40px;
+  }
+}
+.btnBox {
+  display: flex;
+  gap: 8px;
+}
+.btn {
+  width: 123px;
+  padding: 12px;
+  border-radius: 30px;
+  background: #fff;
+  border: none;
+  color: #262626;
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: -0.42px;
+
+  @include font(14, 18);
+  @include media(tablet) {
+    @include font(16, 20);
+    padding: 14px;
+    letter-spacing: -0.48px;
+  }
+  @include media(desktop) {
+  }
+}
+
+.active {
+  color: #fff;
+  background: #f6b83d;
+}
+.boxItem {
+  display: flex;
+  margin-top: 40px;
+  margin-bottom: 60px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+//  Styles Item
+.box {
+  display: flex;
+  width: 335px;
+  padding: 32px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  background: #fff;
+  border-radius: 16px;
+  @include media(tablet) {
+  }
+  @include media(desktop) {
+    width: 320px;
+    padding: 14px;
+  }
+}
+.box h2 {
+  color: #2b2b2a;
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 700;
+  @include font(16, 20);
+  @include media(tablet) {
+  }
+  @include media(desktop) {
+    @include font(18, 24);
+  }
+}
+.priceText {
+  color: #2b2b2a;
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 500;
+  @include font(14, 18);
+}
+.imgCard {
+  width: 287px;
+  height: 178px;
+  border-radius: 16px;
+  object-fit: cover;
+  @include media(tablet) {
+  }
+  @include media(desktop) {
+    width: 292px;
+    height: 162px;
+  }
+}
+.iconBox {
+  display: flex;
+  gap: 4px;
+}
+.icon {
+  width: 16px;
+  height: 16px;
+}
+.boxText {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include media(tablet) {
+  }
+  @include media(desktop) {
+  }
+}
+.comment {
+  width: 287px;
+  height: 36px;
+  overflow: hidden;
+  color: #2b2b2a;
+  text-overflow: ellipsis;
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: -0.28px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  @include font(14, 18);
+  @include media(tablet) {
+  }
+  @include media(desktop) {
+    width: 292px;
+  }
+}
+.categoryBox {
+  display: flex;
+  gap: 14px;
+  @include media(tablet) {
+  }
+  @include media(desktop) {
+    gap: 20px;
+  }
+}
+.headCat {
+  color: rgba(38, 38, 38, 0.5);
+  font-family: Manrope;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: -0.2px;
+}
+.specCat {
+  color: #262626;
+  font-family: Manrope;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px; /* 116.667% */
+  letter-spacing: -0.24px;
+}
+.categoryBox div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.price {
+  color: #2b2b2a;
+  font-family: Manrope;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+}
+.btnLearn {
+  width: 238px;
+  padding: 12px 79px;
+  border-radius: 30px;
+  background: #f6b83d;
+  border: none;
+  color: #fff;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 125% */
+  letter-spacing: -0.48px;
+  outline: none;
+}
+.iconBoxFavorite {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  border-radius: 30px;
+  background: #fff4df;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.iconFavorite {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: rgba(246, 184, 61, 1);
+}
+.iconActive {
+  background: #fff4df;
+}
+.btnWrap {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+}
+.boxContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.flexCat {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.favoriteBackground {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  border-radius: 30px;
+  background: #fff4df;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.noPets {
+  width: 458px;
+  height: 60px;
+  flex-shrink: 0;
+  color: #262626;
+  margin-top: 140px;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: wrap;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 125% */
+  letter-spacing: -0.32px;
+}
+.colorTex {
+  color: #f6b83d;
+  font-weight: 700;
+}

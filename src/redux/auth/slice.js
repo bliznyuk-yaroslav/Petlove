@@ -2,7 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   addPets,
   clearAuthHeader,
+  deletePetsId,
   editCurrent,
+  fetchAllCurrent,
   fetchRegister,
   logIn,
   logout,
@@ -15,6 +17,9 @@ const authInitialState = {
   error: false,
   isLoggedIn: false,
   isRefreshing: false,
+  password: localStorage.getItem("password") || null,
+  email: localStorage.getItem("email") || null,
+  fullUserInfo: null,
 };
 const authSlice = createSlice({
   name: "auth",
@@ -27,6 +32,7 @@ const authSlice = createSlice({
       state.token = null;
       state.user = null;
       clearAuthHeader();
+      state.fullUserInfo = null;
     },
   },
   extraReducers: (builder) =>
@@ -55,6 +61,8 @@ const authSlice = createSlice({
         state.user = action.payload;
         state.token = action.payload.token;
         state.loading = false;
+        state.email = action.payload.email;
+        state.password = action.payload.password;
         localStorage.setItem("token", action.payload.token);
       })
       .addCase(logIn.rejected, (state, action) => {
@@ -67,6 +75,11 @@ const authSlice = createSlice({
       .addCase(logout.fulfilled, (state, action) => {
         state.token = "";
         state.isLoggedIn = false;
+        state.email = null;
+        state.password = null;
+        localStorage.removeItem("token");
+        localStorage.removeItem("email");
+        localStorage.removeItem("password");
       })
       .addCase(logout.rejected, (state, action) => {
         state.token = "";
@@ -99,6 +112,18 @@ const authSlice = createSlice({
       .addCase(addPets.rejected, (state, action) => {
         state.loading = false;
         state.user = [];
+        state.error = action.payload;
+      })
+      .addCase(fetchAllCurrent.fulfilled, (state, action) => {
+        state.fullUserInfo = action.payload;
+      })
+      .addCase(fetchAllCurrent.rejected, (state, action) => {
+        state.error = action.payload;
+      })
+      .addCase(deletePetsId.fulfilled, (state, action) => {
+        state.fullUserInfo = action.payload;
+      })
+      .addCase(deletePetsId.rejected, (state, action) => {
         state.error = action.payload;
       }),
 });

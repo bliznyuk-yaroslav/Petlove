@@ -22,7 +22,7 @@ import PaginationComponent from "../../components/PaginationComponent/Pagination
 import { resetFilters, setPage } from "../../redux/notices/slice";
 import { selectorSetLocation } from "../../redux/cities/selectors";
 import { fetchCitiesLocation } from "../../redux/cities/operations";
-import { selectorFav, selectToken } from "../../redux/auth/selectors";
+import { selectorFav } from "../../redux/auth/selectors";
 
 export default function NoticesPage() {
   const notices = useSelector(selectorNotices);

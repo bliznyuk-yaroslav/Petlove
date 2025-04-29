@@ -11,7 +11,8 @@ const customerSelectStyles = {
     border:
       state.isFocused || state.isHovered
         ? "1px solid rgba(246, 184, 61, 1)"
-        : "1px solid rgba(38, 38, 38, 0.15)",
+        : "1px solid rgba(38, 38, 38, 0.15)"
+   ,
     boxShadow: "none",
     cursor: "pointer",
     width: "210px",

@@ -6,7 +6,8 @@ import HomePage from "../../page/HomePage/HomePage";
 import NewsPage from "../../page/NewsPage/NewsPage";
 import OurFriendsPage from "../../page/OurFriendsPage/OurFriendsPage";
 import NotFoundPage from "../../page/NotFound/NotFound";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import LogInPage from "../../page/LogInPage/LogInPage";
 import RegisrationPage from "../../page/RegistrationPage/RegistrationPage";
 import RegistrationPage from "../../page/RegistrationPage/RegistrationPage";

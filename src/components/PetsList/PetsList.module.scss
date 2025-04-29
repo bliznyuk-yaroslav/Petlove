@@ -1,0 +1,14 @@
+@import "../../scss/mixins";
+.card {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  @include media(tablet) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  @include media(desktop) {
+    flex-direction: column;
+  }
+}
