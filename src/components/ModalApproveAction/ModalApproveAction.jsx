@@ -1,9 +1,12 @@
-import css from "./NoticesModalNoAuth.module.scss";
-import pets from "../../images/pets.png";
+import css from "./ModalApproveAction.module.scss";
+import pets from "../../images/catIcon.png";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { logout } from "../../redux/auth/operations";
+import { clearFavorites } from "../../redux/auth/sliceFavorites";
 import clsx from "clsx";
-export default function NoticesModalNoAuth({ onClose, isOpen }) {
+export default function ModalApproveAction({ onClose, onConfirm, isOpen }) {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     const handleKeyDown = (e) => e.key === "Escape" && onClose();
@@ -21,6 +24,7 @@ export default function NoticesModalNoAuth({ onClose, isOpen }) {
   useEffect(() => {
     isOpen ? setTimeout(() => setVisible(true), 10) : setVisible(false);
   }, [isOpen]);
+
   return (
     <section className={clsx(css.container, { [css.active]: visible })}>
       <div className={css.boxContent}>
@@ -30,21 +34,14 @@ export default function NoticesModalNoAuth({ onClose, isOpen }) {
         <div className={css.petsBox}>
           <img src={pets} alt="pets" className={css.petsIcon} />
         </div>
-        <h1>Attention</h1>
-        <p>
-          We would like to remind you that certain functionality is available
-          only to authorized users.If you have an account, please log in with
-          your credentials. If you do not already have an account, you must
-          register to access these features.
-        </p>
-        <div className={css.btnWrap}>
-          <NavLink to="/login" className={css.btnLog}>
-            Log In
-          </NavLink>
-
-          <NavLink to="/register" className={css.btnReg}>
-            Registration
-          </NavLink>
+        <h1>Already leaving?</h1>
+        <div className={css.btnBox}>
+          <button className={`${css.btn} ${css.btnY}`} onClick={onConfirm}>
+            Yes
+          </button>
+          <button className={`${css.btn} ${css.btnW}`} onClick={onClose}>
+            Cancel
+          </button>
         </div>
       </div>
     </section>

@@ -1,40 +1,60 @@
-// .boxCard {
-//   display: flex;
-//   margin-top: 40px;
-//   margin-bottom: 60px;
-//   align-items: center;
-//   justify-content: center;
-//   flex-wrap: wrap;
-//   gap: 35px;
-// }
 @import "../../scss/mixins";
+.boxCard {
+  display: flex;
+  margin-top: 40px;
+  margin-bottom: 60px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  @include media(desktop) {
+    gap: 35px;
+  }
+}
+
 .box {
   display: flex;
-  width: 363px;
+  width: 342px;
   padding: 24px;
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
   background: #fff;
   border-radius: 16px;
+  @include media(tablet) {
+  }
+  @include media(desktop) {
+    width: 363px;
+  }
 }
 .box h2 {
   color: #2b2b2a;
   font-family: Manrope;
-  font-size: 18px;
   font-style: normal;
   font-weight: 700;
-  line-height: 24px; /* 133.333% */
+  @include font(16, 20);
+  @include media(tablet) {
+    @include font(18, 24);
+  }
+  @include media(desktop) {
+  }
 }
 .imgCard {
-  width: 315px;
+  width: 287px;
   height: 178px;
   border-radius: 16px;
   object-fit: cover;
   @include media(tablet) {
+    width: 295px;
   }
   @include media(desktop) {
+    width: 315px;
   }
+}
+.boxContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 .iconBox {
   display: flex;
@@ -51,7 +71,6 @@
   align-items: center;
 }
 .comment {
-  width: 315px;
   height: 36px;
   overflow: hidden;
   color: #2b2b2a;
@@ -63,13 +82,18 @@
   line-height: 18px; /* 128.571% */
   letter-spacing: -0.28px;
   display: -webkit-box;
-  width: 315px;
+
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
 .categoryBox {
   display: flex;
-  gap: 20px;
+  gap: 14px;
+  @include media(tablet) {
+    gap: 20px;
+  }
+  @include media(desktop) {
+  }
 }
 .headCat {
   color: rgba(38, 38, 38, 0.5);
@@ -103,29 +127,43 @@
   line-height: 24px;
 }
 .btnLearn {
-  width: 257px;
-  padding: 14px 88px;
+  width: 231px;
+  padding: 14px 80px;
   border-radius: 30px;
   background: #f6b83d;
   border: none;
   color: #fff;
   font-family: Manrope;
-  font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 20px; /* 125% */
-  letter-spacing: -0.48px;
+
   outline: none;
+  @include media(tablet) {
+    width: 236px;
+    height: 48px;
+    padding: 14px 78px;
+    line-height: 20px; /* 125% */
+    letter-spacing: -0.48px;
+    font-size: 16px;
+  }
+  @include media(desktop) {
+    width: 257px;
+    padding: 14px 88px;
+  }
 }
 .iconBoxFavorite {
   display: flex;
-  width: 48px;
-  height: 48px;
+  width: 42px;
+  height: 42px;
   border-radius: 30px;
   background: #fff4df;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  @include media(tablet) {
+    width: 48px;
+    height: 48px;
+  }
 }
 .iconFavorite {
   width: 18px;
@@ -141,11 +179,7 @@
   display: flex;
   gap: 10px;
 }
-.boxContent {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
+
 .flexCat {
   display: flex;
   flex-direction: column;

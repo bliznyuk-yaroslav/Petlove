@@ -1,30 +1,34 @@
-const customerSelectStylesLocation = {
-  control: (base) => ({
+const customerSelectStylesLocation = (isTablet) => ({
+  control: (base, state) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#FFF",
     borderRadius: "30px",
     margin: "0",
-    border: "none",
     boxShadow: "none",
+    outline: "none",
     cursor: "pointer",
-    width: "228px",
-    height: "48px",
+    width: isTablet ? "295px" : "227px",
+    height: isTablet ? "42px" : "48px",
     color: "rgba(38, 38, 38, 1)",
     fontFamily: "Manrope",
-    fontSize: "16px",
+    fontSize: isTablet ? "14px" : "16px",
     fontWeight: "500",
-    lineHeight: "20px",
+    lineHeight: isTablet ? "18px" : "20px",
     position: "relative",
+    transition: "border 0.3s ease",
+    border: state.isFocused
+      ? "1px solid rgba(246, 184, 61, 1)"
+      : "1px solid transparent",
   }),
   option: (base) => ({
     cursor: "pointer",
     color: "rgba(38, 38, 38, 0.6)",
     fontFamily: "Manrope",
-    fontSize: "16px",
+    fontSize: isTablet ? "14px" : "16px",
     fontWeight: "500",
-    lineHeight: "20px",
+    lineHeight: isTablet ? "18px" : "20px",
     letterSpacing: "-0.48px",
     marginBottom: "8px",
     "&:last-of-type": {
@@ -32,15 +36,15 @@ const customerSelectStylesLocation = {
     },
   }),
   menu: (base) => ({
-    width: "228px",
+    width: isTablet ? "295px" : "228px",
     marginTop: "4px",
     borderRadius: "15px",
     zIndex: 9999,
     backgroundColor: "#FFF",
     fontFamily: "Manrope",
-    fontSize: "16px",
+    fontSize: isTablet ? "14px" : "16px",
     fontWeight: "500",
-    lineHeight: "20px",
+    lineHeight: isTablet ? "18px" : "20px",
     letterSpacing: "-0.48px",
     overflowY: "auto",
     boxSizing: "border-box",
@@ -48,7 +52,7 @@ const customerSelectStylesLocation = {
   }),
   dropdownIndicator: (styles) => ({
     display: "flex",
-    padding: "15px 14px 15px 4px",
+    padding: isTablet ? "12px 12px 12px 4px" : "15px 14px 15px 4px",
   }),
   indicatorSeparator: (styles) => ({
     ...styles,
@@ -107,6 +111,6 @@ const customerSelectStylesLocation = {
     margin: 0,
     display: "flex",
   }),
-};
+});
 
 export default customerSelectStylesLocation;

@@ -1,3 +1,4 @@
+@import "../../scss/mixins";
 .selectBase {
   appearance: none;
   -webkit-appearance: none;
@@ -24,7 +25,14 @@
 
 .filterBox {
   display: flex;
-  gap: 16px;
+  gap: 8px;
+  flex-wrap: wrap;
+  width: 100%;
+  @include media(tablet) {
+    gap: 16px;
+  }
+  @include media(desktop) {
+  }
 }
 .sex {
   width: 190px;
@@ -34,4 +42,97 @@
 }
 .icon {
   fill: #000;
+}
+.search {
+  width: 100%;
+  height: 42px;
+  display: inline-flex;
+  padding: 14px 46px 14px 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  border: 1px solid transparent;
+  outline: none;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: -0.42px;
+  font-family: Manrope;
+  transition: border 0.3s ease;
+  @include font(14, 18);
+  &::placeholder {
+    color: rgba(38, 38, 38, 1);
+  }
+
+  &:focus-visible {
+    border: 1px solid #f6b83d;
+  }
+  @include media(tablet) {
+    height: 48px;
+    @include font(16, 20);
+    letter-spacing: -0.48px;
+  }
+  @include media(desktop) {
+  }
+}
+.inputSearch {
+  position: relative;
+  width: 295px;
+  height: 42px;
+  @include media(tablet) {
+    width: 265px;
+    height: 48px;
+  }
+ 
+}
+.iconSearch {
+  width: 18px;
+  height: 18px;
+  right: 12px;
+  top: 13px;
+  position: absolute;
+  fill: #fff;
+  stroke: #262626;
+  @include media(tablet) {
+    right: 14px;
+    top: 15px;
+  }
+
+}
+.selectWrapper {
+  width: 143px;
+  font-family: Manrope;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.42px;
+  font-style: normal;
+  cursor: pointer;
+
+  @include media(tablet) {
+    font-size: 16px;
+    line-height: 20px;
+    width: 170px;
+  }
+  @include media(desktop) {
+    width: 200px;
+  }
+}
+.selectWrapperType {
+  width: 295px;
+
+  font-family: Manrope;
+  font-size: 16px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  font-style: normal;
+  cursor: pointer;
+  @include media(tablet) {
+    width: 190px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  @include media(desktop) {
+  }
 }

@@ -23,7 +23,6 @@
   transform: scale(1);
   pointer-events: all;
 }
-
 .boxContent {
   flex-shrink: 0;
   border-radius: 30px;
@@ -33,7 +32,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 60px;
+  padding: 40px 28px;
+  @include media(tablet) {
+    padding: 80px;
+  }
 }
 .iconClosed {
   position: absolute;
@@ -59,51 +61,54 @@
 .boxContent > h1 {
   margin-top: 20px;
   overflow: hidden;
-  color: #f6b83d;
+  color: #262626;
   text-overflow: ellipsis;
   font-family: Manrope;
-  font-size: 24px;
   font-style: normal;
   font-weight: 700;
-  line-height: 28px; /* 116.667% */
-  letter-spacing: -0.72px;
+  letter-spacing: -0.6px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
+  @include font(20, 20);
+  @include media(tablet) {
+    font-size: 24px;
+    letter-spacing: -0.72px;
+    line-height: 28px;
+    @include font(24, 28);
+  }
 }
-.boxContent > p {
-  margin-top: 20px;
-  color: #2b2b2a;
-  text-align: center;
-  font-family: Manrope;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 18px; /* 128.571% */
-  letter-spacing: -0.28px;
-  width: 346px;
-  height: 90px;
-}
-.btnWrap {
+.btnBox {
   display: flex;
   gap: 8px;
   margin-top: 28px;
+}
+.btn {
+  border-radius: 30px;
+  border: none;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  padding: 14px 57px;
   font-family: Manrope;
-  font-size: 16px;
   font-style: normal;
   font-weight: 700;
-  line-height: 20px;
-  letter-spacing: -0.48px;
+
+  letter-spacing: -0.42px;
+  width: 137px;
+  @include font(14, 18);
+  @include media(tablet) {
+    @include font(16, 20);
+    letter-spacing: -0.48px;
+    width: 140px;
+  }
 }
-.btnLog {
-  padding: 14px 48px;
-  border-radius: 30px;
+.btnY {
   background: #f6b83d;
   color: #fff;
 }
-.btnReg {
-  padding: 14px 24px;
-  border-radius: 30px;
-  background: #fff4df;
-  color: #f6b83d;
+.btnW {
+  background: rgba(38, 38, 38, 0.05);
+  color: #262626;
 }

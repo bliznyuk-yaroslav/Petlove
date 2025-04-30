@@ -25,7 +25,7 @@ export default function NewsPage() {
   const userInfo = useSelector(selectorFullInfoUsers);
   useEffect(() => {
     dispatch(fetchAllCurrent());
-  }, dispatch);
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(fetchNews({ page, search }));

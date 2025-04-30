@@ -1,6 +1,5 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { useSelector } from "react-redux";
 
 export const apiClient = axios.create({
   baseURL: "https://petlove.b.goit.study/api",
@@ -17,33 +16,33 @@ export const clearAuthHeader = () => {
 };
 
 const getToken = (state) => state.auth.token || localStorage.getItem("token");
-
+let interceptorId;
 export const setupAxiosInterceptors = (store) => {
-  apiClient.interceptors.response.use(
+  interceptorId = apiClient.interceptors.response.use(
     (response) => response,
     async (error) => {
       const originalRequest = error.config;
 
-      if (error.response.status === 401 && !originalRequest._retry) {
+      if (error.response?.status === 401 && !originalRequest._retry) {
         originalRequest._retry = true;
 
         const state = store.getState();
         const token = state.auth.token || localStorage.getItem("token");
+        const email = state.auth.email || localStorage.getItem("email");
+        const password =
+          state.auth.password || localStorage.getItem("password");
 
-        if (!token) {
+        if (!token || !email || !password) {
           store.dispatch(logout());
           return Promise.reject(error);
         }
 
         try {
-          const userInfo = {
-            email: state.auth.email,
-            password: state.auth.password,
-          };
+          const userInfo = { email, password };
 
           await store.dispatch(logIn(userInfo));
-
-          const newToken = state.auth.token;
+          const resultAction = await store.dispatch(logIn(userInfo));
+          const newToken = resultAction.payload.token;
           setAuthHeader(newToken);
           originalRequest.headers["Authorization"] = `Bearer ${newToken}`;
 
@@ -57,6 +56,12 @@ export const setupAxiosInterceptors = (store) => {
       return Promise.reject(error);
     }
   );
+};
+export const ejectAxiosInterceptor = () => {
+  if (interceptorId !== undefined) {
+    apiClient.interceptors.response.eject(interceptorId);
+    interceptorId = undefined;
+  }
 };
 export const fetchRegister = createAsyncThunk(
   "auth/signup",
@@ -93,8 +98,17 @@ export const logout = createAsyncThunk(
   "users/signout",
   async (__, thunkAPI) => {
     try {
+      const state = thunkAPI.getState();
+      const token = getToken(state);
+      if (!token) {
+        return thunkAPI.rejectWithValue("No auth token found");
+      }
+      setAuthHeader(token);
       const response = await apiClient.post("users/signout");
       clearAuthHeader();
+      localStorage.removeItem("email");
+      localStorage.removeItem("password");
+      ejectAxiosInterceptor();
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

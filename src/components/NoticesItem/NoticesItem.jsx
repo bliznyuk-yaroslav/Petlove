@@ -106,12 +106,22 @@ export default function NoticesItem({ notices, styles }) {
       </div>
       {showModal &&
         (login ? (
-          <NoticesModal notices={notices} onClose={handleCloseModal} />
+          <NoticesModal
+            notices={notices}
+            onClose={handleCloseModal}
+            isOpen={handleOpenModal}
+          />
         ) : (
-          <NoticesModalNoAuth onClose={handleCloseModal} />
+          <NoticesModalNoAuth
+            onClose={handleCloseModal}
+            isOpen={handleOpenModal}
+          />
         ))}
       {showNoAuthModal && (
-        <NoticesModalNoAuth onClose={() => setShowNoAuthModal(false)} />
+        <NoticesModalNoAuth
+          onClose={() => setShowNoAuthModal(false)}
+          isOpen={handleOpenModal}
+        />
       )}
     </div>
   );

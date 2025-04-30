@@ -1,24 +1,21 @@
-import { display, height, padding } from "@mui/system";
-
-const customerSelectStyles = {
-  control: (base) => ({
+const customerSelectStyles = (isTablet) => ({
+  control: (state) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#FFF",
     borderRadius: "30px",
     margin: "0",
-    border: "none",
+    outline: "none",
     boxShadow: "none",
     cursor: "pointer",
-    width: "200px",
-    height: "48px",
+    width: "100%",
+    height: isTablet ? "40px" : "48px",
     color: "rgba(38, 38, 38, 1)",
-    fontFamily: "Manrope",
-    fontSize: "16px",
-    fontWeight: "500",
-    lineHeight: "20px",
-    cursor: "pointer",
+    transition: "border 0.3s ease",
+    border: state.isFocused
+      ? "1px solid rgba(246, 184, 61, 1)"
+      : "1px solid transparent",
   }),
   option: (_, state) => ({
     cursor: "pointer",
@@ -26,37 +23,32 @@ const customerSelectStyles = {
       state.data.value === ""
         ? "rgba(246, 184, 61, 1)"
         : "rgba(38, 38, 38, 0.6)",
-    fontFamily: "Manrope",
-    fontSize: "16px",
-    fontStyle: "normal",
-    fontWeight: "500",
-    lineHeight: "20px",
-    letterSpacing: "-0.48px",
     marginBottom: "8px",
     "&:last-of-type": {
       marginBottom: 0,
     },
   }),
   menu: (base) => ({
-    width: "200px",
+    width: "100%",
     marginTop: "4px",
     borderRadius: "15px",
     zIndex: 9999,
     backgroundColor: "#FFF",
     fontFamily: "Manrope",
-    fontSize: "16px",
-    fontStyle: "normal",
+    fontSize: isTablet ? "14px" : "16px",
+
     fontWeight: "500",
-    lineHeight: "20px",
+    lineHeight: isTablet ? "18px" : "20px",
     letterSpacing: "-0.48px",
     overflowY: "auto",
 
-    padding: "14px 8px 14px 14px",
+    padding: isTablet ? "12px" : "14px 8px 14px 14px",
     boxSizing: "border-box",
   }),
   dropdownIndicator: (styles) => ({
-    padding: "15px 14px",
-    height: "48px",
+    padding: isTablet ? "12px" : "15px 14px",
+    width: isTablet ? "42px" : "48px",
+    height: isTablet ? "42px" : "48px",
     svg: {
       width: "18px",
       height: "18px",
@@ -70,7 +62,7 @@ const customerSelectStyles = {
     ...styles,
     color: "rgba(38, 38, 38, 1)",
     margin: "0",
-    padding: "14px",
+    padding: isTablet ? "12px" : "14px",
   }),
   singleValue: (styles) => ({
     ...styles,
@@ -117,6 +109,6 @@ const customerSelectStyles = {
     margin: 0,
     display: "flex",
   }),
-};
+});
 
 export default customerSelectStyles;

@@ -6,11 +6,7 @@ import {
   selectorByPrice,
   selectorSearchNotices,
 } from "../../redux/notices/selectors";
-import {
-  setPopularity,
-  setPrice,
-  setSearch,
-} from "../../redux/notices/slice";
+import { setPopularity, setPrice, setSearch } from "../../redux/notices/slice";
 
 import FilterForm from "../FilterForm/FilterForm";
 
@@ -35,15 +31,7 @@ export default function NoticesFilters() {
 
   return (
     <div className={css.contSearch}>
-      <div className={css.cont}>
-        <SearchField
-          value={search}
-          onChange={handleChange}
-          placeholder="Search"
-          styles={css}
-        />
-        <FilterForm />
-      </div>
+      <FilterForm />
       <span className={css.bord}></span>
       <div className={css.popCont}>
         <div

@@ -70,11 +70,13 @@ const authSlice = createSlice({
         state.loading = false;
       })
       .addCase(logout.pending, (state) => {
+        state.loading = true;
         state.token = "";
       })
       .addCase(logout.fulfilled, (state, action) => {
         state.token = "";
         state.isLoggedIn = false;
+        state.loading = true;
         state.email = null;
         state.password = null;
         localStorage.removeItem("token");
@@ -83,6 +85,7 @@ const authSlice = createSlice({
       })
       .addCase(logout.rejected, (state, action) => {
         state.token = "";
+        state.loading = true;
         state.error = action.error;
       })
       .addCase(editCurrent.pending, (state) => {

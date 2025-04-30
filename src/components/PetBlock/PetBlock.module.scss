@@ -1,9 +1,12 @@
 @import "../../scss/mixins";
 .cont {
+  width: 335px;
+  height: 280px;
   background: #f6b83d;
-  border-radius: 60px;
+  border-radius: 30px;
   position: relative;
   @include media(tablet) {
+    border-radius: 60px;
     width: 704px;
     height: 302px;
   }
@@ -14,16 +17,16 @@
 }
 
 .pertInf {
-  width: 294px;
-  height: 121px;
-  border-radius: 20px;
-  background: #fff;
-  display: flex;
-  gap: 8px;
-  padding: 16px;
-  position: absolute;
-
+  display: none;
   @include media(tablet) {
+    width: 294px;
+    height: 121px;
+    border-radius: 20px;
+    background: #fff;
+    display: flex;
+    gap: 8px;
+    padding: 16px;
+    position: absolute;
     left: 32px;
     bottom: 32px;
   }
@@ -62,14 +65,17 @@
 .icon {
   position: absolute;
   z-index: 0;
-  width: 531px;
-  height: 601px;
+  width: 332px;
+  height: 414px;
   fill: rgba(255, 255, 255, 0.1);
   stroke: none;
-  left: 106px;
-  top: 52px;
+
   flex-shrink: 0;
   @include media(tablet) {
+    left: 106px;
+    top: 52px;
+    width: 531px;
+    height: 601px;
   }
   @include media(desktop) {
     bottom: 0px;

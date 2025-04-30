@@ -35,7 +35,7 @@ export default function UserInfo() {
           to="/profile"
           className={isHomeLocation ? css.nameHome : css.name}
         >
-          {user.name}
+          {user?.name || "User"}
         </NavLink>
       </div>
     </>

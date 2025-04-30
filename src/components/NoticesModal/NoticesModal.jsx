@@ -1,26 +1,29 @@
 import css from "./NoticesModal.module.scss";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { capitalizeWords } from "../../hooks/useCapitalizeWords";
-export default function NoticesModal({ notices, onClose }) {
-  console.log(notices);
+import clsx from "clsx";
+export default function NoticesModal({ notices, onClose, isOpen }) {
+  const [visible, setVisible] = useState(false);
+
   useEffect(() => {
-    document.body.style.overflow = "hidden";
-
-    const handleKeyDown = (e) => {
-      if (e.key === "Escape") {
-        onClose();
-      }
-    };
-
+    const handleKeyDown = (e) => e.key === "Escape" && onClose();
     window.addEventListener("keydown", handleKeyDown);
 
+    
+    if (isOpen) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "auto";
+
     return () => {
-      document.body.style.overflow = "auto";
       window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "auto"; 
     };
-  }, [onClose]);
+  }, [isOpen, onClose]);
+
+  useEffect(() => {
+    isOpen ? setTimeout(() => setVisible(true), 10) : setVisible(false);
+  }, [isOpen]);
   return (
-    <section className={css.container}>
+    <section className={clsx(css.container, { [css.active]: visible })}>
       <div className={css.boxContent}>
         <svg className={css.iconClosed} onClick={onClose}>
           <use xlinkHref={`/icons/sprite.svg#icon-x`}></use>

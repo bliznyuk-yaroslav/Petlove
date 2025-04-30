@@ -15,10 +15,12 @@
 }
 .contHead {
   display: flex;
-  gap: 16px;
+  gap: 10px;
   margin-top: 32px;
+  flex-direction: column;
   @include media(tablet) {
     flex-direction: column;
+    gap: 16px;
   }
   @include media(desktop) {
     gap: 32px;
@@ -27,7 +29,9 @@
 }
 .petsBig {
   z-index: 22;
-
+  width: 123.875%;
+  height: 127.117%;
+  object-position: 28.654px -15.332px;
   object-fit: contain;
   @include media(tablet) {
     width: 123.875%;
@@ -41,11 +45,13 @@
   }
 }
 .boxPhoto {
+  width: 335px;
+  height: 280px;
   position: absolute;
-  right: 90px;
-  bottom: 0;
   overflow: hidden;
   @include media(tablet) {
+    right: 90px;
+    bottom: 0;
     width: 364px;
     height: 302px;
   }

@@ -1,7 +1,6 @@
 .contNews {
   display: flex;
   justify-content: space-between;
-  
 }
 .newsHead {
   color: #262626;
@@ -21,15 +20,19 @@
   align-items: center;
   gap: 10px;
   border-radius: 30px;
-  border: 1px solid rgba(38, 38, 38, 0.15);
+  border: 1px solid transparent;
+  outline: none;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.48px;
   &::placeholder {
     color: rgba(38, 38, 38, 0.5);
-    font-family: Manrope;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 20px;
-    letter-spacing: -0.48px;
+  }
+  &:focus-visible {
+    border: 1px solid #f6b83d;
   }
 }
 .inputSearch {
