@@ -1,5 +1,5 @@
 const customerSelectStyles = (isTablet) => ({
-  control: (state) => ({
+  control: (base, state) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",

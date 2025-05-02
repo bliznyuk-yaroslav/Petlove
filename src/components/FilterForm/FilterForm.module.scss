@@ -40,44 +40,45 @@
 .cat {
   width: 200px;
 }
-.icon {
-  fill: #000;
-}
-.search {
-  width: 100%;
+
+.inputSearch {
+  width: 295px;
   height: 42px;
   display: inline-flex;
-  padding: 14px 46px 14px 15px;
+  padding: 14px 60px 14px 14px;
   justify-content: center;
   align-items: center;
   gap: 10px;
   border-radius: 30px;
-  border: 1px solid transparent;
+  border: none;
   outline: none;
+  color: rgba(38, 38, 38, 1);
+  font-family: Manrope;
+  font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  letter-spacing: -0.42px;
-  font-family: Manrope;
-  transition: border 0.3s ease;
-  @include font(14, 18);
+  line-height: 20px;
+  letter-spacing: -0.48px;
+  background-color: #fff;
   &::placeholder {
     color: rgba(38, 38, 38, 1);
   }
-
   &:focus-visible {
     border: 1px solid #f6b83d;
   }
+  @include font(14, 18);
   @include media(tablet) {
+    width: 335px;
     height: 48px;
     @include font(16, 20);
-    letter-spacing: -0.48px;
   }
-  @include media(desktop) {
+  @include media(tablet) {
+    width: 265px;
+    height: 48px;
   }
 }
-.inputSearch {
+.search {
   position: relative;
-  width: 295px;
   height: 42px;
   @include media(tablet) {
     width: 265px;
@@ -86,16 +87,25 @@
 }
 .iconSearch {
   position: absolute;
-
   right: 12px;
-  top: 13px;
-  background-color: transparent;
+  top: 12px;
+  background: transparent;
   border: none;
-  fill: #fff;
-  stroke: #262626;
   padding: 0;
   @include media(tablet) {
     right: 14px;
+    top: 15px;
+  }
+}
+.btnClear {
+  position: absolute;
+  right: 36px;
+  top: 12px;
+  background: #fff;
+  border: none;
+  padding: 0;
+  @include media(tablet) {
+    right: 36px;
     top: 15px;
   }
 }
@@ -103,6 +113,12 @@
 .icon {
   width: 18px;
   height: 18px;
+  fill: #fff;
+  stroke: #262626;
+}
+.iconClear {
+  width: 20px;
+  height: 20px;
   fill: #fff;
   stroke: #262626;
 }

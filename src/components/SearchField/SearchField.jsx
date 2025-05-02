@@ -30,7 +30,7 @@ export default function SearchField({
       />
       {value && (
         <button type="submit" className={styles.btnClear} onClick={handleClear}>
-          <svg className={styles.icon}>
+          <svg className={styles.iconClear}>
             <use xlinkHref={`/icons/sprite.svg#icon-x`}></use>
           </svg>
         </button>
