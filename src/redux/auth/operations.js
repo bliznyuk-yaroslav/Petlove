@@ -40,7 +40,6 @@ export const setupAxiosInterceptors = (store) => {
         try {
           const userInfo = { email, password };
 
-          await store.dispatch(logIn(userInfo));
           const resultAction = await store.dispatch(logIn(userInfo));
           const newToken = resultAction.payload.token;
           setAuthHeader(newToken);

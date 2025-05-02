@@ -1,0 +1,27 @@
+@import "../../scss/mixins";
+.box {
+  display: flex;
+  margin-top: 60px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 24px;
+  @include media(desktop) {
+    gap: 35px;
+  }
+}
+.boxItem {
+  display: flex;
+  width: 335px;
+
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  @include media(tablet) {
+    width: 340px;
+    gap: 28px;
+    padding-bottom: 28px;
+  }
+  @include media(desktop) {
+    width: 361px;
+  }
+}

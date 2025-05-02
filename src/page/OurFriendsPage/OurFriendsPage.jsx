@@ -1,4 +1,4 @@
-import Navigate from "../../components/Navigate/Navigate";
+
 import Title from "../../components/Title/Title";
 import css from "./OurFriendsPage.module.scss";
 import { useDispatch, useSelector } from "react-redux";

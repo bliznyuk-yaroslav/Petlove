@@ -1,0 +1,85 @@
+@import "../../scss/mixins";
+.cont {
+  position: absolute;
+  width: 100vh;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+}
+.accInf {
+  position: fixed;
+  width: 218px;
+  height: 100%;
+  background: #f6b83d;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(100%);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  @include media(tablet) {
+    width: 374px;
+  }
+  @include media(desktop) {
+    display: none;
+  }
+}
+.iconClosed {
+  stroke: rgba(255, 255, 255, 1);
+  top: 29px;
+  right: 20px;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  @include media(tablet) {
+    top: 39px;
+    right: 32px;
+    width: 36px;
+    height: 36px;
+  }
+}
+.accInfHome {
+  background: #fff;
+}
+.iconCloseHome {
+  stroke: rgba(38, 38, 38, 1);
+}
+.posAuth {
+  position: absolute;
+  bottom: 40px;
+}
+.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: all;
+}
+.noActive {
+  opacity: 0;
+  transform: translateX(100);
+}
+.btn {
+  display: flex;
+  width: 178px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  color: #f6b83d;
+  border-radius: 30px;
+  background: #fff4df;
+  padding: 15px 20px;
+  border: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-style: normal;
+  font-family: Manrope;
+  @include font(14, 18);
+  @include media(tablet) {
+    height: 50px;
+    @include font(16, 20);
+  }
+}

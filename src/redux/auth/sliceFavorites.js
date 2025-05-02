@@ -3,7 +3,7 @@ import { addNoticesFavorites, deleteFavorite } from "./operations";
 
 const initialState = {
   favorites: [],
-  loading: false,
+  isLoading: false,
   error: null,
 };
 const favoritesSlice = createSlice({
@@ -12,22 +12,25 @@ const favoritesSlice = createSlice({
   reducers: {
     clearFavorites: (state) => {
       state.favorites = [];
-      state.loading = false;
+      state.isLoading = false;
       state.error = null;
+    },
+    setFavorites(state, action) {
+      state.favorites = action.payload;
     },
   },
   extraReducers: (builder) =>
     builder
       .addCase(addNoticesFavorites.pending, (state) => {
-        state.loading = true;
+        state.isLoading = true;
         state.error = null;
       })
       .addCase(addNoticesFavorites.fulfilled, (state, action) => {
-        state.loading = false;
+        state.isLoading = false;
         state.favorites = action.payload;
       })
       .addCase(addNoticesFavorites.rejected, (state, action) => {
-        state.loading = false;
+        state.isLoading = false;
         state.error = action.payload;
       })
       .addCase(deleteFavorite.fulfilled, (state, action) => {
@@ -37,6 +40,6 @@ const favoritesSlice = createSlice({
         state.error = action.payload;
       }),
 });
-export const { clearFavorites } = favoritesSlice.actions;
+export const { clearFavorites, setFavorites } = favoritesSlice.actions;
 
 export default favoritesSlice.reducer;

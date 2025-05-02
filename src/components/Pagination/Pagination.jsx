@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import { setPage } from "../../redux/news/slice";
-import css from "./PaginationComponent.module.scss";
+import css from "./Pagination.module.scss";
 import { useDebounce } from "../../hooks/useDebounce";
-export default function PaginationComponent({ item, page, onPageChange }) {
+export default function Pagination({ item, page, onPageChange }) {
   const handlePageClick = (event) => {
     onPageChange(event.selected + 1);
   };
@@ -40,7 +40,7 @@ export default function PaginationComponent({ item, page, onPageChange }) {
         nextLabel=""
         previousLabel=""
         onPageChange={handlePageClick}
-        pageRangeDisplayed={2}
+        pageRangeDisplayed={1}
         marginPagesDisplayed={0}
         pageCount={item.totalPages || 0}
         forcePage={page - 1}

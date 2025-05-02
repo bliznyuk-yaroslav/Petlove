@@ -13,7 +13,7 @@ export default function UserBlock() {
         </svg>
       </p>
       <div className={css.box}>
-        {user.avatar ? (
+        {user?.avatar ? (
           <div className={css.boxUpload}>
             <div className={css.photoW}>
               <img

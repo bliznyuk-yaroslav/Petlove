@@ -1,0 +1,67 @@
+@import "../../scss/mixins";
+
+.navReg {
+  display: none;
+  @include media(tablet) {
+    flex-direction: column;
+    gap: 8px;
+    display: flex;
+    font-family: Manrope;
+    flex-direction: row;
+    font-weight: 700;
+    font-family: Manrope;
+    @include font(16, 20);
+    letter-spacing: -0.48px;
+    text-transform: uppercase;
+  }
+}
+.navRegMob {
+  display: flex;
+  flex-direction: column;
+  @include font(14, 18);
+  gap: 8px;
+  font-weight: 700;
+  font-style: normal;
+  font-family: Manrope;
+  letter-spacing: -0.42px;
+  text-transform: uppercase;
+  @include media(tablet) {
+    flex-direction: row;
+  }
+}
+
+.log {
+  display: flex;
+  width: 178px;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 34px;
+  height: 42px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: #f6b83d;
+  color: #fff;
+  @include media(tablet) {
+    width: 119px;
+    height: 50px;
+  }
+  @include media(desktop) {
+  }
+}
+.reg {
+  display: flex;
+  width: 178px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  color: #f6b83d;
+  border-radius: 30px;
+  background: #fff4df;
+  padding: 15px 20px;
+  @include media(tablet) {
+    width: 149px;
+    height: 50px;
+  }
+  @include media(desktop) {
+  }
+}

@@ -10,7 +10,7 @@ function CardNews({ news }) {
   const dateNorm = `${day}/${month}/${year}`;
 
   return (
-    <div className={css.box}>
+    <>
       <img src={`${news.imgUrl}`} alt="ImageCard" className={css.imgCard} />
       <div className={css.boxText}>
         <h2 className={css.cardTitle}>{news.title}</h2>
@@ -27,7 +27,7 @@ function CardNews({ news }) {
           Read more
         </a>
       </div>
-    </div>
+    </>
   );
 }
 

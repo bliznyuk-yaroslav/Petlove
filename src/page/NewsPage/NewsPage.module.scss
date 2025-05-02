@@ -2,13 +2,92 @@
 .container {
   margin: 0 auto;
   width: 335px;
-
+  margin-top: 54px;
   @include media(tablet) {
     width: 704px;
-    margin-top: 16px;
+    // margin-top: 16px;
   }
   @include media(desktop) {
     width: 1280px;
+    margin-top: 96px;
     padding: 0 63px 0 64px;
   }
+}
+.inputSearch {
+  width: 335px;
+  height: 42px;
+  display: inline-flex;
+  padding: 14px 60px 14px 14px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  border: 1px solid rgba(38, 38, 38, 0.15);
+  outline: none;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.48px;
+  background-color: transparent;
+  &::placeholder {
+    color: rgba(38, 38, 38, 0.5);
+  }
+  &:focus-visible {
+    border: 1px solid #f6b83d;
+  }
+  @include media(tablet) {
+    width: 230px;
+    height: 48px;
+  }
+}
+.search {
+  position: relative;
+  width: 335px;
+  height: 42px;
+  @include media(tablet) {
+    height: 48px;
+  }
+}
+.iconSearch {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  @include media(tablet) {
+    right: 14px;
+    top: 15px;
+  }
+}
+.btnClear {
+  position: absolute;
+  right: 36px;
+  top: 12px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  @include media(tablet) {
+    right: 36px;
+    top: 15px;
+  }
+}
+.contNews {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include media(tablet) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  fill: #fff;
+  stroke: #262626;
 }

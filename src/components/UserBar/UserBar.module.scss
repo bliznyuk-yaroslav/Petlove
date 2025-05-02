@@ -1,0 +1,66 @@
+@import "../../scss/mixins";
+.accInf {
+  display: flex;
+
+  justify-content: end;
+  align-items: center;
+  gap: 8px;
+}
+.account {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: #fff4df;
+  @include media(tablet) {
+    width: 50px;
+    height: 50px;
+  }
+  @include media(desktop) {
+  }
+}
+.avatarImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  object-fit: cover;
+}
+.iconNoIcon {
+  width: 24px;
+  height: 24px;
+  fill: #f6b83d;
+  stroke: #f6b83d;
+}
+.nameHome {
+  display: none;
+  @include media(tablet) {
+    display: inline-flex;
+    color: #fff;
+    font-family: Manrope;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.6px;
+  }
+  @include media(desktop) {
+  }
+}
+.name {
+  display: none;
+  @include media(tablet) {
+    display: flex;
+    color: #262626;
+    font-family: Manrope;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px; /* 100% */
+    letter-spacing: -0.6px;
+  }
+  @include media(desktop) {
+  }
+}

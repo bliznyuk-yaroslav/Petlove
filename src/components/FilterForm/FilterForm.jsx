@@ -70,9 +70,7 @@ export default function FilterForm() {
   const citiesLocation = useSelector(selectorCities);
   const citLoc = useSelector(selectorCitiesLocation);
   const selLoc = useSelector(selectorCitLoc);
-  const handleChange = (e) => {
-    dispatch(setSearch(e.target.value));
-  };
+
   const search = useSelector(selectorSearchNotices);
   const locationOptions =
     Array.isArray(citiesLocation) && citiesLocation.length > 0
@@ -80,14 +78,21 @@ export default function FilterForm() {
       : Array.isArray(citLoc)
       ? citLoc
       : [];
-
+  const [locationSearch, setLocationSearch] = useState(search);
+  const handleChangeSearch = (e) => {
+    setLocationSearch(e.target.value);
+  };
+  const handleSearchSubmit = (val = locationSearch) => {
+    dispatch(setSearch(val));
+  };
   return (
     <div className={css.filterBox}>
       <SearchField
-        value={search}
-        onChange={handleChange}
+        value={locationSearch}
+        onChange={handleChangeSearch}
         placeholder="Search"
         styles={css}
+        onSubmit={handleSearchSubmit}
       />
       <div className={css.selectWrapper}>
         <Select

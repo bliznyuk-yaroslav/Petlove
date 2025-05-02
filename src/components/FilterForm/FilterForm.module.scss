@@ -83,21 +83,36 @@
     width: 265px;
     height: 48px;
   }
- 
 }
 .iconSearch {
-  width: 18px;
-  height: 18px;
+  position: absolute;
+
   right: 12px;
   top: 13px;
-  position: absolute;
+  background-color: transparent;
+  border: none;
   fill: #fff;
   stroke: #262626;
+  padding: 0;
   @include media(tablet) {
     right: 14px;
     top: 15px;
   }
+}
 
+.icon {
+  width: 18px;
+  height: 18px;
+  fill: #fff;
+  stroke: #262626;
+}
+.btnClear {
+  position: absolute;
+  right: 36px;
+  top: 15px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
 }
 .selectWrapper {
   width: 143px;

@@ -13,7 +13,7 @@ import {
 const authInitialState = {
   user: null,
   token: localStorage.getItem("token") || null,
-  loading: false,
+  isLoading: false,
   error: false,
   isLoggedIn: false,
   isRefreshing: false,
@@ -38,45 +38,46 @@ const authSlice = createSlice({
   extraReducers: (builder) =>
     builder
       .addCase(fetchRegister.pending, (state) => {
-        state.loading = true;
+        state.isLoading = true;
       })
       .addCase(fetchRegister.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
-        state.loading = false;
+        state.isLoading = false;
         state.error = false;
         localStorage.setItem("token", action.payload.token);
       })
       .addCase(fetchRegister.rejected, (state, action) => {
-        state.loading = false;
+        state.isLoading = false;
         state.error = true;
       })
       .addCase(logIn.pending, (state) => {
-        state.loading = true;
+        state.isLoading = true;
       })
       .addCase(logIn.fulfilled, (state, action) => {
         state.error = false;
-        state.isLoggedIn = true;
         state.user = action.payload;
         state.token = action.payload.token;
-        state.loading = false;
+        state.isLoading = false;
         state.email = action.payload.email;
         state.password = action.payload.password;
         localStorage.setItem("token", action.payload.token);
+        state.isLoggedIn = true;
       })
       .addCase(logIn.rejected, (state, action) => {
         state.error = action.error;
-        state.loading = false;
+        state.isLoading = false;
+        state.isLoggedIn = false;
       })
       .addCase(logout.pending, (state) => {
-        state.loading = true;
+        state.isLoading = true;
         state.token = "";
       })
       .addCase(logout.fulfilled, (state, action) => {
         state.token = "";
         state.isLoggedIn = false;
-        state.loading = true;
+        state.isLoading = false;
         state.email = null;
         state.password = null;
         localStorage.removeItem("token");
@@ -85,14 +86,14 @@ const authSlice = createSlice({
       })
       .addCase(logout.rejected, (state, action) => {
         state.token = "";
-        state.loading = true;
+        state.isLoading = false;
         state.error = action.error;
       })
       .addCase(editCurrent.pending, (state) => {
-        state.loading = true;
+        state.isLoading = true;
       })
       .addCase(editCurrent.fulfilled, (state, action) => {
-        state.loading = false;
+        state.isLoading = false;
         state.error = false;
         state.user = action.payload;
         if (action.payload.token) {
@@ -101,20 +102,19 @@ const authSlice = createSlice({
         }
       })
       .addCase(editCurrent.rejected, (state, action) => {
-        state.loading = false;
+        state.isLoading = false;
         state.error = action.payload;
       })
       .addCase(addPets.pending, (state) => {
-        state.loading = true;
+        state.isLoading = true;
       })
       .addCase(addPets.fulfilled, (state, action) => {
-        state.loading = false;
+        state.isLoading = false;
         state.error = null;
         state.user = action.payload;
       })
       .addCase(addPets.rejected, (state, action) => {
-        state.loading = false;
-        state.user = [];
+        state.isLoading = false;
         state.error = action.payload;
       })
       .addCase(fetchAllCurrent.fulfilled, (state, action) => {

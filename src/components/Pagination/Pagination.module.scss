@@ -1,61 +1,91 @@
+@import "../../scss/mixins";
 .contPag {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 60px;
-  padding-bottom: 80px;
-  gap: 24px;
+  margin-bottom: 80px;
+
+  @include media(tablet) {
+    gap: 24px;
+  }
+  @include media(desktop) {
+  }
 }
 .buttonLeft {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   flex-shrink: 0;
   position: relative;
   border-radius: 50%;
   border: 1px solid rgba(38, 38, 38, 0.05);
   transition: transform 0.3s ease-in-out;
+  @include media(tablet) {
+    width: 44px;
+    height: 44px;
+  }
+  @include media(desktop) {
+  }
 }
 
 .icon1 {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   position: absolute;
   fill: rgba(38, 38, 38, 1);
   left: 6px;
   top: 10px;
+  @include media(tablet) {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 .icon2 {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   position: absolute;
   left: 12px;
   top: 10px;
   fill: rgba(38, 38, 38, 1);
+  @include media(tablet) {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 .buttonRight {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   flex-shrink: 0;
   position: relative;
   border-radius: 50%;
   border: 1px solid rgba(38, 38, 38, 0.05);
   transform: rotate(180deg);
   transition: transform 0.3s ease-in-out;
+  @include media(tablet) {
+    width: 44px;
+    height: 44px;
+  }
 }
 
 .icon3 {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   position: absolute;
   left: 8px;
   top: 10px;
   fill: rgba(38, 38, 38, 1);
+  @include media(tablet) {
+    width: 24px;
+    height: 24px;
+  }
 }
 .left {
   display: flex;
-  gap: 8px;
+  gap: 6px;
+  @include media(tablet) {
+    gap: 8px;
+  }
 }
 .disabled {
   cursor: not-allowed;
@@ -63,59 +93,29 @@
   pointer-events: none;
 }
 .numBut {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   flex-shrink: 0;
   color: #262626;
-
   font-family: Manrope;
-  font-size: 18px;
   font-style: normal;
   font-weight: 700;
-  line-height: 22px;
   display: flex;
   justify-content: center;
   align-items: center;
-
   border-radius: 50%;
   border: 1px solid rgba(38, 38, 38, 0.05);
+  @include font(14, 18);
+  @include media(tablet) {
+    width: 44px;
+    height: 44px;
+    @include font(18, 22);
+  }
 }
 // .active {
 //   background-color: #f6b83d;
 //   color: #fff;
 // }
-.contPa {
-  display: flex;
-  gap: 10px;
-
-  transition: transform 0.3s ease-in-out;
-}
-.pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.pageButton {
-  background-color: #f1f1f1;
-  padding: 10px;
-  border-radius: 50%;
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.pageButton.active {
-  background-color: #007bff;
-  color: white;
-}
-
-.pageButton:hover {
-  background-color: #ddd;
-}
 
 .pagination {
   display: flex;
@@ -131,6 +131,10 @@
   font-weight: 700;
   line-height: 22px;
   margin: 0;
+  @include font(14, 18);
+  @include media(tablet) {
+    @include font(18, 22);
+  }
 }
 
 .pageItem {
@@ -139,10 +143,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
   user-select: none;
+  @include media(tablet) {
+    width: 44px;
+    height: 44px;
+  }
 }
 
 .pageLink {
@@ -156,10 +164,11 @@
   border-color: #f6b83d;
   color: #fff;
   color: #fff;
-
   font-family: Manrope;
-  font-size: 18px;
   font-style: normal;
   font-weight: 700;
-  line-height: 22px;
+  @include font(14, 18);
+  @include media(tablet) {
+    @include font(18, 22);
+  }
 }

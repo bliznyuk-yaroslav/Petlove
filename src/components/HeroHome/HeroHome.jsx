@@ -1,10 +1,10 @@
-import Navigate from "../Navigate/Navigate";
+import Header from "../Header/Header";
 import css from "./HeroHome.module.scss";
 function HeroHome() {
   return (
     <>
       <div className={css.container}>
-        <Navigate />
+        <Header />
         <div className={css.contText}>
           <h1 className={css.heroH}>
             Take good <span className={css.heroCare}>care</span> of your small

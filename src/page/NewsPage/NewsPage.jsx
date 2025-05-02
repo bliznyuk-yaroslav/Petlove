@@ -1,28 +1,26 @@
 import { useDispatch, useSelector } from "react-redux";
-import ListNews from "../../components/ListNews/ListNews";
-import Navigate from "../../components/Navigate/Navigate";
-import News from "../../components/News/New";
-import PaginationComponent from "../../components/PaginationComponent/PaginationComponent";
+import NewsList from "../../components/NewsList/NewsList";
+import Pagination from "../../components/Pagination/Pagination";
 import css from "./NewsPage.module.scss";
 import {
-  selectorLoadingNews,
   selectorNews,
   selectorPage,
   selectorSearch,
 } from "../../redux/news/selectors";
 import { fetchNews } from "../../redux/news/operations";
-import { useEffect } from "react";
-import { setPage } from "../../redux/news/slice";
-import { selectorFullInfoUsers } from "../../redux/auth/selectors";
+import { useEffect, useState } from "react";
+import { setPage, setSearch } from "../../redux/news/slice";
+
 import { fetchAllCurrent } from "../../redux/auth/operations";
+import Title from "../../components/Title/Title";
+import SearchField from "../../components/SearchField/SearchField";
 
 export default function NewsPage() {
-  const loading = useSelector(selectorLoadingNews);
   const dispatch = useDispatch();
   const news = useSelector(selectorNews);
   const page = useSelector(selectorPage);
   const search = useSelector(selectorSearch);
-  const userInfo = useSelector(selectorFullInfoUsers);
+  const [locationSearch, setLocationSearch] = useState(search);
   useEffect(() => {
     dispatch(fetchAllCurrent());
   }, [dispatch]);
@@ -30,19 +28,33 @@ export default function NewsPage() {
   useEffect(() => {
     dispatch(fetchNews({ page, search }));
   }, [dispatch, page, search]);
+
   const handlePageChange = (newPage) => {
     dispatch(setPage(newPage));
   };
 
+  const handleChange = (e) => {
+    setLocationSearch(e.target.value);
+  };
+  const handleSearchSubmit = (val = locationSearch) => {
+    dispatch(setSearch(val));
+    dispatch(setPage(1));
+  };
+
   return (
     <section className={css.container}>
-      <News />
-      <ListNews />
-      <PaginationComponent
-        item={news}
-        page={page}
-        onPageChange={handlePageChange}
-      />
+      <div className={css.contNews}>
+        <Title title="News" />
+        <SearchField
+          value={locationSearch}
+          onChange={handleChange}
+          placeholder="Search"
+          styles={css}
+          onSubmit={handleSearchSubmit}
+        />
+      </div>
+      <NewsList />
+      <Pagination item={news} page={page} onPageChange={handlePageChange} />
     </section>
   );
 }

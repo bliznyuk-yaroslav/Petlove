@@ -1,14 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import css from "./MyNotices.module.scss";
-import { useSelector } from "react-redux";
-import { selectorFullInfoUsers } from "../../redux/auth/selectors";
+import { useDispatch, useSelector } from "react-redux";
+import { selectorFav, selectorFullInfoUsers } from "../../redux/auth/selectors";
 import NoticesItem from "../NoticesItem/NoticesItem";
+import { setFavorites } from "../../redux/auth/sliceFavorites";
+import { useLocation } from "react-router-dom";
 export default function MyNotices() {
+  const dispatch = useDispatch();
+  const location = useLocation();
   const userInfo = useSelector(selectorFullInfoUsers);
   const [myFavorite, setMyFavorite] = useState(true);
-  const dataToRender = myFavorite
-    ? userInfo.noticesFavorites
-    : userInfo.noticesViewed;
+  const favorite = useSelector(selectorFav);
+  const dataToRender = myFavorite ? favorite : userInfo.noticesViewed;
+  useEffect(() => {
+    if (userInfo?.noticesFavorites?.length) {
+      dispatch(setFavorites(userInfo.noticesFavorites));
+    }
+  }, [userInfo?.noticesFavorites, dispatch]);
+  const isProfilePage = location.pathname === "/profile";
+  const showViewedInProfile = isProfilePage && !myFavorite;
   return (
     <div className={css.cont}>
       <div className={css.btnBox}>
@@ -29,7 +39,11 @@ export default function MyNotices() {
         {dataToRender?.length > 0 ? (
           dataToRender.map((item) => (
             <li key={item._id} className={css.boxCard}>
-              <NoticesItem notices={item} styles={css} />
+              <NoticesItem
+                notices={item}
+                styles={css}
+                myFavorite={showViewedInProfile}
+              />
             </li>
           ))
         ) : (

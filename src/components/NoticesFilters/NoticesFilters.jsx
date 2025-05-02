@@ -12,13 +12,10 @@ import FilterForm from "../FilterForm/FilterForm";
 
 export default function NoticesFilters() {
   const dispatch = useDispatch();
-  const search = useSelector(selectorSearchNotices);
   const byPopularity = useSelector(selectorByPopular);
   const byPrice = useSelector(selectorByPrice);
 
-  const handleChange = (e) => {
-    dispatch(setSearch(e.target.value));
-  };
+
   const handlePrice = (e) => {
     dispatch(setPrice(e));
     dispatch(setPopularity(null));

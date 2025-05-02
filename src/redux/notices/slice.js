@@ -35,7 +35,7 @@ const noticesSlice = createSlice({
     setSearch: (state, action) => {
       state.search = action.payload;
     },
-    setPage: (state, action) => {
+    setPageNotices: (state, action) => {
       state.notices.page = action.payload;
     },
     setSex: (state, action) => {
@@ -57,12 +57,11 @@ const noticesSlice = createSlice({
       state.filters.byPrice = action.payload;
     },
 
-    resetFilters: (state) => {
+    resetFiltersNotices: (state) => {
       state.filters.setSex = "";
       state.filters.setSpecies = "";
       state.filters.setCategory = "";
       state.search = "";
-      state.notices.page = 1;
       state.filters.byPopularity = null;
       // state.filters.selectedLocation = null;
     },
@@ -101,12 +100,12 @@ const noticesSlice = createSlice({
   },
 });
 export const {
-  setPage,
+  setPageNotices,
   setSearch,
   setSex,
   setCategory,
   setSpecies,
-  resetFilters,
+  resetFiltersNotices,
   setSearchLocations,
   setPopularity,
   setPrice,

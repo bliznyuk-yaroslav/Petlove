@@ -1,4 +1,42 @@
 @import "../../scss/mixins";
+.cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include media(tablet) {
+  }
+
+  @include media(desktop) {
+  }
+}
+.contNav {
+  margin: 0 auto;
+  padding: 32px;
+  width: 375px;
+  @include media(tablet) {
+    width: 768px;
+  }
+
+  @include media(desktop) {
+    padding: 24px 64px 0 64px;
+    width: 1280px;
+  }
+}
+
+.info {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  @include media(tablet) {
+  }
+
+  @include media(desktop) {
+    gap: 16px;
+  }
+}
+
 .burgerMenu {
   @include media(tablet) {
   }

@@ -1,5 +1,5 @@
 import { capitalizeWords } from "../../hooks/useCapitalizeWords";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NoticesModal from "../NoticesModal/NoticesModal";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -12,31 +12,42 @@ import {
   addNoticesFavorites,
   deleteFavorite,
 } from "../../redux/auth/operations";
-import { css } from "@emotion/react";
-export default function NoticesItem({ notices, styles }) {
+import { setFavorites } from "../../redux/auth/sliceFavorites";
+
+export default function NoticesItem({ notices, styles, myFavorite }) {
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
   const [showNoAuthModal, setShowNoAuthModal] = useState(false);
-  const userInfo = useSelector(selectorFullInfoUsers);
   const handleOpenModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
   const login = useSelector(selectIsLoggedIn);
   const favorites = useSelector(selectorFav);
-  const isFavorite = userInfo.noticesFavorites?.some(
-    (favorite) => favorite._id === notices._id
+  const isFavorite = favorites.some(
+    (fav) => fav._id === notices._id || fav === notices._id
   );
-  console.log(isFavorite);
-  const handleFavoriteClick = () => {
+
+  const handleToggleFavorite = async () => {
     if (!login) {
       setShowNoAuthModal(true);
       return;
     }
 
-    dispatch(addNoticesFavorites(notices._id));
+    try {
+      if (isFavorite) {
+        await dispatch(deleteFavorite(notices._id)).unwrap();
+        const updatedFavorites = favorites.filter(
+          (item) => (item._id || item) !== notices._id
+        );
+        dispatch(setFavorites(updatedFavorites));
+      } else {
+        await dispatch(addNoticesFavorites(notices._id)).unwrap();
+        dispatch(setFavorites([...favorites, notices]));
+      }
+    } catch (error) {
+      console.error("Favorite toggle failed:", error);
+    }
   };
-  const handleDeleteFavorite = () => {
-    dispatch(deleteFavorite(notices._id));
-  };
+  const currentIcon = isFavorite ? "icon-trash-2" : "icon-heart";
   return (
     <div className={styles.box}>
       <img
@@ -89,19 +100,26 @@ export default function NoticesItem({ notices, styles }) {
           {notices.price ? `$${notices.price}` : "Currently unavailable"}
         </p>
         <div className={styles.btnWrap}>
-          <button className={styles.btnLearn} onClick={handleOpenModal}>
+          <button
+            className={`${styles.btnLearn} ${
+              myFavorite ? styles.btnVeiwed : ""
+            }`}
+            onClick={handleOpenModal}
+          >
             Learn more
           </button>
-          <span
-            className={
-              isFavorite ? styles.favoriteBackground : styles.iconBoxFavorite
-            }
-            onClick={handleFavoriteClick}
-          >
-            <svg className={styles.iconFavorite}>
-              <use xlinkHref={`/icons/sprite.svg#icon-heart`}></use>
-            </svg>
-          </span>
+          {!myFavorite ? (
+            <span
+              className={
+                isFavorite ? styles.favoriteBackground : styles.iconBoxFavorite
+              }
+              onClick={handleToggleFavorite}
+            >
+              <svg className={styles.iconFavorite}>
+                <use xlinkHref={`/icons/sprite.svg#${currentIcon}`}></use>
+              </svg>
+            </span>
+          ) : null}
         </div>
       </div>
       {showModal &&

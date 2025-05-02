@@ -28,6 +28,7 @@
 
   @include font(14, 18);
   @include media(tablet) {
+    width: 142px;
     @include font(16, 20);
     padding: 14px;
     letter-spacing: -0.48px;
@@ -49,6 +50,11 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 24px;
+  @include media(tablet) {
+    gap: 20px;
+  }
+  @include media(desktop) {
+  }
 }
 
 //  Styles Item
@@ -62,10 +68,11 @@
   background: #fff;
   border-radius: 16px;
   @include media(tablet) {
+    width: 342px;
+    padding: 14px;
   }
   @include media(desktop) {
     width: 320px;
-    padding: 14px;
   }
 }
 .box h2 {
@@ -75,9 +82,9 @@
   font-weight: 700;
   @include font(16, 20);
   @include media(tablet) {
+    @include font(18, 24);
   }
   @include media(desktop) {
-    @include font(18, 24);
   }
 }
 .priceText {
@@ -93,10 +100,11 @@
   border-radius: 16px;
   object-fit: cover;
   @include media(tablet) {
+    width: 314px;
+    height: 162px;
   }
   @include media(desktop) {
     width: 292px;
-    height: 162px;
   }
 }
 .iconBox {
@@ -191,6 +199,15 @@
   line-height: 20px; /* 125% */
   letter-spacing: -0.48px;
   outline: none;
+}
+.btnVeiwed {
+  width: 287px;
+  @include media(tablet) {
+    width: 314px;
+  }
+  @include media(desktop) {
+    width: 292px;
+  }
 }
 .iconBoxFavorite {
   display: flex;

@@ -1,6 +1,5 @@
 import { useDispatch } from "react-redux";
 import LogInForm from "../../components/LogInForm/LogInForm";
-import Navigate from "../../components/Navigate/Navigate";
 import PetBlock from "../../components/PetBlock/PetBlock";
 import css from "./LogInPage.module.scss";
 import { useEffect } from "react";

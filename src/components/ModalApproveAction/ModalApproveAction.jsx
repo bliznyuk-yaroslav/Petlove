@@ -1,10 +1,6 @@
 import css from "./ModalApproveAction.module.scss";
 import pets from "../../images/catIcon.png";
-import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { logout } from "../../redux/auth/operations";
-import { clearFavorites } from "../../redux/auth/sliceFavorites";
 import clsx from "clsx";
 export default function ModalApproveAction({ onClose, onConfirm, isOpen }) {
   const [visible, setVisible] = useState(false);

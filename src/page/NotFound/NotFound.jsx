@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Navigate from "../../components/Navigate/Navigate";
+
 import css from "./NotFound.module.scss";
 import cat from "../../images/07863234c0633ec8822b21aaaf0de963.png";
 

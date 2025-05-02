@@ -1,0 +1,60 @@
+@import "../../scss/mixins";
+.button {
+  display: none;
+  @include media(tablet) {
+  }
+  @include media(desktop) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+}
+.mobileMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.new {
+  width: 119px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 500;
+
+  @include font(14, 18);
+  @include media(tablet) {
+    @include font(16, 20);
+    width: 120px;
+    letter-spacing: -0.48px;
+  }
+  @include media(desktop) {
+    color: #262626;
+    border: 1px solid rgba(38, 38, 38, 0.15);
+  }
+}
+.newBut {
+  color: #262626;
+  border: 1px solid rgba(38, 38, 38, 0.15);
+  @include media(tablet) {
+  }
+  @include media(desktop) {
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
+}
+.active {
+  border: 1px solid rgba(255, 255, 255, 1);
+  @include media(tablet) {
+  }
+  @include media(desktop) {
+    border: 1px solid #f6b83d;
+  }
+}
