@@ -56,7 +56,7 @@
 .name {
   display: none;
   @include media(tablet) {
-    display: flex;
+    display: block;
     color: #262626;
     font-family: Manrope;
     font-size: 20px;
@@ -64,6 +64,10 @@
     font-weight: 700;
     line-height: 20px; /* 100% */
     letter-spacing: -0.6px;
+    width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   @include media(desktop) {
   }

@@ -5,8 +5,10 @@ import dog from "../../images/Dog.png";
 export default function AddPetPage() {
   return (
     <section className={css.container}>
-      <PetBlock photo={dog} />
-      <AddPetForm />
+      <div className={css.contHead}>
+        <PetBlock photo={dog} styles={css} />
+        <AddPetForm />
+      </div>
     </section>
   );
 }

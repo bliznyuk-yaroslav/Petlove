@@ -15,6 +15,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { addPets } from "../../redux/auth/operations";
 import { uploadImageToCloudinary } from "../../hooks/cloudinary";
 import toast from "react-hot-toast";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 const schema = yup.object().shape({
   title: yup.string().required("Title is required"),
   name: yup.string().required("Name is required"),
@@ -33,6 +34,7 @@ const schema = yup.object().shape({
   sex: yup.string().required("Sex is required"),
 });
 export default function AddPetForm() {
+  const isTablet = useMediaQuery("(max-width: 768px)");
   const navigateProfile = useNavigate();
   const dispatch = useDispatch();
   const [img, setImg] = useState(false);
@@ -287,18 +289,21 @@ export default function AddPetForm() {
                       onChange={handleSpeciesChange}
                       options={toOptions(species)}
                       styles={{
-                        ...customerSelectStyles,
-                        control: (base, state) => ({
-                          ...customerSelectStyles.control(base, state),
-                          border:
-                            fieldState.invalid &&
-                            !state.isFocused &&
-                            !state.hasValue
-                              ? "1px solid red"
-                              : state.hasValue
-                              ? "1px solid #08aa83"
-                              : "1px solid rgba(38, 38, 38, 0.15)",
-                        }),
+                        ...customerSelectStyles(isTablet),
+                        control: (base, state) => {
+                          const customStyles = customerSelectStyles(isTablet);
+                          return {
+                            ...customStyles.control(base, state),
+                            border:
+                              fieldState.invalid &&
+                              !state.isFocused &&
+                              !state.hasValue
+                                ? "1px solid red"
+                                : state.hasValue
+                                ? "1px solid #08aa83"
+                                : "1px solid rgba(38, 38, 38, 0.15)",
+                          };
+                        },
                       }}
                       placeholder="Type of pet"
                       menuPortalTarget={document.body}

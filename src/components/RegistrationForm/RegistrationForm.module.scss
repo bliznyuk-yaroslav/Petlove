@@ -1,62 +1,89 @@
 @import "../../scss/mixins";
 .boxLogIn {
-  width: 592px;
-  height: 654px;
-  border-radius: 60px;
+  width: 335px;
+  height: 100%;
+  border-radius: 30px;
   background: #fff;
-  padding: 68px 84px;
+  padding: 27px 20px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 20px;
+  @include media(tablet) {
+    width: 704px;
+    height: 560px;
+    padding: 27px 140px;
+    gap: 32px;
+    border-radius: 60px;
+  }
+  @include media(desktop) {
+    width: 592px;
+    height: 654px;
+    padding: 69px 84px;
+  }
 }
 .contText {
   display: flex;
   flex-direction: column;
-  width: 424px;
-  gap: 16px;
+  width: 295px;
+  gap: 12px;
+  @include media(tablet) {
+    width: 424px;
+    gap: 16px;
+  }
 }
 .headLog {
   color: #262626;
   font-family: Manrope;
-  font-size: 54px;
+
   font-style: normal;
   font-weight: 700;
-  line-height: 54px;
+
   letter-spacing: -2.16px;
+  @include font(28, 28);
+  @include media(tablet) {
+    @include font(54, 54);
+  }
 }
 .textLog {
+  width: 297px;
   color: #262626;
   font-family: Manrope;
-  font-size: 18px;
   font-style: normal;
   font-weight: 500;
-  line-height: 22px; /* 122.222% */
   letter-spacing: -0.36px;
+  @include font(14, 18);
+  @include media(tablet) {
+    @include font(18, 22);
+    width: auto;
+  }
 }
 .formLog {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 424px;
   height: 100%;
+  gap: 24px;
+  @include media(desktop) {
+    gap: 32px;
+  }
 }
 .input {
   display: flex;
-  padding: 16px;
+  padding: 12px;
   justify-content: center;
   align-items: center;
   gap: 10px;
   border-radius: 30px;
   border: 1px solid rgba(38, 38, 38, 0.15);
-  width: 424px;
+  width: 295px;
+  height: 42px;
   color: rgba(38, 38, 38, 0.8);
   font-family: Manrope;
-  font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 20px;
-  letter-spacing: -0.48px;
+  letter-spacing: -0.42px;
   background-color: #fff;
+  @include font(14, 18);
   &:hover {
     outline: none;
     border: 1px solid #f6b83d;
@@ -65,37 +92,53 @@
     outline: none;
     border: 1px solid #f6b83d;
   }
+  @include media(tablet) {
+    width: 424px;
+    height: 52px;
+    @include font(16, 20);
+    padding: 16px;
+    letter-spacing: -0.48px;
+  }
 }
 .formPos {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 10px;
+  @include media(tablet) {
+    gap: 16px;
+  }
 }
-.formLog {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 424px;
-  height: 100%;
-}
+
 .contEmail {
   position: relative;
 }
 .icon {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   position: absolute;
-  top: 15px;
-  right: 16px;
+  top: 12px;
+  right: 12px;
   cursor: pointer;
+  @include media(tablet) {
+    width: 22px;
+    height: 22px;
+    top: 15px;
+    right: 16px;
+  }
 }
 .iconPas {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   position: absolute;
-  top: 15px;
-  right: 50px;
+  top: 12px;
+  right: 38px;
   cursor: pointer;
+  @include media(tablet) {
+    width: 22px;
+    height: 22px;
+    top: 15px;
+    right: 50px;
+  }
 }
 .inputError {
   border: 1px solid red;
@@ -138,9 +181,12 @@
   align-items: center;
   justify-content: center;
 }
+
 .btn {
+  width: 295px;
+  height: 42px;
   display: inline-flex;
-  padding: 16px 187px;
+  padding: 12px 126px;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -149,12 +195,16 @@
   border: none;
   color: #fff;
   font-family: Manrope;
-  font-size: 16px;
   font-style: normal;
   font-weight: 700;
-  line-height: 20px;
   letter-spacing: -0.48px;
   text-transform: uppercase;
+  @include font(14, 18);
+  @include media(tablet) {
+    width: 424px;
+    height: 52px;
+    @include font(16, 20);
+  }
 }
 .textFromReg {
   color: rgba(38, 38, 38, 0.5);
@@ -162,8 +212,12 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 20px; /* 142.857% */
-  letter-spacing: -0.42px;
+  @include font(12, 14);
+  letter-spacing: -0.36px;
+  @include media(tablet) {
+    @include font(14, 20);
+    letter-spacing: -0.42px;
+  }
 }
 .regCol {
   color: #f6b83d;

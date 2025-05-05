@@ -13,6 +13,7 @@ import {
   deleteFavorite,
 } from "../../redux/auth/operations";
 import { setFavorites } from "../../redux/auth/sliceFavorites";
+import clsx from "clsx";
 
 export default function NoticesItem({ notices, styles, myFavorite }) {
   const dispatch = useDispatch();
@@ -69,15 +70,21 @@ export default function NoticesItem({ notices, styles, myFavorite }) {
           <div className={styles.categoryBox}>
             <div>
               <h5 className={styles.headCat}>Name</h5>
-              <p className={styles.specCat}>{capitalizeWords(notices.name)}</p>
+              <p className={clsx(styles.specCat, styles.name)}>
+                {capitalizeWords(notices.name)}
+              </p>
             </div>
             <div>
               <h5 className={styles.headCat}>Birthday</h5>
-              <p className={styles.specCat}>{notices.birthday}</p>
+              <p className={styles.specCat}>
+                {notices.birthday ? notices.birthday.replace(/-/g, ".") : "-"}
+              </p>
             </div>
             <div>
               <h5 className={styles.headCat}>Sex</h5>
-              <p className={styles.specCat}>{capitalizeWords(notices.sex)}</p>
+              <p className={clsx(styles.specCat, styles.name)}>
+                {capitalizeWords(notices.sex)}
+              </p>
             </div>
             <div>
               <h5 className={styles.headCat}>Species</h5>

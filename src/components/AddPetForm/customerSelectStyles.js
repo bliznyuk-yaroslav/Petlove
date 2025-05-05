@@ -1,6 +1,4 @@
-import { display, height, padding } from "@mui/system";
-
-const customerSelectStyles = {
+const customerSelectStyles = (isTablet) => ({
   control: (base, state) => ({
     display: "flex",
     justifyContent: "center",
@@ -11,11 +9,10 @@ const customerSelectStyles = {
     border:
       state.isFocused || state.isHovered
         ? "1px solid rgba(246, 184, 61, 1)"
-        : "1px solid rgba(38, 38, 38, 0.15)"
-   ,
+        : "1px solid rgba(38, 38, 38, 0.15)",
     boxShadow: "none",
     cursor: "pointer",
-    width: "210px",
+    width: isTablet ? "143px" : "210px",
     height: "48px",
     color: "rgba(38, 38, 38, 1)",
     fontFamily: "Manrope",
@@ -122,6 +119,6 @@ const customerSelectStyles = {
       backgroundColor: "#555",
     },
   }),
-};
+});
 
 export default customerSelectStyles;

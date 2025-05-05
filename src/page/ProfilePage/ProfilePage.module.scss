@@ -3,16 +3,14 @@
   margin-top: 43px;
   margin: 0 auto;
   width: 335px;
-
+  margin-top: 24px;
   @include media(tablet) {
     width: 704px;
-
-    margin-top: 16px;
+    margin-top: 32px;
   }
   @include media(desktop) {
     width: 1280px;
     padding: 0 32px;
-    margin-top: 43px;
     display: flex;
     gap: 32px;
   }

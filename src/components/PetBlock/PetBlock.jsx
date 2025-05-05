@@ -1,7 +1,8 @@
+
 import css from "./PetBlock.module.scss";
-import pets from "../../images/pets.png";
+
 import { useLocation } from "react-router-dom";
-export default function PetBlock({ photo, styles }) {
+export default function PetBlock({ styles, desc, data, name, pets }) {
   const location = useLocation();
   const isAddPetPage = location.pathname === "/add-pet";
   return (
@@ -10,7 +11,7 @@ export default function PetBlock({ photo, styles }) {
         <use xlinkHref={`/icons/sprite.svg#icon-Rectangle-4561`}></use>
       </svg>
       <div className={styles.boxPhoto}>
-        <img src={photo} alt="pets" className={styles.petsBig} />
+     
       </div>
       {!isAddPetPage && (
         <div className={css.pertInf}>
@@ -19,16 +20,12 @@ export default function PetBlock({ photo, styles }) {
           </div>
           <div className={css.pets}>
             <div className={css.petsBirth}>
-              <p className={css.name}>Rich</p>
+              <p className={css.name}>{name}</p>
               <p className={css.birthday}>
-                Birthday: <span className={css.birthCol}>21.09.2020</span>
+                Birthday: <span className={css.birthCol}>{data}</span>
               </p>
             </div>
-            <p className={css.petsDescription}>
-              Rich would be the perfect addition to an active family that loves
-              to play and go on walks. I bet he would love having a doggy
-              playmate too!
-            </p>
+            <p className={css.petsDescription}>{desc}</p>
           </div>
         </div>
       )}

@@ -5,6 +5,7 @@
   background: #f6b83d;
   border-radius: 30px;
   position: relative;
+  overflow: hidden;
   @include media(tablet) {
     border-radius: 60px;
     width: 704px;
@@ -65,11 +66,12 @@
 .icon {
   position: absolute;
   z-index: 0;
-  width: 332px;
-  height: 414px;
+  width: 314px;
+  height: 393px;
   fill: rgba(255, 255, 255, 0.1);
   stroke: none;
-
+  left: 19px;
+  top: 18px;
   flex-shrink: 0;
   @include media(tablet) {
     left: 106px;
