@@ -5,6 +5,7 @@
   margin-top: 54px;
   @include media(tablet) {
     width: 704px;
+    margin-top: 85px;
     // margin-top: 16px;
   }
   @include media(desktop) {
@@ -47,6 +48,7 @@
   width: 335px;
   height: 42px;
   @include media(tablet) {
+    width: 230px;
     height: 48px;
   }
 }
@@ -96,4 +98,17 @@
   height: 18px;
   fill: #fff;
   stroke: #262626;
+}
+.newsHead {
+  color: #262626;
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.84px;
+  @include font(28, 28);
+
+  @include media(tablet) {
+    @include font(54, 54);
+    letter-spacing: -1.62px;
+  }
 }

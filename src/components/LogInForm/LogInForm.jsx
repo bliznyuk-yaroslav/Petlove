@@ -7,6 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { logIn } from "../../redux/auth/operations";
+import Title from "../Title/Title";
 const schema = yup.object().shape({
   email: yup
     .string()
@@ -48,7 +49,7 @@ export default function LogInForm() {
   return (
     <div className={css.boxLogIn}>
       <div className={css.contText}>
-        <h1 className={css.headLog}>Log in</h1>
+        <Title title="Log in" styles={css} />
         <p className={css.textLog}>
           Welcome! Please enter your credentials to login to the platform:
         </p>

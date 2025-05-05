@@ -1,25 +1,29 @@
 @import "../../scss/mixins";
 .box {
   display: flex;
-  margin-top: 60px;
-  margin-bottom: 28px;
+  margin-top: 20px;
+  margin-bottom: 44px;
   flex-wrap: wrap;
   gap: 24px;
+  @include media(tablet) {
+    gap: 32px 24px;
+    margin-bottom: 60px;
+  }
   @include media(desktop) {
-    gap: 35px;
+    gap: 40px 35px;
+    margin-top: 60px;
   }
 }
 .boxItem {
   display: flex;
   width: 335px;
-
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
   @include media(tablet) {
     width: 340px;
     gap: 28px;
-    padding-bottom: 28px;
+    height: 476px;
   }
   @include media(desktop) {
     width: 361px;

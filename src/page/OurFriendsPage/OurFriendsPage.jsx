@@ -1,4 +1,3 @@
-
 import Title from "../../components/Title/Title";
 import css from "./OurFriendsPage.module.scss";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,7 +13,7 @@ export default function OurFriendsPage() {
   }, [dispatch]);
   return (
     <section className={css.container}>
-      <Title title="Our Friends" />
+      <Title title="Our Friends" styles={css} />
       <FriendsList />
     </section>
   );

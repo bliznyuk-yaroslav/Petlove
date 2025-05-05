@@ -77,7 +77,7 @@ export default function NoticesPage() {
 
   return (
     <section className={css.container}>
-      <Title title="Find your favorite pet" />
+      <Title title="Find your favorite pet" styles={css} />
       <NoticesFilters />
       <NoticesList />
       <Pagination item={notices} page={page} onPageChange={handlePageChange} />

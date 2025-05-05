@@ -11,5 +11,19 @@
   @include media(desktop) {
     width: 1280px;
     padding: 0 32px;
+    margin-top: 96px;
+  }
+}
+.newsHead {
+  color: #262626;
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.84px;
+  @include font(28, 28);
+  margin-left: 32px;
+  @include media(tablet) {
+    @include font(54, 54);
+    letter-spacing: -1.62px;
   }
 }

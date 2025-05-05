@@ -44,7 +44,7 @@ export default function NewsPage() {
   return (
     <section className={css.container}>
       <div className={css.contNews}>
-        <Title title="News" />
+        <Title title="News" styles={css} />
         <SearchField
           value={locationSearch}
           onChange={handleChange}

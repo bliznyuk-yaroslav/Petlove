@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import Title from "../Title/Title";
 const schema = yup.object().shape({
   name: yup.string().required("Name is required"),
   email: yup
@@ -54,7 +55,7 @@ export default function RegistrationForm() {
   return (
     <div className={css.boxLogIn}>
       <div className={css.contText}>
-        <h1 className={css.headLog}>Registration</h1>
+        <Title title="Registration" styles={css} />
         <p className={css.textLog}>
           Thank you for your interest in our platform.
         </p>
