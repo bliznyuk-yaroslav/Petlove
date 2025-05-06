@@ -1,32 +1,39 @@
 import { capitalizeWords } from "../../hooks/useCapitalizeWords";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import NoticesModal from "../NoticesModal/NoticesModal";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  selectIsLoggedIn,
-  selectorFav,
-  selectorFullInfoUsers,
-} from "../../redux/auth/selectors";
+import { selectIsLoggedIn, selectorFav } from "../../redux/auth/selectors";
 import NoticesModalNoAuth from "../NoticesModalNoAuth/NoticesModalNoAuth";
 import {
   addNoticesFavorites,
+  addViewedPets,
   deleteFavorite,
 } from "../../redux/auth/operations";
 import { setFavorites } from "../../redux/auth/sliceFavorites";
 import clsx from "clsx";
+import toast from "react-hot-toast";
 
 export default function NoticesItem({ notices, styles, myFavorite }) {
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
   const [showNoAuthModal, setShowNoAuthModal] = useState(false);
-  const handleOpenModal = () => setShowModal(true);
+
   const handleCloseModal = () => setShowModal(false);
   const login = useSelector(selectIsLoggedIn);
   const favorites = useSelector(selectorFav);
   const isFavorite = favorites.some(
     (fav) => fav._id === notices._id || fav === notices._id
   );
-
+  const handleOpenModal = async () => {
+    if (login) {
+      try {
+        await dispatch(addViewedPets(notices._id)).unwrap();
+      } catch (error) {
+        console.error("Failed to add viewed pet:", error);
+      }
+    }
+    setShowModal(true);
+  };
   const handleToggleFavorite = async () => {
     if (!login) {
       setShowNoAuthModal(true);
@@ -40,14 +47,17 @@ export default function NoticesItem({ notices, styles, myFavorite }) {
           (item) => (item._id || item) !== notices._id
         );
         dispatch(setFavorites(updatedFavorites));
+        toast.success("Delete to Favorite!");
       } else {
         await dispatch(addNoticesFavorites(notices._id)).unwrap();
         dispatch(setFavorites([...favorites, notices]));
+        toast.success("Add Notices to Favorite!");
       }
     } catch (error) {
       console.error("Favorite toggle failed:", error);
     }
   };
+
   const currentIcon = isFavorite ? "icon-trash-2" : "icon-heart";
   return (
     <div className={styles.box}>

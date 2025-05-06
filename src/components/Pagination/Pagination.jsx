@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ReactPaginate from "react-paginate";
-import { setPage } from "../../redux/news/slice";
 import css from "./Pagination.module.scss";
 import { useDebounce } from "../../hooks/useDebounce";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 export default function Pagination({ item, page, onPageChange }) {
+  const isMobile = useMediaQuery("(max-width: 768px)");
   const handlePageClick = (event) => {
     onPageChange(event.selected + 1);
   };
@@ -40,7 +41,7 @@ export default function Pagination({ item, page, onPageChange }) {
         nextLabel=""
         previousLabel=""
         onPageChange={handlePageClick}
-        pageRangeDisplayed={2}
+        pageRangeDisplayed={!isMobile ? 2 : 1}
         marginPagesDisplayed={0}
         pageCount={item.totalPages || 0}
         forcePage={page - 1}

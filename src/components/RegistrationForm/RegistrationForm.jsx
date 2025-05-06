@@ -41,14 +41,13 @@ export default function RegistrationForm() {
 
   const onSubmit = async (data) => {
     const { confirmPassword, ...dataToSend } = data;
-    console.log(dataToSend);
 
     try {
       await dispatch(fetchRegister(dataToSend)).unwrap();
-      console.log("Successfully registered!");
+      toast.success("Successfully registered!");
       reset();
     } catch (error) {
-      console.log("Registration failed");
+      toast.update("Registration failed");
     }
   };
 

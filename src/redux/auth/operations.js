@@ -216,3 +216,17 @@ export const deleteFavorite = createAsyncThunk(
     }
   }
 );
+export const addViewedPets = createAsyncThunk(
+  "add/viewed/pets",
+  async (_id, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+      const token = getToken(state);
+      setAuthHeader(token);
+      const response = await apiClient.get(`/notices/${_id}`);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

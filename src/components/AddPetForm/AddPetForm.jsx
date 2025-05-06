@@ -90,18 +90,22 @@ export default function AddPetForm() {
   };
 
   const onSubmit = async (data) => {
-    const petInfo = {
-      title: data.title,
-      name: data.name,
-      imgURL: data.imgURL,
-      species: data.species,
-      birthday: data.birthday,
-      sex: data.sex,
-    };
+    try {
+      const petInfo = {
+        title: data.title,
+        name: data.name,
+        imgURL: data.imgURL,
+        species: data.species,
+        birthday: data.birthday,
+        sex: data.sex,
+      };
 
-    dispatch(addPets(petInfo));
-    toast.success("Success add pets!");
-    navigateProfile("/profile");
+      dispatch(addPets(petInfo));
+      toast.success("Success add pets!");
+      navigateProfile("/profile");
+    } catch (error) {
+      toast.update("Login error");
+    }
   };
 
   return (

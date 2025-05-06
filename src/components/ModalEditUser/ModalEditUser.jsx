@@ -81,7 +81,7 @@ export default function ModalEditUser({ onClose }) {
     });
 
     if (Object.keys(updatedData).length === 0) {
-      console.log("Нічого не змінено — не відправляємо");
+
       return;
     }
 
@@ -106,7 +106,6 @@ export default function ModalEditUser({ onClose }) {
         <svg
           onClick={(e) => {
             e.stopPropagation();
-            console.log("Closing modal");
             onClose();
           }}
           className={css.iconClosed}

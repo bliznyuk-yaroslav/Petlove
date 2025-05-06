@@ -15,7 +15,6 @@ export default function LogOutBtn({ style }) {
   const loading = useSelector(selectorAuthLoading);
   const navigate = useNavigate();
   const handleLogOut = () => {
-    console.log("LOGOUT CLICKED");
     dispatch(logout());
     dispatch(clearFavorites());
     navigate("/");

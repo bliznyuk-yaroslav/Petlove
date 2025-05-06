@@ -36,7 +36,7 @@ export default function BurgerModal({ onClose, isOpen }) {
     isOpen ? setTimeout(() => setVisible(true), 10) : setVisible(false);
   }, [isOpen]);
   const login = useSelector(selectIsLoggedIn);
-  console.log(login);
+
   return (
     <div className={css.cont}>
       <div
