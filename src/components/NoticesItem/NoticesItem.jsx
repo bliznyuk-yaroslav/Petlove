@@ -24,15 +24,13 @@ export default function NoticesItem({ notices, styles, myFavorite }) {
   const isFavorite = favorites.some(
     (fav) => fav._id === notices._id || fav === notices._id
   );
-  const handleOpenModal = async () => {
-    if (login) {
-      try {
-        await dispatch(addViewedPets(notices._id)).unwrap();
-      } catch (error) {
-        console.error("Failed to add viewed pet:", error);
-      }
-    }
+  const handleOpenModal = () => {
     setShowModal(true);
+    if (login) {
+      dispatch(addViewedPets(notices._id)).catch((error) =>
+        console.error("Failed to add viewed pet:", error)
+      );
+    }
   };
   const handleToggleFavorite = async () => {
     if (!login) {
