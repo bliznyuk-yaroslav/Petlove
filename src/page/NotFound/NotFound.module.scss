@@ -2,80 +2,106 @@
 .container {
   margin: 0 auto;
   width: 335px;
-
+  background: #f6b83d;
+  border-radius: 30px;
+  margin-top: 20px;
+  padding: 245px 33px 245px 33px;
   @include media(tablet) {
+    margin-top: 32px;
+    border-radius: 60px;
     width: 704px;
-
-    margin-top: 16px;
+    padding: 221px 32px 221px 32px;
   }
   @include media(desktop) {
-    width: 1280px;
-    padding: 0 32px 0 32px;
+    width: 1216px;
+    padding: 109px 283px 109px 283px;
   }
 }
-.boxError {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  margin: 32px;
-  padding: 109px 283px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 60px;
-  background: #f6b83d;
-}
+
 .textError {
   color: #fff;
-  width: 650px;
   font-family: Manrope;
-  font-size: 300px;
   font-style: normal;
   font-weight: 800;
-  line-height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
+  @include font(120, 120);
+  @include media(desktop) {
+    @include font(300, 300);
+  }
 }
+
 .textBox {
   display: flex;
   flex-direction: column;
   gap: 20px;
   align-items: center;
+  margin-top: 20px;
+  @include media(tablet) {
+    margin-top: 40px;
+  }
 }
 .btn {
-  width: 162px;
+  width: 150px;
+  height: 42px;
   border-radius: 30px;
   background: #fff4df;
   padding: 14px 30px;
   color: #f6b83d;
   font-family: Manrope;
-  font-size: 16px;
   font-style: normal;
   font-weight: 700;
-  line-height: 20px;
-  letter-spacing: -0.48px;
+  letter-spacing: -0.42px;
+  @include font(14, 18);
+  @include media(tablet) {
+    @include font(16, 20);
+    height: 48px;
+    width: 162px;
+    letter-spacing: -0.48px;
+  }
 }
 .oops {
   overflow: hidden;
   color: #fff;
   text-overflow: ellipsis;
   font-family: Manrope;
-  font-size: 24px;
   font-style: normal;
   font-weight: 700;
-  line-height: 28px;
-  letter-spacing: -0.72px;
+  letter-spacing: -0.48px;
+  @include font(16, 20);
+  @include media(tablet) {
+    @include font(24, 28);
+    letter-spacing: -0.72px;
+  }
 }
 .imgFon {
+  width: 100px;
+  height: 100px;
+  border-radius: 1000px;
+  overflow: hidden;
+  background-color: rgb(247, 191, 80);
+  position: relative;
+  @include media(tablet) {
+    width: 270px;
+    height: 270px;
+  }
 }
 .imgError {
+  position: absolute;
   background-image: url("../../images/07863234c0633ec8822b21aaaf0de963.png");
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: 151.763% 151.69%;
-  background-position: -84.794px -13.5px;
-
-  border-radius: 1000px;
-  width: 299px;
-  height: 300px;
+  background-size: 100% 100%;
+  top: -6px;
+  left: -38px;
+  width: 179px;
+  height: 179px;
   display: inline-block;
+  @include media(tablet) {
+    top: -13px;
+    left: -73px;
+    width: 436px;
+    height: 431px;
+  }
 }

@@ -44,13 +44,10 @@
     display: inline-flex;
     color: #fff;
     font-family: Manrope;
-    font-size: 20px;
     font-style: normal;
     font-weight: 700;
-    line-height: 20px;
     letter-spacing: -0.6px;
-  }
-  @include media(desktop) {
+    @include font(20, 20);
   }
 }
 .name {
@@ -59,16 +56,14 @@
     display: block;
     color: #262626;
     font-family: Manrope;
-    font-size: 20px;
     font-style: normal;
     font-weight: 700;
-    line-height: 20px; /* 100% */
     letter-spacing: -0.6px;
     width: 100px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    @include font(20, 20);
   }
-  @include media(desktop) {
-  }
+  
 }

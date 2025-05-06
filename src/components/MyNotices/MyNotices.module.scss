@@ -162,23 +162,21 @@
 .headCat {
   color: rgba(38, 38, 38, 0.5);
   font-family: Manrope;
-  font-size: 10px;
   font-style: normal;
   font-weight: 500;
-  line-height: 14px;
   letter-spacing: -0.2px;
+  @include font(10, 14);
 }
 .specCat {
   color: #262626;
   font-family: Manrope;
-  font-size: 12px;
   font-style: normal;
   font-weight: 500;
-  line-height: 14px;
   letter-spacing: -0.24px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  @include font(12, 14);
 }
 .name {
   max-width: 40px;
@@ -192,10 +190,9 @@
   width: 100%;
   color: #2b2b2a;
   font-family: Manrope;
-  font-size: 18px;
   font-style: normal;
   font-weight: 700;
-  line-height: 24px;
+  @include font(18, 24);
 }
 .btnLearn {
   width: 231px;

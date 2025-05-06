@@ -38,7 +38,7 @@ export default function Layout() {
     } else {
       timeout = setTimeout(() => {
         setShowLoader(false);
-      }, 1000);
+      }, 200);
     }
 
     return () => clearTimeout(timeout);

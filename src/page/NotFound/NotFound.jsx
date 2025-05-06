@@ -5,13 +5,11 @@ import cat from "../../images/07863234c0633ec8822b21aaaf0de963.png";
 
 export default function NotFoundPage() {
   return (
-    <section className={css.container}>
-      <div className={css.boxError}>
+    <section className={css.container}> 
         <p className={css.textError}>
           4{" "}
           <span className={css.imgFon}>
             <span className={css.imgError}></span>
-            {/* <img src={cat} alt="catEror" className={css.imgError} /> */}
           </span>
           4
         </p>
@@ -21,7 +19,6 @@ export default function NotFoundPage() {
             To home page
           </Link>
         </div>
-      </div>
     </section>
   );
 }

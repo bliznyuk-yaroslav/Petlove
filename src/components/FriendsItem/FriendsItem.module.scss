@@ -27,33 +27,30 @@
   color: #262626;
   text-overflow: ellipsis;
   font-family: Manrope;
-  font-size: 16px;
   font-style: normal;
   font-weight: 700;
-  line-height: 20px; /* 125% */
   letter-spacing: -0.64px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
+  @include font(16, 20);
   @include media(tablet) {
-    font-size: 20px;
-    line-height: 26px; /* 130% */
     letter-spacing: -0.8px;
+    @include font(20, 26);
   }
 }
 .text {
   color: rgba(38, 38, 38, 0.5);
   font-family: Manrope;
-  font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 18px;
   letter-spacing: -0.28px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+  @include font(14, 18);
 }
 .primTex {
   color: #262626;
@@ -90,14 +87,12 @@
   background: #fff4df;
   color: #f6b83d;
   font-family: Manrope;
-  font-size: 12px;
   font-style: normal;
   font-weight: 500;
-  line-height: 16px;
   letter-spacing: -0.24px;
+  @include font(12, 16);
   @include media(tablet) {
-    font-size: 14px;
-    line-height: 18px;
     letter-spacing: -0.28px;
+    @include font(14, 18);
   }
 }

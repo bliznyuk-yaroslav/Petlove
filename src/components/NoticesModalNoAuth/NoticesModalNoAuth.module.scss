@@ -62,38 +62,35 @@
   color: #f6b83d;
   text-overflow: ellipsis;
   font-family: Manrope;
-  font-size: 24px;
   font-style: normal;
   font-weight: 700;
-  line-height: 28px; /* 116.667% */
   letter-spacing: -0.72px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
+  @include font(24, 28);
 }
 .boxContent > p {
   margin-top: 20px;
   color: #2b2b2a;
   text-align: center;
   font-family: Manrope;
-  font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 18px; /* 128.571% */
   letter-spacing: -0.28px;
   width: 346px;
   height: 90px;
+  @include font(14, 18);
 }
 .btnWrap {
   display: flex;
   gap: 8px;
   margin-top: 28px;
   font-family: Manrope;
-  font-size: 16px;
   font-style: normal;
   font-weight: 700;
-  line-height: 20px;
   letter-spacing: -0.48px;
+  @include font(16, 20);
 }
 .btnLog {
   padding: 14px 48px;

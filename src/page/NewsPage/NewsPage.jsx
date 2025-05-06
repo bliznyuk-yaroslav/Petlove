@@ -18,6 +18,7 @@ import SearchField from "../../components/SearchField/SearchField";
 export default function NewsPage() {
   const dispatch = useDispatch();
   const news = useSelector(selectorNews);
+  console.log(news);
   const page = useSelector(selectorPage);
   const search = useSelector(selectorSearch);
   const [locationSearch, setLocationSearch] = useState(search);
@@ -34,7 +35,7 @@ export default function NewsPage() {
   useEffect(() => {
     if (firstLoad) return;
     dispatch(fetchNews({ page, search }));
-  }, [dispatch, page, search]);
+  }, [dispatch, page, search, firstLoad]);
 
   const handlePageChange = (newPage) => {
     dispatch(setPage(newPage));

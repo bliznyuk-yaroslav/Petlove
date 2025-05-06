@@ -44,17 +44,15 @@
   border: none;
   color: #262626;
   font-family: Manrope;
-  font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 18px;
   letter-spacing: -0.48px;
   position: relative;
+  @include font(14, 18);
   @include media(tablet) {
     padding: 14px;
-    font-size: 16px;
-    line-height: 20px; /* 125% */
     letter-spacing: -0.48px;
+    @include font(16, 20);
   }
   @include media(desktop) {
   }
@@ -82,7 +80,7 @@
   @include media(tablet) {
     width: 100%;
     flex-direction: row;
-   
+
     justify-content: space-between;
   }
 }
@@ -99,19 +97,17 @@
   border: none;
   color: #fff;
   font-family: Manrope;
-  font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 18px;
   letter-spacing: -0.48px;
   position: relative;
   cursor: pointer;
+  @include font(14, 18);
   @include media(tablet) {
     width: 110px;
     height: 48px;
     padding: 14px;
-    font-size: 16px;
-    line-height: 20px;
     letter-spacing: -0.48px;
+    @include font(16, 20);
   }
 }

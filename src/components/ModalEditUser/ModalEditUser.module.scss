@@ -116,14 +116,12 @@
   color: #262626;
   text-overflow: ellipsis;
   font-family: Manrope;
-  font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 18px; /* 128.571% */
   letter-spacing: -0.28px;
   background-color: #fff;
   border: 1px solid rgba(38, 38, 38, 0.15);
-
+  @include font(14, 18);
   &:hover {
     outline: none;
     border: 1px solid #f6b83d;
@@ -179,16 +177,15 @@
   margin-top: 21px;
   color: #fff;
   font-family: Manrope;
-  font-size: 16px;
   font-style: normal;
   font-weight: 700;
-  line-height: 20px; /* 125% */
   letter-spacing: -0.48px;
   width: 295px;
   height: 42px;
   border-radius: 30px;
   background: #f6b83d;
   border: none;
+  @include font(16, 20);
   @include media(tablet) {
     width: 380px;
     margin-top: 40px;

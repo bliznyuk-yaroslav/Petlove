@@ -93,14 +93,13 @@
   color: #2b2b2a;
   text-overflow: ellipsis;
   font-family: Manrope;
-  font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 18px; /* 128.571% */
   letter-spacing: -0.28px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+  @include font(14, 18);
 }
 .categoryBox {
   display: flex;
@@ -116,23 +115,21 @@
 .headCat {
   color: rgba(38, 38, 38, 0.5);
   font-family: Manrope;
-  font-size: 10px;
   font-style: normal;
   font-weight: 500;
-  line-height: 14px;
   letter-spacing: -0.2px;
+  @include font(10, 14);
 }
 .specCat {
   color: #262626;
   font-family: Manrope;
-  font-size: 12px;
   font-style: normal;
   font-weight: 500;
-  line-height: 14px;
   letter-spacing: -0.24px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  @include font(12, 14);
 }
 .name {
   max-width: 46px;
@@ -149,13 +146,11 @@
 .price {
   color: #2b2b2a;
   font-family: Manrope;
-  font-size: 16px;
   font-style: normal;
   font-weight: 700;
-  line-height: 20px;
+  @include font(16, 20);
   @include media(tablet) {
-    font-size: 18px;
-    line-height: 24px;
+    @include font(18, 24);
   }
   @include media(desktop) {
   }
@@ -176,9 +171,8 @@
     width: 236px;
     height: 48px;
     padding: 14px 78px;
-    line-height: 20px; /* 125% */
     letter-spacing: -0.48px;
-    font-size: 16px;
+    @include font(16, 20);
   }
   @include media(desktop) {
     width: 257px;

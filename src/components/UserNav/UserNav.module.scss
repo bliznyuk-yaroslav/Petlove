@@ -23,18 +23,15 @@
     align-items: center;
     color: #fff;
     font-family: Manrope;
-    font-size: 16px;
     font-style: normal;
     font-weight: 700;
-    line-height: 20px;
     letter-spacing: -0.48px;
     text-transform: uppercase;
     border-radius: 30px;
     background: #f6b83d;
     outline: none;
     border: none;
-  }
-  @include media(desktop) {
+    @include font(16, 20);
   }
 }
 .btnHome {

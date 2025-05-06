@@ -54,11 +54,10 @@
   outline: none;
   color: rgba(38, 38, 38, 1);
   font-family: Manrope;
-  font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 20px;
-  letter-spacing: -0.48px;
+  letter-spacing: -0.42px;
+  @include font(14, 18);
   background-color: #fff;
   &::placeholder {
     color: rgba(38, 38, 38, 1);
@@ -66,8 +65,9 @@
   &:focus-visible {
     border: 1px solid #f6b83d;
   }
-  @include font(14, 18);
+
   @include media(tablet) {
+    letter-spacing: -0.48px;
     width: 335px;
     height: 48px;
     @include font(16, 20);
@@ -133,17 +133,15 @@
 .selectWrapper {
   width: 143px;
   font-family: Manrope;
-  font-size: 14px;
   font-weight: 500;
-  line-height: 18px;
   letter-spacing: -0.42px;
   font-style: normal;
   cursor: pointer;
-
+  @include font(14, 18);
   @include media(tablet) {
-    font-size: 16px;
-    line-height: 20px;
+    @include font(16, 20);
     width: 170px;
+    letter-spacing: -0.48px;
   }
   @include media(desktop) {
     width: 200px;
@@ -151,19 +149,14 @@
 }
 .selectWrapperType {
   width: 295px;
-
   font-family: Manrope;
-  font-size: 16px;
   font-weight: 500;
-  font-size: 14px;
-  line-height: 18px;
   font-style: normal;
   cursor: pointer;
+  @include font(14, 18);
   @include media(tablet) {
     width: 190px;
-    font-size: 16px;
-    line-height: 20px;
+    @include font(16, 20);
   }
-  @include media(desktop) {
-  }
+ 
 }

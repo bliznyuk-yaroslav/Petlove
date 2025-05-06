@@ -155,24 +155,22 @@
 .error {
   color: #ef2447;
   font-family: Manrope;
-  font-size: 12px;
   font-style: normal;
   font-weight: 500;
-  line-height: 14px;
   letter-spacing: -0.36px;
   margin-top: 4px;
   margin-left: 16px;
+  @include font(12, 14);
 }
 .successful {
   color: #08aa83;
   font-family: Manrope;
-  font-size: 12px;
   font-style: normal;
   font-weight: 500;
-  line-height: 14px;
   letter-spacing: -0.36px;
   margin-top: 4px;
   margin-left: 16px;
+  @include font(12, 14);
 }
 .btnForm {
   display: flex;
@@ -209,7 +207,6 @@
 .textFromReg {
   color: rgba(38, 38, 38, 0.5);
   font-family: Manrope;
-  font-size: 14px;
   font-style: normal;
   font-weight: 500;
   @include font(12, 14);
