@@ -15,6 +15,7 @@ export default function LogOutBtn({ style }) {
   const loading = useSelector(selectorAuthLoading);
   const navigate = useNavigate();
   const handleLogOut = () => {
+    console.log("LOGOUT CLICKED");
     dispatch(logout());
     dispatch(clearFavorites());
     navigate("/");
@@ -25,14 +26,11 @@ export default function LogOutBtn({ style }) {
         Log out
       </button>
       {showModal && (
-        <>
-          {loading && <Loader />}
-          <ModalApproveAction
-            onClose={closeModal}
-            onConfirm={handleLogOut}
-            isOpen={openModal}
-          />
-        </>
+        <ModalApproveAction
+          onClose={closeModal}
+          onConfirm={handleLogOut}
+          isOpen={showModal}
+        />
       )}
     </>
   );

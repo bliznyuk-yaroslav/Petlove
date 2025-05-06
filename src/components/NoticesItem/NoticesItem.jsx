@@ -58,7 +58,7 @@ export default function NoticesItem({ notices, styles, myFavorite }) {
       />
       <div className={styles.boxContent}>
         <div className={styles.boxText}>
-          <h2>{notices.title}</h2>
+          <h2 className={styles.title}>{notices.title}</h2>
           <div className={styles.iconBox}>
             <svg className={styles.icon}>
               <use xlinkHref={`/icons/sprite.svg#icon-star`}></use>
@@ -135,6 +135,8 @@ export default function NoticesItem({ notices, styles, myFavorite }) {
             notices={notices}
             onClose={handleCloseModal}
             isOpen={handleOpenModal}
+            handleToggleFavorite={handleToggleFavorite}
+            isFavorite={isFavorite}
           />
         ) : (
           <NoticesModalNoAuth

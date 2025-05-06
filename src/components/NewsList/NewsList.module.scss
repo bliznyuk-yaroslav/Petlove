@@ -8,6 +8,7 @@
   @include media(tablet) {
     gap: 32px 24px;
     margin-bottom: 60px;
+    margin-top: 44px;
   }
   @include media(desktop) {
     gap: 40px 35px;

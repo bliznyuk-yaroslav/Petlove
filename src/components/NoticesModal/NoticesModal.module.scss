@@ -1,3 +1,4 @@
+@import "../../scss/mixins";
 .container {
   display: flex;
   align-items: center;
@@ -23,8 +24,8 @@
   pointer-events: all;
 }
 .boxContent {
-  width: 473px;
-  height: 510px;
+  width: 335px;
+
   flex-shrink: 0;
   border-radius: 30px;
   background: #fff;
@@ -33,11 +34,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 71px;
+  padding: 40px 28px;
+  @include media(tablet) {
+    width: 473px;
+    height: 510px;
+    padding: 40px 71px;
+  }
 }
-.boxContent > h2 {
-  padding-top: 16px;
-}
+
 .iconClosed {
   position: absolute;
 
@@ -48,27 +52,35 @@
   stroke: #262626;
 }
 .imgCard {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   border-radius: 100px;
   object-fit: cover;
+  @include media(tablet) {
+    width: 150px;
+    height: 150px;
+  }
 }
-.boxContent h2 {
+
+.title {
   color: #2b2b2a;
   font-family: Manrope;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
-  line-height: 24px; /* 133.333% */
-}
-.flexCat {
+  line-height: 24px;
+  padding-top: 16px;
+  white-space: wrap;
+  text-align: center;
 }
 .categoryBox {
   display: flex;
   gap: 20px;
   margin-top: 20px;
+  justify-content: center;
 }
 .headCat {
+  text-align: center;
   color: rgba(38, 38, 38, 0.5);
   font-family: Manrope;
   font-size: 10px;
@@ -78,6 +90,9 @@
   letter-spacing: -0.2px;
 }
 .specCat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #262626;
   font-family: Manrope;
   font-size: 12px;
@@ -85,13 +100,10 @@
   font-weight: 500;
   line-height: 14px; /* 116.667% */
   letter-spacing: -0.24px;
+  text-align: center;
 }
 .comment {
-  width: 100%;
-
-  overflow: hidden;
   color: #2b2b2a;
-  text-overflow: ellipsis;
   font-family: Manrope;
   font-size: 14px;
   font-style: normal;
@@ -99,19 +111,19 @@
   margin-top: 16px;
   line-height: 18px; /* 128.571% */
   letter-spacing: -0.28px;
-  display: -webkit-box;
-
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  text-align: center;
 }
 .price {
   color: #2b2b2a;
   font-family: Manrope;
-  font-size: 18px;
   font-style: normal;
   font-weight: 700;
-  line-height: 24px;
-  margin-top: 20px;
+  margin-top: 32px;
+  @include font(16, 20);
+  @include media(tablet) {
+    @include font(18, 24);
+    margin-top: 20px;
+  }
 }
 .btnWrap {
   display: flex;
@@ -120,8 +132,8 @@
 }
 .btnLearn {
   display: flex;
-  width: 160px;
-  padding: 14px 42px;
+  width: 135px;
+
   justify-content: center;
   align-items: center;
   gap: 8px;
@@ -129,13 +141,14 @@
   background: #f6b83d;
   border: none;
   color: #fff;
-
   font-family: Manrope;
-  font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 20px; /* 125% */
   letter-spacing: -0.48px;
+  @include font(16, 20);
+  @include media(tablet) {
+    width: 160px;
+  }
 }
 .iconFavorite {
   width: 18px;
@@ -144,22 +157,24 @@
   stroke: rgba(255, 255, 255, 1);
 }
 .btnCont {
-  width: 160px;
+  width: 134px;
+  height: 44px;
   display: flex;
-  padding: 14px 50px;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   border-radius: 30px;
   background: #fff4df;
   color: #f6b83d;
   font-family: Manrope;
-  font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 20px; /* 125% */
   letter-spacing: -0.48px;
   border: none;
+  cursor: pointer;
+  @include font(16, 20);
+  @include media(tablet) {
+    width: 160px;
+  }
 }
 .star {
   display: flex;
@@ -179,12 +194,17 @@
   color: #f6b83d;
   padding: 8px 14px;
   font-family: Manrope;
-  font-size: 14px;
   font-style: normal;
   font-weight: 500;
   border: none;
-  line-height: 1.29; /* 128.571% */
-  letter-spacing: -0.28px;
-  top: 48px;
-  left: 166px;
+  letter-spacing: -0.24px;
+  top: 40px;
+  left: 106px;
+  @include font(12, 16);
+  @include media(tablet) {
+    top: 48px;
+    left: 166px;
+    @include font(14, 16);
+    letter-spacing: -0.28px;
+  }
 }

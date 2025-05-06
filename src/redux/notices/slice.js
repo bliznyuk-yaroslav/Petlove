@@ -51,7 +51,7 @@ const noticesSlice = createSlice({
       state.filters.selectedLocation = action.payload;
     },
     setPopularity: (state, action) => {
-      state.filters.byPopularity = action.payload; // Зберігаємо фільтр популярності
+      state.filters.byPopularity = action.payload;
     },
     setPrice: (state, action) => {
       state.filters.byPrice = action.payload;
@@ -63,7 +63,7 @@ const noticesSlice = createSlice({
       state.filters.setCategory = "";
       state.search = "";
       state.filters.byPopularity = null;
-      // state.filters.selectedLocation = null;
+      state.notices.page = 1;
     },
   },
   extraReducers: (builder) => {

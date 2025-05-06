@@ -2,26 +2,32 @@ import css from "./NoticesModal.module.scss";
 import { useEffect, useState } from "react";
 import { capitalizeWords } from "../../hooks/useCapitalizeWords";
 import clsx from "clsx";
-export default function NoticesModal({ notices, onClose, isOpen }) {
+export default function NoticesModal({
+  notices,
+  onClose,
+  isOpen,
+  handleToggleFavorite,
+  isFavorite,
+}) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const handleKeyDown = (e) => e.key === "Escape" && onClose();
     window.addEventListener("keydown", handleKeyDown);
 
-    
     if (isOpen) document.body.style.overflow = "hidden";
     else document.body.style.overflow = "auto";
 
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "auto"; 
+      document.body.style.overflow = "auto";
     };
   }, [isOpen, onClose]);
 
   useEffect(() => {
     isOpen ? setTimeout(() => setVisible(true), 10) : setVisible(false);
   }, [isOpen]);
+  const currentIcon = isFavorite ? "icon-trash-2" : "icon-heart";
   return (
     <section className={clsx(css.container, { [css.active]: visible })}>
       <div className={css.boxContent}>
@@ -34,6 +40,7 @@ export default function NoticesModal({ notices, onClose, isOpen }) {
           className={css.imgCard}
         />
         <p className={css.sell}>Sell</p>
+        <h2 className={css.title}>{notices.title}</h2>
         <div className={css.star}>
           <svg className={css.iconStar}>
             <use xlinkHref={`/icons/sprite.svg#icon-star`}></use>
@@ -51,7 +58,6 @@ export default function NoticesModal({ notices, onClose, isOpen }) {
             <use xlinkHref={`/icons/sprite.svg#icon-star`}></use>
           </svg>
         </div>
-        <h2>{notices.title}</h2>
 
         <div className={css.categoryBox}>
           <div>
@@ -60,7 +66,9 @@ export default function NoticesModal({ notices, onClose, isOpen }) {
           </div>
           <div>
             <h5 className={css.headCat}>Birthday</h5>
-            <p className={css.specCat}>{notices.birthday}</p>
+            <p className={css.specCat}>
+              {notices.birthday ? notices.birthday.replace(/-/g, ".") : "-"}
+            </p>
           </div>
           <div>
             <h5 className={css.headCat}>Sex</h5>
@@ -81,14 +89,16 @@ export default function NoticesModal({ notices, onClose, isOpen }) {
         </p>
 
         <div className={css.btnWrap}>
-          <button className={css.btnLearn}>
-            Add to{" "}
+          <button className={css.btnLearn} onClick={handleToggleFavorite}>
+            {!isFavorite ? "Add to" : "Remove to"}{" "}
             <svg className={css.iconFavorite}>
-              <use xlinkHref={`/icons/sprite.svg#icon-heart`}></use>
+              <use xlinkHref={`/icons/sprite.svg#${currentIcon}`}></use>
             </svg>
           </button>
 
-          <button className={css.btnCont}>Contact</button>
+          <a href="mailto:test@example.com" className={css.btnCont}>
+            Contact
+          </a>
         </div>
       </div>
     </section>

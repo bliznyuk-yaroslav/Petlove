@@ -3,7 +3,7 @@ import css from "./NoticesPage.module.scss";
 import NoticesFilters from "../../components/NoticesFilters/NoticesFilters";
 import NoticesList from "../../components/NoticesList/NoticesList";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   selectedSetCategories,
   selectedSetSpecies,
@@ -34,15 +34,20 @@ export default function NoticesPage() {
   const locationCities = useSelector(selectorSetLocation);
   const byPopularity = useSelector(selectorByPopular);
   const byPrice = useSelector(selectorByPrice);
+  const [firstLoad, setFirstLoad] = useState(true);
   const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(setPageNotices(1));
     dispatch(resetFiltersNotices());
+    setFirstLoad(false);
   }, [dispatch]);
 
   useEffect(() => {
     dispatch(fetchCitiesLocation());
   }, [dispatch]);
+
   useEffect(() => {
+    if (firstLoad) return;
     dispatch(
       fetchNotices({
         page,
@@ -69,10 +74,11 @@ export default function NoticesPage() {
     selectedCategories,
     byPopularity,
     byPrice,
+    firstLoad,
   ]);
 
-  const handlePageChange = (page) => {
-    dispatch(setPageNotices(page));
+  const handlePageChange = (newPage) => {
+    dispatch(setPageNotices(newPage));
   };
 
   return (

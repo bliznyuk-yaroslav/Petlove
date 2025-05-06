@@ -1,21 +1,4 @@
 @import "../../scss/mixins";
-.cont {
-  width: 335px;
-  height: 280px;
-  background: #f6b83d;
-  border-radius: 30px;
-  position: relative;
-  overflow: hidden;
-  @include media(tablet) {
-    border-radius: 60px;
-    width: 704px;
-    height: 302px;
-  }
-  @include media(desktop) {
-    width: 592px;
-    height: 654px;
-  }
-}
 
 .pertInf {
   display: none;

@@ -14,6 +14,7 @@
   @include media(desktop) {
     padding: 60px 80px;
     width: 592px;
+    height: 654px;
   }
 }
 .headLog {
@@ -112,7 +113,7 @@
   }
   @include media(tablet) {
     width: 276px;
-    height: 42px;
+    height: 52px;
     padding: 12px 20px 12px 12px;
     @include font(14, 18);
     letter-spacing: -0.28px;
@@ -137,7 +138,7 @@
   letter-spacing: -0.24px;
   @include font(12, 16);
   @include media(tablet) {
-    height: 42px;
+    height: 52px;
     width: 146px;
     @include font(14, 18);
     letter-spacing: -0.28px;
@@ -201,34 +202,6 @@
     height: 52px;
   }
 }
-
-// .error {
-//   color: #ef2447;
-//   font-family: Manrope;
-//   font-size: 12px;
-//   font-style: normal;
-//   font-weight: 500;
-//   line-height: 14px;
-//   letter-spacing: -0.36px;
-//   margin-top: 4px;
-//   margin-left: 16px;
-// }
-// .successful {
-//   color: #08aa83;
-//   font-family: Manrope;
-//   font-size: 12px;
-//   font-style: normal;
-//   font-weight: 500;
-//   line-height: 14px;
-//   letter-spacing: -0.36px;
-//   margin-top: 4px;
-//   margin-left: 16px;
-// }
-
-// .contBirth {
-//   width: 210px;
-//   position: relative;
-// }
 .inputBrirth {
   position: relative;
   width: 144px;
@@ -287,7 +260,7 @@
   position: absolute;
   left: 20px;
   top: 80px;
-  @include media(desktop) {
+  @include media(tablet) {
     left: 136px;
     top: 112px;
   }

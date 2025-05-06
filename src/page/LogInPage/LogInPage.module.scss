@@ -2,9 +2,10 @@
 .container {
   margin: 0 auto;
   width: 335px;
+  margin-bottom: 20px;
   @include media(tablet) {
     width: 704px;
-
+    margin-bottom: 32px;
     margin-top: 16px;
   }
   @include media(desktop) {
@@ -12,6 +13,24 @@
     padding: 0 32px;
   }
 }
+.cont {
+  width: 335px;
+  height: 280px;
+  background: #f6b83d;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+  @include media(tablet) {
+    border-radius: 60px;
+    width: 704px;
+    height: 302px;
+  }
+  @include media(desktop) {
+    width: 592px;
+    height: 654px;
+  }
+}
+
 .contHead {
   display: flex;
   gap: 10px;

@@ -1,4 +1,3 @@
-
 import css from "./PetBlock.module.scss";
 
 import { useLocation } from "react-router-dom";
@@ -6,13 +5,11 @@ export default function PetBlock({ styles, desc, data, name, pets }) {
   const location = useLocation();
   const isAddPetPage = location.pathname === "/add-pet";
   return (
-    <div className={css.cont}>
+    <div className={styles.cont}>
       <svg className={css.icon}>
         <use xlinkHref={`/icons/sprite.svg#icon-Rectangle-4561`}></use>
       </svg>
-      <div className={styles.boxPhoto}>
-     
-      </div>
+      <div className={styles.boxPhoto}></div>
       {!isAddPetPage && (
         <div className={css.pertInf}>
           <div className={css.petsBox}>

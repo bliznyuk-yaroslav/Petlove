@@ -21,11 +21,18 @@ export default function NewsPage() {
   const page = useSelector(selectorPage);
   const search = useSelector(selectorSearch);
   const [locationSearch, setLocationSearch] = useState(search);
+  const [firstLoad, setFirstLoad] = useState(true);
+  useEffect(() => {
+    dispatch(setPage(1));
+    setFirstLoad(false);
+  }, [dispatch]);
+
   useEffect(() => {
     dispatch(fetchAllCurrent());
   }, [dispatch]);
 
   useEffect(() => {
+    if (firstLoad) return;
     dispatch(fetchNews({ page, search }));
   }, [dispatch, page, search]);
 

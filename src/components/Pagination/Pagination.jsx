@@ -40,7 +40,7 @@ export default function Pagination({ item, page, onPageChange }) {
         nextLabel=""
         previousLabel=""
         onPageChange={handlePageClick}
-        pageRangeDisplayed={1}
+        pageRangeDisplayed={2}
         marginPagesDisplayed={0}
         pageCount={item.totalPages || 0}
         forcePage={page - 1}

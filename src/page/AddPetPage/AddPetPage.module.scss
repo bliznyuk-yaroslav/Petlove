@@ -2,6 +2,7 @@
 .container {
   margin: 0 auto;
   width: 335px;
+  margin-bottom: 20px;
   @include media(tablet) {
     width: 704px;
     margin-bottom: 32px;
@@ -9,9 +10,29 @@
   }
   @include media(desktop) {
     width: 1280px;
+    height: 100vh;
     padding: 0 32px;
+    overflow: hidden;
   }
 }
+.cont {
+  width: 335px;
+  height: 213px;
+  background: #f6b83d;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+  @include media(tablet) {
+    border-radius: 60px;
+    width: 704px;
+    height: 302px;
+  }
+  @include media(desktop) {
+    width: 592px;
+    height: 654px;
+  }
+}
+
 .contHead {
   display: flex;
   gap: 10px;
@@ -29,10 +50,10 @@
   position: absolute;
   background-image: url("../../images/Dog.png");
   background-size: 100% 100%;
-  left: -100px;
+  left: 58px;
   top: -36px;
-  width: 515px;
-  height: 543px;
+  width: 237px;
+  height: 314px;
   background-position: center;
   background-repeat: no-repeat;
   filter: brightness(1);

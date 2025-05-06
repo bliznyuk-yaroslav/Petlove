@@ -2,11 +2,11 @@
 .container {
   margin: 0 auto;
   width: 335px;
-
+  margin-top: 50px;
   @include media(tablet) {
     width: 704px;
 
-    margin-top: 16px;
+    margin-top: 85px;
   }
   @include media(desktop) {
     width: 1280px;

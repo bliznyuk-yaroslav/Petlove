@@ -1,7 +1,7 @@
 @import "../../scss/mixins";
 .contSearch {
   width: 335px;
-  height: 378px;
+  height: 100%;
   padding: 20px;
   border-radius: 30px;
   background: #fff4df;
@@ -23,15 +23,9 @@
   }
 }
 .bord {
-  width: 295px;
   height: 1px;
+  width: 100%;
   background-color: rgba(38, 38, 38, 0.1);
-  @include media(tablet) {
-    width: 640px;
-  }
-  @include media(desktop) {
-    width: 1136px;
-  }
 }
 .popCont {
   display: flex;
@@ -79,4 +73,45 @@
   display: flex;
   align-items: center;
   stroke: rgba(255, 255, 255, 1);
+}
+.reset {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  @include media(tablet) {
+    width: 100%;
+    flex-direction: row;
+   
+    justify-content: space-between;
+  }
+}
+.resetBtn {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 42px;
+  width: 100%;
+  justify-content: center;
+  border-radius: 30px;
+  background: #f6b83d;
+  border: none;
+  color: #fff;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.48px;
+  position: relative;
+  cursor: pointer;
+  @include media(tablet) {
+    width: 110px;
+    height: 48px;
+    padding: 14px;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.48px;
+  }
 }
