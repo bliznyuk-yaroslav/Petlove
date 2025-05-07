@@ -36,3 +36,11 @@
    ```bash
    npm run dev
    ```
+
+## 🧪 In Progress
+
+- User authentication
+- Personal user dashboard
+- Edit pet listings
+
+Created with ❤️ as a personal project to enhance skills in React development.
