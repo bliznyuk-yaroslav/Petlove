@@ -26,6 +26,7 @@ const initialState = {
     byPrice: null,
   },
   isLoading: false,
+  firstLoadDone: false,
   error: null,
 };
 const noticesSlice = createSlice({
@@ -69,16 +70,19 @@ const noticesSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchNotices.pending, (state) => {
-        state.isLoading = true;
+        if (!state.firstLoadDone) {
+          state.isLoading = true;
+        }
+        state.error = null;
       })
       .addCase(fetchNotices.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.notices = action.payload;
         state.notices.totalPages = action.payload.totalPages;
+        state.firstLoadDone = true;
       })
       .addCase(fetchNotices.rejected, (state, action) => {
-        state.isLoading = false;
         state.error = action.payload;
         state.notices = {
           page: 1,

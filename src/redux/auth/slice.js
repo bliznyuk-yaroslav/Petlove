@@ -16,7 +16,6 @@ const authInitialState = {
   isLoading: false,
   error: false,
   isLoggedIn: false,
-  isRefreshing: false,
   password: localStorage.getItem("password") || null,
   email: localStorage.getItem("email") || null,
   fullUserInfo: null,
@@ -75,6 +74,8 @@ const authSlice = createSlice({
         state.token = "";
       })
       .addCase(logout.fulfilled, (state, action) => {
+        state.user = null;
+        state.fullUserInfo = null;
         state.token = "";
         state.isLoggedIn = false;
         state.isLoading = false;

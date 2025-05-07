@@ -47,7 +47,7 @@ export default function RegistrationForm() {
       toast.success("Successfully registered!");
       reset();
     } catch (error) {
-      toast.update("Registration failed");
+      toast.update("Registration failed", error);
     }
   };
 

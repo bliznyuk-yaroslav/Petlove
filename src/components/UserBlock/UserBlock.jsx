@@ -36,9 +36,9 @@ export default function UserBlock() {
 
         <p className={css.myInf}>My information</p>
         <div className={css.boxInfo}>
-          <p className={css.info}>{user.name}</p>
-          <p className={css.info}>{user.email}</p>
-          <p className={css.info}>{user.phone}</p>
+          <p className={css.info}>{user?.name}</p>
+          <p className={css.info}>{user?.email}</p>
+          <p className={css.info}>{user?.phone}</p>
         </div>
       </div>
     </>

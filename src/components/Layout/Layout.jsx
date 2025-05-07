@@ -4,7 +4,6 @@ import Navigate from "../Header/Header";
 import Loader from "../Loader/Loader";
 import css from "./Layout.module.scss";
 import { useSelector } from "react-redux";
-import { selectorLoadingCit } from "../../redux/cities/selectors";
 import { selectorLoadingNews } from "../../redux/news/selectors";
 import {
   selectorAuthLoading,
@@ -15,7 +14,6 @@ import { selectorLoadingNotices } from "../../redux/notices/selectors";
 import { useEffect, useState } from "react";
 export default function Layout() {
   const location = useLocation();
-  const citiesLoading = useSelector(selectorLoadingCit);
   const newsLoading = useSelector(selectorLoadingNews);
   const authLoading = useSelector(selectorAuthLoading);
   const favLoading = useSelector(selectorLoadingFav);
@@ -23,12 +21,7 @@ export default function Layout() {
   const noticesLoading = useSelector(selectorLoadingNotices);
 
   const isAnyLoading =
-    authLoading ||
-    favLoading ||
-    citiesLoading ||
-    newsLoading ||
-    friendLoading ||
-    noticesLoading;
+    authLoading || newsLoading || friendLoading || noticesLoading;
   const [showLoader, setShowLoader] = useState(false);
   useEffect(() => {
     let timeout;

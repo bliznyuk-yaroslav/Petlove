@@ -22,10 +22,10 @@ import {
   selectorCities,
   selectorCitiesLocation,
   selectorCitLoc,
-  selectorSetLocation,
+
 } from "../../redux/cities/selectors";
 import { setSearchLocations } from "../../redux/cities/slice";
-import { useDebounce } from "../../hooks/useDebounce";
+
 import customerSelectStylesLocation from "./FilterLocation";
 import {
   CustomDropdownIndicator,
@@ -66,7 +66,7 @@ export default function FilterForm() {
     dispatch(fetchCategories());
     dispatch(fetchSpecies());
   }, [dispatch]);
-  const location = useSelector(selectorSetLocation);
+
   const citiesLocation = useSelector(selectorCities);
   const citLoc = useSelector(selectorCitiesLocation);
   const selLoc = useSelector(selectorCitLoc);
@@ -181,15 +181,15 @@ export default function FilterForm() {
                 (city) => city.cityEn === selectedOption.value
               );
               if (selectedCity) {
-                dispatch(setLocation(selectedCity)); // ✅ правильно
+                dispatch(setLocation(selectedCity));
               }
             } else {
-              dispatch(setLocation([])); // очищаємо масив
+              dispatch(setLocation([]));
               dispatch(setSearchLocations(""));
             }
           }}
           onInputChange={(newValue) => {
-            dispatch(setSearchLocations(newValue)); // фільтруємо по введеному
+            dispatch(setSearchLocations(newValue));
           }}
           options={locationOptions.map((city) => ({
             value: city.cityEn,

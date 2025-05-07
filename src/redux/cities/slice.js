@@ -8,7 +8,7 @@ const initialState = {
     citiesLocation: [],
   },
   selectedLocation: null,
-  isLoading: false,
+
   error: null,
 };
 const citiesSlice = createSlice({
@@ -28,25 +28,20 @@ const citiesSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchCities.pending, (state) => {
-        state.isLoading = true;
         state.error = null;
       })
       .addCase(fetchCities.fulfilled, (state, action) => {
-        state.isLoading = false;
         state.error = null;
         state.cities = action.payload;
       })
       .addCase(fetchCities.rejected, (state, action) => {
-        state.isLoading = false;
         state.cities = [];
         state.error = action.payload;
       })
       .addCase(fetchCitiesLocation.pending, (state) => {
-        state.isLoading = true;
         state.error = null;
       })
       .addCase(fetchCitiesLocation.fulfilled, (state, action) => {
-        state.isLoading = false;
         state.error = null;
         state.citiesLocation = action.payload;
       })

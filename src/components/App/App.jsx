@@ -1,94 +1,63 @@
 import { Route, Routes } from "react-router-dom";
 import Layout from "../Layout/Layout";
-import { Suspense } from "react";
+import { lazy, Suspense } from "react";
 import Loader from "../Loader/Loader";
-import HomePage from "../../page/HomePage/HomePage";
-import NewsPage from "../../page/NewsPage/NewsPage";
-import OurFriendsPage from "../../page/OurFriendsPage/OurFriendsPage";
-import NotFoundPage from "../../page/NotFound/NotFound";
-import LogInPage from "../../page/LogInPage/LogInPage";
-import RegistrationPage from "../../page/RegistrationPage/RegistrationPage";
-import NoticesPage from "../../page/NoticesPage/NoticesPage";
-import ProfilePage from "../../page/ProfilePage/ProfilePage";
-import AddPetPage from "../../page/AddPetPage/AddPetPage";
+import RestrictedRoute from "../RestrictedRoute";
+import PrivateRoute from "../PrivateRoute";
+
+const HomePage = lazy(() => import("../../page/HomePage/HomePage"));
+const NewsPage = lazy(() => import("../../page/NewsPage/NewsPage"));
+const OurFriendsPage = lazy(() =>
+  import("../../page/OurFriendsPage/OurFriendsPage")
+);
+const NotFoundPage = lazy(() => import("../../page/NotFound/NotFound"));
+const LogInPage = lazy(() => import("../../page/LogInPage/LogInPage"));
+const RegistrationPage = lazy(() =>
+  import("../../page/RegistrationPage/RegistrationPage")
+);
+const NoticesPage = lazy(() => import("../../page/NoticesPage/NoticesPage"));
+const ProfilePage = lazy(() => import("../../page/ProfilePage/ProfilePage"));
+const AddPetPage = lazy(() => import("../../page/AddPetPage/AddPetPage"));
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route
-          index
-          element={
-            <Suspense fallback={<Loader />}>
-              <HomePage />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/news"
-          element={
-            <Suspense fallback={<Loader />}>
-              <NewsPage />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/notices"
-          element={
-            <Suspense fallback={<Loader />}>
-              <NoticesPage />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/ourFriends"
-          element={
-            <Suspense fallback={<Loader />}>
-              <OurFriendsPage />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/register"
-          element={
-            <Suspense fallback={<Loader />}>
-              <RegistrationPage />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            <Suspense fallback={<Loader />}>
-              <LogInPage />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/profile"
-          element={
-            <Suspense fallback={<Loader />}>
-              <ProfilePage />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/add-pet"
-          element={
-            <Suspense fallback={<Loader />}>
-              <AddPetPage />
-            </Suspense>
-          }
-        />
-        <Route
-          path="*"
-          element={
-            <Suspense fallback={<Loader />}>
-              <NotFoundPage />
-            </Suspense>
-          }
-        />
-      </Route>
-    </Routes>
+    <Suspense fallback={<Loader />}>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="/news" element={<NewsPage />} />
+          <Route path="/notices" element={<NoticesPage />} />
+          <Route path="/ourFriends" element={<OurFriendsPage />} />
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute
+                component={<RegistrationPage />}
+                redirectTo={"/profile"}
+              />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute component={<LogInPage />} redirectTo={"/news"} />
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <PrivateRoute component={<ProfilePage />} redirectTo={"/login"} />
+            }
+          />
+          <Route
+            path="/add-pet"
+            element={
+              <PrivateRoute component={<AddPetPage />} redirectTo={"/login"} />
+            }
+          />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
+    </Suspense>
   );
 }
 

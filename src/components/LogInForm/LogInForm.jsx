@@ -1,4 +1,4 @@
-import {  NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import css from "./LogInForm.module.scss";
 import toast from "react-hot-toast";
 import * as yup from "yup";
@@ -41,7 +41,6 @@ export default function LogInForm() {
       toast.success("Success Login!");
 
       reset();
-      navigate("/news");
     } catch (error) {
       toast.update("Login error");
     }
