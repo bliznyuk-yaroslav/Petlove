@@ -33,7 +33,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 60px;
+  padding: 40px 20px;
+  @include media(tablet) {
+    padding: 60px;
+  }
 }
 .iconClosed {
   position: absolute;
@@ -68,7 +71,10 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
-  @include font(24, 28);
+  @include font(20, 20);
+  @include media(tablet) {
+    @include font(24, 28);
+  }
 }
 .boxContent > p {
   margin-top: 20px;
@@ -78,19 +84,27 @@
   font-style: normal;
   font-weight: 500;
   letter-spacing: -0.28px;
-  width: 346px;
-  height: 90px;
+  width: 295px;
+  height: 108px;
   @include font(14, 18);
+  @include media(tablet) {
+    width: 346px;
+    height: 90px;
+  }
 }
 .btnWrap {
   display: flex;
   gap: 8px;
-  margin-top: 28px;
+  margin-top: 24px;
   font-family: Manrope;
   font-style: normal;
   font-weight: 700;
   letter-spacing: -0.48px;
-  @include font(16, 20);
+  @include font(14, 18);
+  @include media(tablet) {
+    margin-top: 28px;
+    @include font(16, 20);
+  }
 }
 .btnLog {
   padding: 14px 48px;

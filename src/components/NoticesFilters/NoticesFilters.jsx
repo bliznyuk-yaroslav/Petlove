@@ -10,6 +10,7 @@ import { setPopularity, setPrice, setSearch } from "../../redux/notices/slice";
 
 import FilterForm from "../FilterForm/FilterForm";
 import { resetFiltersNotices } from "../../redux/notices/slice";
+import { resetFiltersCities, setLocation } from "../../redux/cities/slice";
 export default function NoticesFilters() {
   const dispatch = useDispatch();
   const byPopularity = useSelector(selectorByPopular);
@@ -27,6 +28,7 @@ export default function NoticesFilters() {
   const handleResetFilters = () => {
     dispatch(resetFiltersNotices());
     dispatch(setPrice(null));
+    dispatch(resetFiltersCities());
     dispatch(setPopularity(null));
   };
   return (

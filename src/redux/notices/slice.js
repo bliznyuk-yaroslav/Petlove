@@ -64,6 +64,7 @@ const noticesSlice = createSlice({
       state.filters.setCategory = "";
       state.search = "";
       state.filters.byPopularity = null;
+      state.filters.selectedLocation = null;
       state.notices.page = 1;
     },
   },
